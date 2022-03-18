@@ -31,7 +31,7 @@ const Search = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-labelledby="searchIconLabel"
-            class="seo-pages-1iuz9hb"
+            className="seo-pages-1iuz9hb"
             role="img"
             version="1.1"
           >

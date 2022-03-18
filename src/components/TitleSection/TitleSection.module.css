@@ -4,15 +4,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
-  /* background-color: #e8d4cb; */
+  height: 250px;
 }
 
 .main h3 {
-  box-shadow: inset 0rem -2rem 0px #f1e9fe;
-  padding: 1rem;
+  box-shadow: inset 0rem -3rem 0px #f1e9fe;
+  padding: 2rem;
   width: 60%;
   background: transparent;
-  /* color: red; */
-  /* border: solid 1px black; */
+  font-size: 1.8rem;
 }

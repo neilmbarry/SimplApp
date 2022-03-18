@@ -45,3 +45,8 @@
   background-color: black;
   color: white;
 }
+
+.logo h4 {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}

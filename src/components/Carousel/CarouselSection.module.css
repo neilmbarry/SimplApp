@@ -1,0 +1,32 @@
+.sectionContainer {
+  position: relative;
+}
+
+.sectionContainer button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title {
+  padding: 1rem;
+}
+
+.windowContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+  /* background-color: rgba(128, 0, 128, 0.493); */
+}
+.next {
+  position: absolute;
+  right: 12vw;
+  top: 50%;
+}
+
+.prev {
+  position: absolute;
+  left: 12vw;
+  top: 50%;
+}

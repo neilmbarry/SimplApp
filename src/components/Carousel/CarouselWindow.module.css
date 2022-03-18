@@ -1,0 +1,8 @@
+.window {
+  width: 5000px;
+  /* background-color: rgba(0, 255, 255, 0.486); */
+  /* margin: 1rem; */
+  display: flex;
+  transition: all ease 0.5s;
+  /* justify-content: space-between; */
+}

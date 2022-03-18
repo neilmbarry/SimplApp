@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 * {
@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  min-height: 180vh;
+  min-height: 300vh;
   /* background-color: grey; */
 }
 
@@ -30,13 +30,14 @@ h2 {
 }
 h3 {
   font-size: 2rem;
+  font-weight: 700;
   /* color: azure;
   text-shadow: 1px 1px 3px black;
   text-transform: uppercase; */
 }
 h4 {
-  font-size: 2rem;
-  letter-spacing: 1rem;
+  font-size: 1.5rem;
+  /* letter-spacing: 1rem; */
 }
 h5 {
   font-size: 1.2rem;
@@ -56,5 +57,5 @@ a {
 img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }

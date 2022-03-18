@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  min-height: 180vh;
+  /* background-color: grey; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  font-size: 8rem;
+  font-family: "Abril Fatface", cursive;
+  letter-spacing: 0.3rem;
+}
+h2 {
+  font-size: 3.5rem;
+  /* color: azure;
+  text-shadow: 2px 2px 6px black; */
+}
+h3 {
+  font-size: 2rem;
+  /* color: azure;
+  text-shadow: 1px 1px 3px black;
+  text-transform: uppercase; */
+}
+h4 {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+h6 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }

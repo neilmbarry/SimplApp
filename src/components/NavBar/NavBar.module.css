@@ -1,0 +1,47 @@
+.nav {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  z-index: 5;
+}
+
+.navItems {
+  display: flex;
+}
+
+.navItems li {
+  /* background-color: aliceblue; */
+  padding: 0.8rem 1.2rem;
+  margin-left: 1rem;
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.navItems svg {
+  position: absolute;
+  transform: translate(0%, -0%);
+  top: 0;
+  left: 0;
+  width: 30px;
+}
+
+.navItems li:nth-child(1) {
+  border: 1px solid black;
+}
+
+.navItems li:nth-child(5) {
+  /* border: 1px solid black; */
+  width: 4rem;
+}
+
+.logo {
+  padding: 0.4rem 1.4rem;
+  padding-right: 0.4rem;
+  background-color: black;
+  color: white;
+}

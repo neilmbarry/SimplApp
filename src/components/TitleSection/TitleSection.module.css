@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 250px;
+  width: 100%;
 }
 
 .main h3 {
@@ -13,4 +14,8 @@
   width: 60%;
   background: transparent;
   font-size: 1.8rem;
+}
+
+.main button {
+  margin: 2rem;
 }

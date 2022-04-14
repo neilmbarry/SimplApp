@@ -1,0 +1,17 @@
+.right {
+  position: absolute;
+  right: 12vw;
+  top: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.left {
+  position: absolute;
+  left: 12vw;
+  top: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

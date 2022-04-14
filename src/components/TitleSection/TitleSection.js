@@ -1,11 +1,13 @@
 import React from "react";
 import classes from "./TitleSection.module.css";
+import Button from "../UI/Button";
 
-const TitleSection = () => {
+const TitleSection = ({ main, submain, button }) => {
   return (
     <section className={classes.main}>
-      <h1>Find your style</h1>
-      <h3>Explore the world's largest wardrobe sharing marketplace</h3>
+      <h1>{main}</h1>
+      {submain ? <h3>{submain}</h3> : null}
+      {button ? <Button text={button} /> : null}
     </section>
   );
 };

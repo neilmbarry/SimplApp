@@ -1,11 +1,12 @@
 .sectionContainer {
   position: relative;
+  margin: 5rem 1rem;
 }
 
 .sectionContainer button {
-  border: none;
+  /* border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .title {

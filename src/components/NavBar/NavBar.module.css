@@ -42,8 +42,12 @@
 .logo {
   padding: 0.4rem 1.4rem;
   padding-right: 0.4rem;
-  background-color: black;
+  background-color: #593cfa;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 1px black;
   color: white;
+  border-radius: 5px 20px 5px 10px;
+  cursor: pointer;
 }
 
 .logo h4 {

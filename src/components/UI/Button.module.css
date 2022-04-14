@@ -1,0 +1,13 @@
+.button {
+  padding: 1.5rem;
+  background-color: #593cfa;
+  border: none;
+  color: white;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.button p {
+  font-weight: 500;
+  font-size: 1.8rem;
+}

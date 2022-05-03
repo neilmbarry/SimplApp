@@ -114,6 +114,27 @@ function App() {
           <img src={run} alt="" />
         </CarouselTile>
       </CarouselSection>
+      <TitleSection main="Meet the hosts" submain=" " />
+      <CarouselSection title="Top hosts on Simp" windows={3}>
+        <CarouselTile title="London" fraction={3}>
+          <img src={london} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Tokyo" fraction={3}>
+          <img src={tokyo} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Paris" fraction={3}>
+          <img src={paris} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Los Angeles" fraction={3}>
+          <img src={la} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Sydney" fraction={3}>
+          <img src={sydney} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Toronto" fraction={3}>
+          <img src={toronto} alt="" />
+        </CarouselTile>
+      </CarouselSection>
     </>
   );
 }

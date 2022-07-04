@@ -3,21 +3,18 @@ import classes from "./CarouselSlide.module.css";
 import photo from "../../img-compressed/test.jpg";
 import Button from "../UI/Button";
 
-const CarouselSlide = () => {
+const CarouselSlide = ({ image, title, span, paragraph }) => {
   return (
     <div className={classes.slide}>
       <div className={classes.imageContainer}>
-        <img src={photo} alt="" />
+        <img src={image} alt="" />
       </div>
       <div className={classes.textContainer}>
         <h2>
-          Find the perfect outfit to
-          <span className={classes.highlight}> conquer the world</span>
+          {title}
+          <span className={classes.highlight}>{span}</span>
         </h2>
-        <p>
-          Look your best in any situation, event or climate with a curated
-          selection of vibrant collections.
-        </p>
+        <p>{paragraph}</p>
         <Button text="Browse collections" onClick={null} />
       </div>
     </div>

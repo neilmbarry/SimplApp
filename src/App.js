@@ -5,7 +5,14 @@ import CarouselSection from "./components/Carousel/CarouselSection";
 import CarouselTile from "./components/Carousel/CarouselTile";
 import CarouselSlide from "./components/Carousel/CarouselSlide";
 import TitleSection from "./components/TitleSection/TitleSection";
+import SubtitleSection from "./components/TitleSection/SubtitleSection";
 import Button from "./components/UI/Button";
+import Footer from "./components/Footer/Footer";
+
+import SlidePhoto from "./img-compressed/test.jpg";
+import formal from "./img-compressed/formal.jpg";
+import winter from "./img-compressed/winter.jpg";
+import camping from "./img-compressed/camping.jpg";
 
 import photo1 from "./img-compressed/tamara-bellis-mNZ-GvOQUUY-unsplash.jpg";
 import photo2 from "./img-compressed/chantelle-taylor-KGR6BzW6k4w-unsplash.jpg";
@@ -75,7 +82,62 @@ function App() {
         </CarouselTile>
       </CarouselSection>
       <CarouselSection windows={1}>
-        <CarouselSlide />
+        <CarouselSlide
+          image={formal}
+          title="Find the perfect outfit "
+          span="for that special occasion"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={SlidePhoto}
+          title="Find the perfect outfit "
+          span="to conquer the world"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={camping}
+          title="Find the perfect outfit "
+          span="for exploration"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={winter}
+          title="Find the perfect outfit "
+          span="for the colder months"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={formal}
+          title="Find the perfect outfit "
+          span="for that special occasion"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={SlidePhoto}
+          title="Find the perfect outfit "
+          span="to conquer the world"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={camping}
+          title="Find the perfect outfit "
+          span="for exploration"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
+        <CarouselSlide
+          image={winter}
+          title="Find the perfect outfit "
+          span="for the colder months"
+          paragraph="Look your best in any situation, event or climate with a curated
+          selection of vibrant collections."
+        />
       </CarouselSection>
       <CarouselSection title="Browse by destination" windows={6}>
         <CarouselTile title="London" fraction={6}>
@@ -96,25 +158,63 @@ function App() {
         <CarouselTile title="Toronto" fraction={6}>
           <img src={toronto} alt="" />
         </CarouselTile>
+        <CarouselTile title="London" fraction={6}>
+          <img src={london} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Tokyo" fraction={6}>
+          <img src={tokyo} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Paris" fraction={6}>
+          <img src={paris} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Los Angeles" fraction={6}>
+          <img src={la} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Sydney" fraction={6}>
+          <img src={sydney} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Toronto" fraction={6}>
+          <img src={toronto} alt="" />
+        </CarouselTile>
       </CarouselSection>
-      <TitleSection
+      <SubtitleSection
         main="Fuel your daydreams"
-        submain="Stoke your wanderlust with some dreamy photo chronicles of road trip adventures."
-        button="Explore Travelogues"
-      />
+        submain="Stoke your wanderlust with some
+        dreamy photo chronicles of road trip adventures."
+        button="Explore
+        Travelogues"
+      ></SubtitleSection>
       {/* <Button text="Explore Travelogues" /> */}
       <CarouselSection title="Browse by experience" windows={3}>
-        <CarouselTile title="Hiking" fraction={3}>
+        <CarouselTile title="Hiking" fraction={3} taller={true}>
           <img src={hiking} alt="" />
         </CarouselTile>
-        <CarouselTile title="Clubbing" fraction={3}>
+        <CarouselTile title="Clubbing" fraction={3} taller={true}>
           <img src={dance} alt="" />
         </CarouselTile>
-        <CarouselTile title="Running" fraction={3}>
+        <CarouselTile title="Running" fraction={3} taller={true}>
+          <img src={run} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Hiking" fraction={3} taller={true}>
+          <img src={hiking} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Clubbing" fraction={3} taller={true}>
+          <img src={dance} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Running" fraction={3} taller={true}>
+          <img src={run} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Hiking" fraction={3} taller={true}>
+          <img src={hiking} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Clubbing" fraction={3} taller={true}>
+          <img src={dance} alt="" />
+        </CarouselTile>
+        <CarouselTile title="Running" fraction={3} taller={true}>
           <img src={run} alt="" />
         </CarouselTile>
       </CarouselSection>
-      <TitleSection main="Meet the hosts" submain=" " />
+      <SubtitleSection main="Meet the hosts" submain=" " />
       <CarouselSection title="Top hosts on Simp" windows={3}>
         <CarouselTile title="London" fraction={3}>
           <img src={london} alt="" />
@@ -135,6 +235,7 @@ function App() {
           <img src={toronto} alt="" />
         </CarouselTile>
       </CarouselSection>
+      <Footer />
     </>
   );
 }

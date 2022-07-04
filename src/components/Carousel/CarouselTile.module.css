@@ -22,6 +22,10 @@
   height: 150px;
 }
 
+.picTaller {
+  height: 300px;
+}
+
 .tile h4 {
   padding: 1.5rem;
 }

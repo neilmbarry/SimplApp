@@ -4,6 +4,7 @@ import Landing from "./components/Landing/Landing";
 import CarouselSection from "./components/Carousel/CarouselSection";
 import CarouselTile from "./components/Carousel/CarouselTile";
 import CarouselSlide from "./components/Carousel/CarouselSlide";
+import HostTile from "./components/Carousel/HostTile";
 import TitleSection from "./components/TitleSection/TitleSection";
 import SubtitleSection from "./components/TitleSection/SubtitleSection";
 import Button from "./components/UI/Button";
@@ -31,6 +32,7 @@ import toronto from "./img-compressed/toronto.jpg";
 import hiking from "./img-compressed/hiking.jpg";
 import dance from "./img-compressed/dance.jpg";
 import run from "./img-compressed/runn.jpg";
+import Travelogue from "./components/Travelogue/Travelogue";
 
 function App() {
   return (
@@ -38,48 +40,20 @@ function App() {
       <NavBar />
       <Landing />
       <CarouselSection title="Browse by brand" windows={5}>
-        <CarouselTile title="Versace" fraction={5}>
-          <img src={photo1} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Burberry" fraction={5}>
-          <img src={photo2} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Ralph Lauren" fraction={5}>
-          <img src={photo3} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Chanel" fraction={5}>
-          <img src={photo4} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Gucci" fraction={5}>
-          <img src={photo5} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Louis Vuitton" fraction={5}>
-          <img src={photo6} alt="" />
-        </CarouselTile>
-        <CarouselTile title="H&M" fraction={5}>
-          <img src={photo7} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Versace" fraction={5}>
-          <img src={photo1} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Burberry" fraction={5}>
-          <img src={photo2} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Ralph Lauren" fraction={5}>
-          <img src={photo3} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Chanel" fraction={5}>
-          <img src={photo4} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Gucci" fraction={5}>
-          <img src={photo5} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Louis Vuitton" fraction={5}>
-          <img src={photo6} alt="" />
-        </CarouselTile>
-        <CarouselTile title="H&M" fraction={5}>
-          <img src={photo7} alt="" />
-        </CarouselTile>
+        <CarouselTile picture={photo1} title="Versace" fraction={5} />
+        <CarouselTile picture={photo2} title="Burberry" fraction={5} />
+        <CarouselTile picture={photo3} title="Ralph Lauren" fraction={5} />
+        <CarouselTile picture={photo4} title="Chanel" fraction={5} />
+        <CarouselTile picture={photo5} title="Gucci" fraction={5} />
+        <CarouselTile picture={photo6} title="Louis Vuitton" fraction={5} />
+        <CarouselTile picture={photo7} title="H&M" fraction={5} />
+        <CarouselTile picture={photo1} title="Versace" fraction={5} />
+        <CarouselTile picture={photo2} title="Burberry" fraction={5} />
+        <CarouselTile picture={photo3} title="Ralph Lauren" fraction={5} />
+        <CarouselTile picture={photo4} title="Chanel" fraction={5} />
+        <CarouselTile picture={photo5} title="Gucci" fraction={5} />
+        <CarouselTile picture={photo6} title="Louis Vuitton" fraction={5} />
+        <CarouselTile picture={photo7} title="H&M" fraction={5} />
       </CarouselSection>
       <CarouselSection windows={1}>
         <CarouselSlide
@@ -140,100 +114,145 @@ function App() {
         />
       </CarouselSection>
       <CarouselSection title="Browse by destination" windows={6}>
-        <CarouselTile title="London" fraction={6}>
-          <img src={london} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Tokyo" fraction={6}>
-          <img src={tokyo} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Paris" fraction={6}>
-          <img src={paris} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Los Angeles" fraction={6}>
-          <img src={la} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Sydney" fraction={6}>
-          <img src={sydney} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Toronto" fraction={6}>
-          <img src={toronto} alt="" />
-        </CarouselTile>
-        <CarouselTile title="London" fraction={6}>
-          <img src={london} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Tokyo" fraction={6}>
-          <img src={tokyo} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Paris" fraction={6}>
-          <img src={paris} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Los Angeles" fraction={6}>
-          <img src={la} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Sydney" fraction={6}>
-          <img src={sydney} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Toronto" fraction={6}>
-          <img src={toronto} alt="" />
-        </CarouselTile>
+        <CarouselTile picture={london} title="London" fraction={6} />
+        <CarouselTile picture={tokyo} title="Tokyo" fraction={6} />
+        <CarouselTile picture={paris} title="Paris" fraction={6} />
+        <CarouselTile picture={la} title="Los Angeles" fraction={6} />
+        <CarouselTile picture={sydney} title="Sydney" fraction={6} />
+        <CarouselTile picture={toronto} title="Toronto" fraction={6} />
+        <CarouselTile picture={london} title="London" fraction={6} />
+        <CarouselTile picture={tokyo} title="Tokyo" fraction={6} />
+        <CarouselTile picture={paris} title="Paris" fraction={6} />
+        <CarouselTile picture={la} title="Los Angeles" fraction={6} />
+        <CarouselTile picture={sydney} title="Sydney" fraction={6} />
+        <CarouselTile picture={toronto} title="Toronto" fraction={6} />
       </CarouselSection>
       <SubtitleSection
         main="Fuel your daydreams"
-        submain="Stoke your wanderlust with some
-        dreamy photo chronicles of road trip adventures."
+        submain="Get inspired by others who have taken advantage of our offerings."
         button="Explore
         Travelogues"
       ></SubtitleSection>
+      <Travelogue></Travelogue>
       {/* <Button text="Explore Travelogues" /> */}
       <CarouselSection title="Browse by experience" windows={3}>
-        <CarouselTile title="Hiking" fraction={3} taller={true}>
-          <img src={hiking} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Clubbing" fraction={3} taller={true}>
-          <img src={dance} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Running" fraction={3} taller={true}>
-          <img src={run} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Hiking" fraction={3} taller={true}>
-          <img src={hiking} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Clubbing" fraction={3} taller={true}>
-          <img src={dance} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Running" fraction={3} taller={true}>
-          <img src={run} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Hiking" fraction={3} taller={true}>
-          <img src={hiking} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Clubbing" fraction={3} taller={true}>
-          <img src={dance} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Running" fraction={3} taller={true}>
-          <img src={run} alt="" />
-        </CarouselTile>
+        <CarouselTile
+          picture={hiking}
+          title="Hiking"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={dance}
+          title="Clubbing"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={run}
+          title="Running"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={hiking}
+          title="Hiking"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={dance}
+          title="Clubbing"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={run}
+          title="Running"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={hiking}
+          title="Hiking"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={dance}
+          title="Clubbing"
+          fraction={3}
+          taller={true}
+        />
+        <CarouselTile
+          picture={run}
+          title="Running"
+          fraction={3}
+          taller={true}
+        />
       </CarouselSection>
-      <SubtitleSection main="Meet the hosts" submain=" " />
+      <SubtitleSection main="Meet the hosts" />
       <CarouselSection title="Top hosts on Simp" windows={3}>
-        <CarouselTile title="London" fraction={3}>
-          <img src={london} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Tokyo" fraction={3}>
-          <img src={tokyo} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Paris" fraction={3}>
-          <img src={paris} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Los Angeles" fraction={3}>
-          <img src={la} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Sydney" fraction={3}>
-          <img src={sydney} alt="" />
-        </CarouselTile>
-        <CarouselTile title="Toronto" fraction={3}>
-          <img src={toronto} alt="" />
-        </CarouselTile>
+        <HostTile
+          fraction={3}
+          picture={photo3}
+          info={{ name: "Steph B.", trips: 19, joined: "Jan 2018" }}
+          review={{
+            rating: 5,
+            review:
+              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
+            name: "Nigel T.",
+            date: "Jul 2022",
+          }}
+        />
+        <HostTile
+          fraction={3}
+          picture={photo1}
+          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
+          review={{
+            rating: 5,
+            review:
+              "Amar is going above and beyond expectations for this service. He is easy to communicate with!",
+            name: "Andrew D.",
+            date: "Jul 2022",
+          }}
+        />
+        <HostTile
+          fraction={3}
+          picture={photo4}
+          info={{ name: "Warren T.", trips: 83, joined: "Nov 2015" }}
+          review={{
+            rating: 5,
+            review:
+              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
+            name: "Paul C.",
+            date: "Jul 2022",
+          }}
+        />
+        <HostTile
+          fraction={3}
+          picture={photo2}
+          info={{ name: "Sarah C.", trips: 43, joined: "Sept 2020" }}
+          review={{
+            rating: 5,
+            review:
+              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
+            name: "Neil Barry",
+            date: "Jul 2022",
+          }}
+        />
+        <HostTile
+          fraction={3}
+          picture={photo1}
+          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
+          review={{
+            rating: 5,
+            review:
+              "Excellent expreience! Clean car and perfect for the trip. Thahk you!",
+            name: "Neil Barry",
+            date: "Jul 2022",
+          }}
+        />
       </CarouselSection>
       <Footer />
     </>

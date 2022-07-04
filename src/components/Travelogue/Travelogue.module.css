@@ -1,0 +1,27 @@
+.main {
+  width: 70%;
+  height: 500px;
+  margin: auto;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.bg {
+  height: 100%;
+  padding-left: 10rem;
+}
+
+.infoBox {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 400px;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 3rem;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

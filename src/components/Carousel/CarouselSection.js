@@ -5,7 +5,7 @@ import CarouselTile from "./CarouselTile";
 import CarouselButton from "../UI/CarouselButton";
 
 const CarouselSection = ({ title, windows, children }) => {
-  const [slide, setSlide] = useState(0);
+  const [slide, setSlide] = useState(2);
   const nextSlide = () => {
     console.log("next slide");
     if (slide < children.length - windows) setSlide(slide + 1);

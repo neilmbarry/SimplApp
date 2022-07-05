@@ -1,0 +1,83 @@
+.main {
+  width: 400px;
+  margin: 2rem;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.123);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.image {
+  height: 300px;
+}
+
+.main:hover {
+  opacity: 0.8;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+}
+
+.infoBox h3 {
+  margin-bottom: 0.5rem;
+}
+
+.ratingBox svg {
+  margin-right: 1rem;
+  margin-left: 0.4rem;
+  color: #593cfa;
+  padding-bottom: 0.2rem;
+}
+
+.ratingBox * {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.priceBox {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+  font-size: 1rem;
+  position: relative;
+  /* z-index: 0; */
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: grey;
+  font-weight: 400;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.totals h3 {
+  margin-bottom: 0.5rem;
+  font-size: medium;
+}
+
+.savings {
+  position: absolute;
+  left: 2rem;
+}
+
+.details {
+  border-bottom: 1px solid black;
+}

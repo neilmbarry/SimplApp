@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 66%;
+  /* overflow: scroll;
+  height: 620px; */
+  padding-top: 16rem;
+}

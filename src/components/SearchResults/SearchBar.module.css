@@ -1,0 +1,60 @@
+.main {
+  display: flex;
+  padding: 2.5rem 1.2rem;
+  align-items: flex-end;
+  position: fixed;
+  height: 8rem;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+}
+
+.main input {
+  border: none;
+  padding: 0 1rem;
+  font-size: 170%;
+  outline: none;
+}
+
+.logo {
+  padding: 0.4rem 1.4rem;
+  padding-right: 0.4rem;
+  background-color: #000000;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 1px black;
+  color: white;
+  border-radius: 5px 20px 5px 10px;
+  cursor: pointer;
+  /* width: 140px; */
+}
+
+.logo h4 {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+
+.whereBox,
+.fromBox,
+.untilBox {
+  display: flex;
+  padding-bottom: 0.3rem;
+  margin-left: 2rem;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.whereBox h4,
+.fromBox h4,
+.untilBox h4 {
+  color: #593cfa;
+  font-weight: 400;
+}
+
+.whereBox input {
+  width: 350px;
+}
+
+.user {
+  position: absolute;
+  right: 2rem;
+}

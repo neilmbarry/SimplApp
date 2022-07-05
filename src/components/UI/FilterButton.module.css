@@ -1,0 +1,21 @@
+.main {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgb(220, 220, 220);
+  cursor: pointer;
+  background-color: transparent;
+  transition: all ease 0.5s;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  display: flex;
+
+  /* margin-right: 1rem; */
+}
+
+.child {
+  margin-right: 1rem;
+}
+
+.main:hover {
+  background-color: rgb(204, 204, 204);
+}

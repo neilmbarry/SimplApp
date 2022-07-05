@@ -1,0 +1,13 @@
+.main {
+  background-color: #f3fff9;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #429873;
+}
+
+.main p {
+  margin-left: 0.5rem;
+  font-weight: 500;
+  font-size: small;
+}

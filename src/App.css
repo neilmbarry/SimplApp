@@ -14,8 +14,7 @@ html {
 }
 
 body {
-  /* min-height: 300vh; */
-  /* background-color: grey; */
+  min-height: 100vh;
 }
 
 h1 {

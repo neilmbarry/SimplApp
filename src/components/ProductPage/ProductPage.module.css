@@ -1,0 +1,165 @@
+.main h2 {
+  font-size: 400%;
+}
+
+.imageContainer {
+  height: 90vh;
+}
+
+.pageContent {
+  max-width: 1000px;
+  margin: auto;
+  /* background-color: lavender; */
+  padding-top: 8rem;
+  display: flex;
+}
+
+.pageContent h4 {
+  font-weight: 300;
+}
+
+.pageContent h5 {
+  font-weight: 600;
+}
+
+.columnLeft {
+  height: 100vh;
+  /* background-color: lightcyan; */
+  flex: 2;
+}
+.columnRight {
+  height: 100vh;
+  background-color: lightgoldenrodyellow;
+  flex: 1;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.ratingBox svg {
+  margin-right: 0.5rem;
+  margin-left: 0.4rem;
+  color: #593cfa;
+  padding-bottom: 0.2rem;
+  font-size: 2rem;
+}
+
+/* .ratingBox * {
+  font-size: 2rem;
+  font-weight: 400;
+} */
+
+.featuresBox {
+  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  flex: 1 1 300px;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.feature svg {
+  margin-right: 1rem;
+  font-size: 2rem;
+  width: 25px;
+}
+
+.hostBox {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.hostPic {
+  position: relative;
+  width: 100px;
+}
+
+.hostPicContainer {
+  height: 100px;
+  width: 100%;
+  border-radius: 500px;
+  overflow: hidden;
+}
+
+.hostRating {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 500px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.123);
+}
+
+.hostRating h5 {
+  font-size: 1.7rem;
+  padding-top: 0.2rem;
+  font-weight: 300;
+}
+
+.hostRating svg {
+  margin-left: 0.5rem;
+  color: #593cfa;
+}
+
+.hostInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 2rem;
+}
+
+.hostInfo svg {
+  margin-right: 5px;
+}
+
+.bullet svg {
+  margin: 0 4px;
+  font-size: 0.5rem;
+  padding-bottom: 3px;
+}
+
+.hostInfo h5 {
+  font-weight: 400;
+  color: grey;
+}
+
+.additionalGroup {
+  margin: 3rem 0;
+}
+
+.additionalInfo {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.additionalText {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.additionalText h5 {
+  font-size: 1.5rem;
+  color: #593cfa;
+}
+
+.additionalInfo svg {
+  color: #593cfa;
+  font-size: 3rem;
+  width: 30px;
+}

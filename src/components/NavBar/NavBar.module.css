@@ -7,7 +7,27 @@
   align-items: center;
   position: fixed;
   z-index: 6;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.151);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.116);
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+}
+
+.searchBox {
+  margin-left: 2rem;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  font-size: 1.5rem;
+  color: rgb(200, 200, 200);
+}
+
+.input {
+  border: none;
+  padding: 0.6rem 1rem;
+  outline: none;
+  font-size: 1.5rem;
+  width: 300px;
 }
 
 .navItems {

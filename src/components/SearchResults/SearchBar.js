@@ -14,7 +14,7 @@ const SearchBar = ({ className }) => {
       </Link>
       <div className={classes.whereBox}>
         <h4>Where</h4>
-        <input type="text" defaultValue="San Francisco, CA" />
+        <input type="text" defaultValue="Toronto, ON" />
       </div>
       <div className={classes.fromBox}>
         <h4>From</h4>

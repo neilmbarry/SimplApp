@@ -1,4 +1,7 @@
 .main {
-  /* height: 100vh;
-  overflow: scroll; */
+  /* display: flex; */
+}
+
+.mainPage {
+  display: flex;
 }

@@ -2,7 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   width: 66%;
+  margin: 1rem;
   /* overflow: scroll;
   height: 620px; */
   padding-top: 16rem;
+  padding-right: 2rem;
+  /* flex: 2; */
 }

@@ -1,11 +1,29 @@
 import React from "react";
 import classes from "./NavBar.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ search }) => {
+  const searchBar = (
+    <div className={classes.searchBox}>
+      <FontAwesomeIcon icon={faMagnifyingGlass} />
+      <input
+        className={classes.input}
+        type="text"
+        placeholder="City, airport, address or hotel"
+      />
+    </div>
+  );
   return (
     <nav className={classes.nav}>
-      <div className={classes.logo}>
-        <h4>SIMP.</h4>
+      <div className={classes.navLeft}>
+        <Link to="/">
+          <div className={classes.logo}>
+            <h4>SIMP.</h4>
+          </div>
+        </Link>
+        {search && searchBar}
       </div>
       <ul className={classes.navItems}>
         <li>

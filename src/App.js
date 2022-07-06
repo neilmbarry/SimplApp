@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import FrontPage from "./components/FrontPage/FrontPage";
 import SearchResults from "./components/SearchResults/SearchResults";
-import Footer from "./components/Footer/Footer";
+import ProductPage from "./components/ProductPage/ProductPage";
 
 function App() {
   return (
@@ -12,9 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/search" element={<SearchResults />}></Route>
+        <Route path="/product" element={<ProductPage />}></Route>
       </Routes>
-
-      <Footer />
     </Router>
   );
 }

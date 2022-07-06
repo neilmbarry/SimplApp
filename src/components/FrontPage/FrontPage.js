@@ -35,6 +35,8 @@ import run from "../../img-compressed/runn.jpg";
 import Travelogue from "../Travelogue/Travelogue";
 import FinalSection from "../FinalSection/FinalSection";
 
+import Footer from "../Footer/Footer";
+
 const FrontPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   return (
@@ -317,6 +319,7 @@ const FrontPage = ({ className }) => {
         />
       </CarouselSection>
       <FinalSection />
+      <Footer />
     </>
   );
 };

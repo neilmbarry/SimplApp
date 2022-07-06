@@ -12,6 +12,7 @@ import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
 import Results from "./Results";
 import Result from "./Result";
+import Map from "./Map";
 
 const SearchResults = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -19,108 +20,111 @@ const SearchResults = ({ className }) => {
     <div className={classesList}>
       <SearchBar />
       <FilterBar />
-      <Results>
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo6,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Pink Sleeved Dress",
-            rating: 4.98,
-            trips: 68,
-            image: photo1,
-            price: 159,
-            oldPrice: 205,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Cream Dress",
-            rating: 4.92,
-            trips: 78,
-            image: photo3,
-            price: 125,
-            oldPrice: 149,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Grey Blazer",
-            rating: 4.78,
-            trips: 21,
-            image: photo4,
-            price: 199,
-            // oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo5,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo6,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo1,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo3,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo4,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-        <Result
-          info={{
-            name: "Louis Vuitton Red Sun Dress",
-            rating: 4.92,
-            trips: 238,
-            image: photo5,
-            price: 199,
-            oldPrice: 225,
-          }}
-        />
-      </Results>
+      <div className={classes.mainPage}>
+        <Results>
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo6,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Pink Sleeved Dress",
+              rating: 4.98,
+              trips: 68,
+              image: photo1,
+              price: 159,
+              oldPrice: 205,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Cream Dress",
+              rating: 4.92,
+              trips: 78,
+              image: photo3,
+              price: 125,
+              oldPrice: 149,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Grey Blazer",
+              rating: 4.78,
+              trips: 21,
+              image: photo4,
+              price: 199,
+              // oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo5,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo6,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo1,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo3,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo4,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+          <Result
+            info={{
+              name: "Louis Vuitton Red Sun Dress",
+              rating: 4.92,
+              trips: 238,
+              image: photo5,
+              price: 199,
+              oldPrice: 225,
+            }}
+          />
+        </Results>
+        <Map />
+      </div>
     </div>
   );
 };

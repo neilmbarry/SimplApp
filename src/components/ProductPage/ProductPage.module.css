@@ -29,7 +29,7 @@
 }
 .columnRight {
   height: 100vh;
-  background-color: lightgoldenrodyellow;
+  background-color: rgb(241, 241, 241);
   flex: 1;
 }
 

@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ProductPage.module.css";
 import NavBar from "../NavBar/NavBar";
 import photo from "../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
+import photo2 from "../../img-compressed/runn.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faBatteryFull } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +23,7 @@ const ProductPage = ({ className }) => {
       </div>
       <div className={classes.pageContent}>
         <div className={classes.columnLeft}>
-          <h2>Tesla Model S 2018</h2>
+          <h2>Louis Vuitton Grey Blazer</h2>
           <div className={classes.ratingBox}>
             <h3>{4.97}</h3>
             <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
@@ -31,22 +32,22 @@ const ProductPage = ({ className }) => {
           <div className={classes.featuresBox}>
             <div className={classes.feature}>
               <FontAwesomeIcon icon={faBatteryFull}></FontAwesomeIcon>
-              <h4>Electric</h4>
+              <h4>Re-chargable</h4>
             </div>
             <div className={classes.feature}>
               <FontAwesomeIcon icon={faCar}></FontAwesomeIcon>
-              <h4>4 doors</h4>
+              <h4>4 pockets</h4>
             </div>
             <div className={classes.feature}>
               <FontAwesomeIcon icon={faChair}></FontAwesomeIcon>
-              <h4>5 seats</h4>
+              <h4>1 seat</h4>
             </div>
           </div>
           <h5>HOSTED BY</h5>
           <div className={classes.hostBox}>
             <div className={classes.hostPic}>
               <div className={classes.hostPicContainer}>
-                <img src={photo} alt="" />
+                <img src={photo2} alt="" />
               </div>
               <div className={classes.hostRating}>
                 <h5>5.0</h5>

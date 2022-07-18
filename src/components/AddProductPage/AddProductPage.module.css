@@ -1,0 +1,12 @@
+.main h2 {
+  font-size: 4rem;
+  margin: 3rem 0;
+}
+
+.form {
+  /* background-color: rgba(127, 255, 212, 0.185); */
+  width: 700px;
+  margin: auto;
+  min-height: 30rem;
+  padding-top: 8rem;
+}

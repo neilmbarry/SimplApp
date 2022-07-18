@@ -26,9 +26,11 @@ const NavBar = ({ search }) => {
         {search && searchBar}
       </div>
       <ul className={classes.navItems}>
-        <li>
-          <h5>Become a host</h5>
-        </li>
+        <Link to="/addProduct">
+          <li>
+            <h5>Become a host</h5>
+          </li>
+        </Link>
         <li>
           <h5>Learn more</h5>
         </li>

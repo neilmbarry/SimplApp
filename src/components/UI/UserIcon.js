@@ -1,7 +1,8 @@
 import React from "react";
-// import classes from './UserIcon.module.css';
+import classes from "./UserIcon.module.css";
 
 const UserIcon = ({ className }) => {
+  const classesList = `${classes.main} seo-pages-htr69o ${className}`;
   return (
     <svg
       width="30px"
@@ -9,7 +10,7 @@ const UserIcon = ({ className }) => {
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="seo-pages-htr69o"
+      className={classesList}
       role="img"
       version="1.1"
     >

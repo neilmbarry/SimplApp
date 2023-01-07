@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.9rem 1rem;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.main:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.icon {
+  font-size: 2rem;
+  width: 20px;
+}
+
+.icon,
+.text {
+  color: rgb(76, 76, 76);
+  font-weight: 400;
+}

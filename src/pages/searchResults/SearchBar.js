@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./SearchBar.module.css";
 import { Link } from "react-router-dom";
-import UserIcon from "../UI/UserIcon";
+import UserIcon from "../../components/UI/UserIcon";
 
 const SearchBar = ({ className }) => {
   const classesList = `${classes.main} ${className}`;

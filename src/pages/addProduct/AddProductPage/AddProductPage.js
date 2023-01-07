@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import classes from "./AddProductPage.module.css";
-import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
+
+import NavBar from "../../../components/NavBar/NavBar";
+import Footer from "../../../components/Footer/Footer";
+
 import FormSection from "./FormSection";
 
 const AddProductPage = ({ className }) => {

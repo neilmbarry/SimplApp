@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-left: 3rem;
+  /* border: red dashed 2px; */
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  /* background-color: rgb(240, 240, 240); */
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.main:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.menu {
+  width: 20px;
+  font-size: 2rem;
+  color: grey;
+}
+
+.open {
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(225, 225, 225);
+}

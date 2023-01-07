@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./ProductPage.module.css";
-import NavBar from "../NavBar/NavBar";
-import photo from "../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
-import photo2 from "../../img-compressed/runn.jpg";
+import NavBar from "../../../components/NavBar/NavBar";
+import photo from "../../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
+import photo2 from "../../../img-compressed/runn.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandSparkles,
@@ -15,8 +15,8 @@ import {
   faAward,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import Button from "../UI/Button";
-import Footer from "../Footer/Footer";
+import Button from "../../../components/UI/Button";
+import Footer from "../../../components/Footer/Footer";
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;

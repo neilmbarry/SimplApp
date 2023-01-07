@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Search.module.css";
 import { Link } from "react-router-dom";
+import Button from "../UI/Button";
 
 const Search = () => {
   return (
@@ -45,6 +46,12 @@ const Search = () => {
             </svg>
           </Link>
         </div>
+        <Link to="/search">
+          <Button
+            className={classes.formButton}
+            text="Search for clothes"
+          ></Button>
+        </Link>
       </form>
     </div>
   );

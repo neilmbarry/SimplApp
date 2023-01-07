@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./FilterBar.module.css";
-import FilterButton from "../UI/FilterButton";
+import FilterButton from "../../components/UI/FilterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";

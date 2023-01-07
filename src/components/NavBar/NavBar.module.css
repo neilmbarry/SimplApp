@@ -1,12 +1,13 @@
 .nav {
   width: 100%;
-  padding: 1.2rem;
+  padding: 0.8rem 1.8rem;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 6;
+  z-index: 10;
+  gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.116);
 }
 
@@ -32,23 +33,24 @@
 
 .navItems {
   display: flex;
+  align-items: center;
 }
 
 .navItems li {
   /* background-color: aliceblue; */
   padding: 0.8rem 1.2rem;
-  margin-left: 1rem;
+
   list-style: none;
   cursor: pointer;
   position: relative;
 }
 
 .navItems svg {
-  position: absolute;
+  /* position: absolute;
   transform: translate(0%, -0%);
   top: 0;
   left: 0;
-  width: 30px;
+  width: 30px; */
 }
 
 .navItems li:nth-child(1) {
@@ -73,5 +75,12 @@
 
 .logo h4 {
   font-size: 2rem;
-  letter-spacing: 1rem;
+  padding-right: 1rem;
+  /* letter-spacing: 0.5rem; */
+}
+
+@media screen and (max-width: 768px) {
+  .navItems li:nth-child(1) {
+    display: none;
+  }
 }

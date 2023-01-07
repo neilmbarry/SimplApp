@@ -7,7 +7,7 @@ import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 const CarouselTile = ({ fraction, info, review, picture }) => {
   const tileWidth = 1000 / fraction - 12;
   const style = { width: `${tileWidth}px` };
-  console.log(info);
+
   return (
     <div className={classes.tile} style={style}>
       <div className={classes.hostInfo}>

@@ -1,41 +1,103 @@
 import React from "react";
 import classes from "./FrontPage.module.css";
 
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../../../components/NavBar/NavBar";
+
 import Landing from "../Landing/Landing";
-import CarouselSection from "../Carousel/CarouselSection";
-import CarouselTile from "../Carousel/CarouselTile";
-import CarouselSlide from "../Carousel/CarouselSlide";
-import HostTile from "../Carousel/HostTile";
 
-import SubtitleSection from "../TitleSection/SubtitleSection";
+import CarouselSection from "../../../components/Carousel/CarouselSection";
+import CarouselTile from "../../../components/Carousel/CarouselTile";
+import CarouselSlide from "../../../components/Carousel/CarouselSlide";
+import HostTile from "../../../components/Carousel/HostTile";
 
-import SlidePhoto from "../../img-compressed/test.jpg";
-import formal from "../../img-compressed/formal.jpg";
-import winter from "../../img-compressed/winter.jpg";
-import camping from "../../img-compressed/camping.jpg";
+import SubtitleSection from "../../../components/TitleSection/TitleSection";
 
-import photo1 from "../../img-compressed/tamara-bellis-mNZ-GvOQUUY-unsplash.jpg";
-import photo2 from "../../img-compressed/chantelle-taylor-KGR6BzW6k4w-unsplash.jpg";
-import photo3 from "../../img-compressed/hannah-skelly-ZddhWFwzEDo-unsplash.jpg";
-import photo4 from "../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
-import photo5 from "../../img-compressed/tamara-bellis-0C2qrwkR1dI-unsplash.jpg";
-import photo6 from "../../img-compressed/tamara-bellis-uN1m9Ca0aqo-unsplash.jpg";
-import photo7 from "../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
-import hanger from "../../img/milada-vigerova-p8Drpg_duLw-unsplash.jpg";
-import tokyo from "../../img-compressed/tokyo.jpg";
-import paris from "../../img-compressed/paris.jpg";
-import la from "../../img-compressed/la.jpg";
-import london from "../../img-compressed/london.jpg";
-import sydney from "../../img-compressed/sydney.jpg";
-import toronto from "../../img-compressed/toronto.jpg";
-import hiking from "../../img-compressed/hiking.jpg";
-import dance from "../../img-compressed/dance.jpg";
-import run from "../../img-compressed/runn.jpg";
-import Travelogue from "../Travelogue/Travelogue";
-import FinalSection from "../FinalSection/FinalSection";
+import SlidePhoto from "../../../img-compressed/test.jpg";
+import formal from "../../../img-compressed/formal.jpg";
+import winter from "../../../img-compressed/winter.jpg";
+import camping from "../../../img-compressed/camping.jpg";
 
-import Footer from "../Footer/Footer";
+import photo1 from "../../../img-compressed/tamara-bellis-mNZ-GvOQUUY-unsplash.jpg";
+import photo2 from "../../../img-compressed/chantelle-taylor-KGR6BzW6k4w-unsplash.jpg";
+import photo3 from "../../../img-compressed/hannah-skelly-ZddhWFwzEDo-unsplash.jpg";
+import photo4 from "../../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
+import photo5 from "../../../img-compressed/tamara-bellis-0C2qrwkR1dI-unsplash.jpg";
+import photo6 from "../../../img-compressed/tamara-bellis-uN1m9Ca0aqo-unsplash.jpg";
+import photo7 from "../../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
+
+import tokyo from "../../../img-compressed/tokyo.jpg";
+import paris from "../../../img-compressed/paris.jpg";
+import la from "../../../img-compressed/la.jpg";
+import london from "../../../img-compressed/london.jpg";
+import sydney from "../../../img-compressed/sydney.jpg";
+import toronto from "../../../img-compressed/toronto.jpg";
+import hiking from "../../../img-compressed/hiking.jpg";
+import dance from "../../../img-compressed/dance.jpg";
+import run from "../../../img-compressed/runn.jpg";
+
+import Travelogue from "../../../components/Travelogue/Travelogue";
+
+import FinalSection from "../../../components/FinalSection/FinalSection";
+
+import Footer from "../../../components/Footer/Footer";
+
+const brandArray = [
+  {
+    title: "Versace",
+    image: photo1,
+  },
+  {
+    title: "Burberry",
+    image: photo2,
+  },
+  {
+    title: "Ralph Lauren",
+    image: photo3,
+  },
+  {
+    title: "Chanel",
+    image: photo4,
+  },
+  {
+    title: "Gucci",
+    image: photo5,
+  },
+  {
+    title: "Louis Vuitton",
+    image: photo6,
+  },
+  {
+    title: "H&M",
+    image: photo7,
+  },
+];
+
+const locationArray = [
+  {
+    title: "London",
+    image: london,
+  },
+  {
+    title: "Tokyo",
+    image: tokyo,
+  },
+  {
+    title: "Paris",
+    image: paris,
+  },
+  {
+    title: "Los Angeles",
+    image: la,
+  },
+  {
+    title: "Sydney",
+    image: sydney,
+  },
+  {
+    title: "Toronto",
+    image: toronto,
+  },
+];
 
 const FrontPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -43,22 +105,7 @@ const FrontPage = ({ className }) => {
     <>
       <NavBar />
       <Landing />
-      <CarouselSection title="Browse by brand" windows={5}>
-        <CarouselTile picture={photo1} title="Versace" fraction={5} />
-        <CarouselTile picture={photo2} title="Burberry" fraction={5} />
-        <CarouselTile picture={photo3} title="Ralph Lauren" fraction={5} />
-        <CarouselTile picture={photo4} title="Chanel" fraction={5} />
-        <CarouselTile picture={photo5} title="Gucci" fraction={5} />
-        <CarouselTile picture={photo6} title="Louis Vuitton" fraction={5} />
-        <CarouselTile picture={photo7} title="H&M" fraction={5} />
-        <CarouselTile picture={photo1} title="Versace" fraction={5} />
-        <CarouselTile picture={photo2} title="Burberry" fraction={5} />
-        <CarouselTile picture={photo3} title="Ralph Lauren" fraction={5} />
-        <CarouselTile picture={photo4} title="Chanel" fraction={5} />
-        <CarouselTile picture={photo5} title="Gucci" fraction={5} />
-        <CarouselTile picture={photo6} title="Louis Vuitton" fraction={5} />
-        <CarouselTile picture={photo7} title="H&M" fraction={5} />
-      </CarouselSection>
+      <CarouselSection title="Browse by brand" windows={5} tiles={brandArray} />
       <CarouselSection windows={1}>
         <CarouselSlide
           image={formal}
@@ -117,20 +164,12 @@ const FrontPage = ({ className }) => {
           selection of vibrant collections."
         />
       </CarouselSection>
-      <CarouselSection title="Browse by destination" windows={6}>
-        <CarouselTile picture={london} title="London" fraction={6} />
-        <CarouselTile picture={tokyo} title="Tokyo" fraction={6} />
-        <CarouselTile picture={paris} title="Paris" fraction={6} />
-        <CarouselTile picture={la} title="Los Angeles" fraction={6} />
-        <CarouselTile picture={sydney} title="Sydney" fraction={6} />
-        <CarouselTile picture={toronto} title="Toronto" fraction={6} />
-        <CarouselTile picture={london} title="London" fraction={6} />
-        <CarouselTile picture={tokyo} title="Tokyo" fraction={6} />
-        <CarouselTile picture={paris} title="Paris" fraction={6} />
-        <CarouselTile picture={la} title="Los Angeles" fraction={6} />
-        <CarouselTile picture={sydney} title="Sydney" fraction={6} />
-        <CarouselTile picture={toronto} title="Toronto" fraction={6} />
-      </CarouselSection>
+      <CarouselSection
+        title="Browse by destination"
+        windows={6}
+        tiles={locationArray}
+      />
+
       <SubtitleSection
         main="Fuel your daydreams"
         submain="Get inspired by others who have taken advantage of our offerings."

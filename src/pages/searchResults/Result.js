@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Result.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import Savings from "../UI/Savings";
+import Savings from "../../components/UI/Savings";
 import { Link } from "react-router-dom";
 
 const Result = ({ className, info }) => {

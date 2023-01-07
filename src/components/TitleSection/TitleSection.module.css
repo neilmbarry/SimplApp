@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  min-height: 250px;
   width: 100%;
 }
 
@@ -18,4 +18,13 @@
 
 .main button {
   margin: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    min-height: 150px;
+  }
+  .main h3 {
+    font-size: 1.5rem;
+    width: 80%;
+  }
 }

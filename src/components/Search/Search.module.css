@@ -7,10 +7,12 @@
   border-radius: 1000px;
   overflow: hidden;
   width: 1000px;
+  max-width: 90%;
 }
 
 .form {
   display: flex;
+
   align-items: stretch;
   background-color: white;
   padding: 1rem 1rem;
@@ -65,5 +67,49 @@
   border-radius: 1000px;
   margin: 0;
   cursor: pointer;
+
   /* margin-bottom: 1rem; */
+}
+
+.formButton {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+  .container {
+    border-radius: 10px;
+    width: 400px;
+  }
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1rem;
+  }
+  .formItem {
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+  }
+  .formItem input {
+    text-align: center;
+  }
+  .formItem:nth-child(1) {
+    padding-top: 1rem;
+  }
+  .formItem:nth-child(2) {
+    border: 0;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+  }
+  .formItem:nth-child(4) {
+    display: none;
+  }
+  .formButton {
+    width: 100%;
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
 }

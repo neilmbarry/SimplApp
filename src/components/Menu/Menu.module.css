@@ -1,0 +1,21 @@
+.main {
+  position: fixed;
+  right: 2rem;
+  padding: 1rem;
+  top: 7rem;
+  background-color: white;
+  min-width: 350px;
+  min-height: 200px;
+  /* border: red dashed 2px; */
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.19), -2px 0px 4px rgba(0, 0, 0, 0.19);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+.divider {
+  width: 100%;
+  border-top: 1px solid rgb(185, 185, 185);
+  margin: 1rem 0;
+}

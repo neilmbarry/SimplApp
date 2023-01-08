@@ -5,7 +5,8 @@
 
 .form {
   /* background-color: rgba(127, 255, 212, 0.185); */
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   margin: auto;
   min-height: 30rem;
   padding-top: 8rem;

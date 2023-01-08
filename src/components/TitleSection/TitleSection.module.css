@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 250px;
+  /* min-height: 250px; */
   width: 100%;
 }
 
@@ -16,12 +16,19 @@
   font-size: 2.6rem;
 }
 
+.purpleBox {
+  box-shadow: inset 0rem -3rem 0px #f1e9fe;
+  padding: 1rem;
+  width: 60%;
+  background: transparent;
+  height: 1rem;
+}
+
 .main button {
   margin: 2rem;
 }
 @media screen and (max-width: 768px) {
   .main {
-    min-height: 150px;
   }
   .main h3 {
     font-size: 1.5rem;

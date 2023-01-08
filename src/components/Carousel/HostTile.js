@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 
-const CarouselTile = ({ fraction, info, review, picture }) => {
+const CarouselTile = ({ fraction, info, review }) => {
   const tileWidth = 1000 / fraction - 12;
   const style = { width: `${tileWidth}px` };
 
@@ -12,7 +12,7 @@ const CarouselTile = ({ fraction, info, review, picture }) => {
     <div className={classes.tile} style={style}>
       <div className={classes.hostInfo}>
         <div className={classes.hostImage}>
-          <img src={picture} alt="" />
+          <img src={info.image} alt="" />
         </div>
         <div className={classes.hostText}>
           <h4>{info.name}</h4>
@@ -38,7 +38,7 @@ const CarouselTile = ({ fraction, info, review, picture }) => {
         </div>
         <div className={classes.author}>
           <h6>
-            {review.name} - {review.date}
+            {review.reviewer} - {review.date}
           </h6>
         </div>
       </div>

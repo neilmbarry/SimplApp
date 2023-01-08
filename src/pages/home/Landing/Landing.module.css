@@ -12,3 +12,7 @@
   /* transform: translateY(10px); */
   z-index: -4;
 }
+
+.title {
+  margin-top: 3rem;
+}

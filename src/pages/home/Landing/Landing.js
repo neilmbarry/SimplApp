@@ -18,6 +18,7 @@ const Landing = () => {
         <img src={photo7} alt="Piccy" />
       </div>
       <TitleSection
+        className={classes.title}
         main="Find your style"
         submain="Explore the world's largest wardrobe sharing marketplace"
       />

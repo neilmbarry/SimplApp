@@ -1,6 +1,6 @@
 .sectionContainer {
-  position: relative;
   margin: 5rem 1rem;
+  /* background-color: grey; */
 }
 
 .sectionContainer button {
@@ -18,6 +18,7 @@
   max-width: 1000px;
   margin: auto;
   overflow: hidden;
+  position: relative;
   /* background-color: rgba(128, 0, 128, 0.493); */
 }
 .next {

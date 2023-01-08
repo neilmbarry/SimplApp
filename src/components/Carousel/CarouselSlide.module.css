@@ -1,7 +1,8 @@
 .slide {
   height: 400px;
   /* background-color: rgba(64, 224, 208, 0.397); */
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -42,4 +43,20 @@
 .highlight {
   color: #593cf9;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    height: auto;
+    align-items: center;
+  }
+  .textContainer {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
 }

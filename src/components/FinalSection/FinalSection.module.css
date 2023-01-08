@@ -7,7 +7,7 @@
 
 .box {
   /* background-color: #fbf9f5; */
-  width: 800px;
+  max-width: 800px;
   margin: auto;
   display: flex;
   position: relative;

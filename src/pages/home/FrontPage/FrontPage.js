@@ -99,71 +99,138 @@ const locationArray = [
   },
 ];
 
+const activitiesArray = [
+  {
+    image: hiking,
+    title: "Hiking",
+  },
+  {
+    image: dance,
+    title: "Dancing",
+  },
+  {
+    image: run,
+    title: "Running",
+  },
+];
+
+const hostsArray = [
+  {
+    host: {
+      image: photo2,
+      name: "Sarah C.",
+      trips: 32,
+      joined: "Sept 2020",
+    },
+    review: {
+      rating: 5,
+      review:
+        "Great experience. Easy rental process from picking up to dropping off. Very clean and spacious car.",
+      reviewer: "Neil B.",
+      date: "Jul 2022",
+    },
+  },
+
+  {
+    host: {
+      image: photo3,
+      name: "Steph B.",
+      trips: 19,
+      joined: "Jan 2018",
+    },
+    review: {
+      rating: 5,
+      review:
+        "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
+      reviewer: "Neil B.",
+      date: "Jul 2022",
+    },
+  },
+
+  {
+    host: {
+      image: photo1,
+      name: "Amar C.",
+      trips: 342,
+      joined: "Sept 2018",
+    },
+    review: {
+      rating: 5,
+      review:
+        "Amar went above and beyond expectations for this service. He is easy to communicate with!",
+      reviewer: "Andrew D.",
+      date: "Jul 2022",
+    },
+  },
+  {
+    host: {
+      image: photo4,
+      name: "Warren T.",
+      trips: 84,
+      joined: "Nov 2015",
+    },
+    review: {
+      rating: 5,
+      review:
+        "Great experience. Easy rental process from picking up to dropping off. Very clean and spacious car.",
+      reviewer: "Paul C.",
+      date: "Jul 2022",
+    },
+  },
+];
+
+const slidesArray = [
+  {
+    image: formal,
+    title: "Find the perfect outfit",
+    span: "for that special occasion",
+    paragraph:
+      "Look your best in any situation , event or climate with a curated selection of vibrant collections.",
+  },
+  {
+    image: SlidePhoto,
+    title: "Find the perfect outfit",
+    span: "to conquer the world",
+    paragraph:
+      "Look your best in any situation , event or climate with a curated selection of vibrant collections.",
+  },
+  {
+    image: camping,
+    title: "Find the perfect outfit",
+    span: "for exploration",
+    paragraph:
+      "Look your best in any situation , event or climate with a curated selection of vibrant collections.",
+  },
+  {
+    image: winter,
+    title: "Find the perfect outfit",
+    span: "for the colder months",
+    paragraph:
+      "Look your best in any situation , event or climate with a curated selection of vibrant collections.",
+  },
+];
+
 const FrontPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <>
       <NavBar />
       <Landing />
-      <CarouselSection title="Browse by brand" windows={5} tiles={brandArray} />
-      <CarouselSection windows={1}>
-        <CarouselSlide
-          image={formal}
-          title="Find the perfect outfit "
-          span="for that special occasion"
-          paragraph="Look your best in any situation, event or climate with a curated
+      <CarouselSection title="Browse by brand" windows={4} tiles={brandArray} />
+      <CarouselSection
+        windows={1}
+        slides={slidesArray}
+        className={classes.largerScreen}
+      />
+      <CarouselSlide
+        className={classes.smallerScreen}
+        image={formal}
+        title="Find the perfect outfit "
+        span="for that special occasion"
+        paragraph="Look your best in any situation, event or climate with a curated
           selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={SlidePhoto}
-          title="Find the perfect outfit "
-          span="to conquer the world"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={camping}
-          title="Find the perfect outfit "
-          span="for exploration"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={winter}
-          title="Find the perfect outfit "
-          span="for the colder months"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={formal}
-          title="Find the perfect outfit "
-          span="for that special occasion"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={SlidePhoto}
-          title="Find the perfect outfit "
-          span="to conquer the world"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={camping}
-          title="Find the perfect outfit "
-          span="for exploration"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-        <CarouselSlide
-          image={winter}
-          title="Find the perfect outfit "
-          span="for the colder months"
-          paragraph="Look your best in any situation, event or climate with a curated
-          selection of vibrant collections."
-        />
-      </CarouselSection>
+      />
+
       <CarouselSection
         title="Browse by destination"
         windows={6}
@@ -175,188 +242,20 @@ const FrontPage = ({ className }) => {
         submain="Get inspired by others who have taken advantage of our offerings."
         button="Explore
         Travelogues"
-      ></SubtitleSection>
-      <Travelogue></Travelogue>
-      {/* <Button text="Explore Travelogues" /> */}
-      <CarouselSection title="Browse by experience" windows={3}>
-        <CarouselTile
-          picture={hiking}
-          title="Hiking"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={dance}
-          title="Dancing"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={run}
-          title="Running"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={hiking}
-          title="Hiking"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={dance}
-          title="Dancing"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={run}
-          title="Running"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={hiking}
-          title="Hiking"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={dance}
-          title="Dancing"
-          fraction={3}
-          taller={true}
-        />
-        <CarouselTile
-          picture={run}
-          title="Running"
-          fraction={3}
-          taller={true}
-        />
-      </CarouselSection>
+      />
+      <Travelogue />
+      <CarouselSection
+        title="Browse by experience"
+        windows={3}
+        taller={true}
+        tiles={activitiesArray}
+      />
       <SubtitleSection main="Meet the hosts" />
-      <CarouselSection title="Top hosts on Simp" windows={3}>
-        <HostTile
-          fraction={3}
-          picture={photo3}
-          info={{ name: "Steph B.", trips: 19, joined: "Jan 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Nigel T.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo1}
-          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Amar is going above and beyond expectations for this service. He is easy to communicate with!",
-            name: "Andrew D.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo4}
-          info={{ name: "Warren T.", trips: 83, joined: "Nov 2015" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Paul C.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo2}
-          info={{ name: "Sarah C.", trips: 43, joined: "Sept 2020" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Neil Barry",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo1}
-          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Excellent expreience! Clean car and perfect for the trip. Thahk you!",
-            name: "Neil Barry",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo3}
-          info={{ name: "Steph B.", trips: 19, joined: "Jan 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Nigel T.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo1}
-          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Amar is going above and beyond expectations for this service. He is easy to communicate with!",
-            name: "Andrew D.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo4}
-          info={{ name: "Warren T.", trips: 83, joined: "Nov 2015" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Paul C.",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo2}
-          info={{ name: "Sarah C.", trips: 43, joined: "Sept 2020" }}
-          review={{
-            rating: 5,
-            review:
-              "Great experience. Easy rental precess from picking up to dropping off. Very clean and spacious car.",
-            name: "Neil Barry",
-            date: "Jul 2022",
-          }}
-        />
-        <HostTile
-          fraction={3}
-          picture={photo1}
-          info={{ name: "Amar C.", trips: 343, joined: "Sept 2018" }}
-          review={{
-            rating: 5,
-            review:
-              "Excellent expreience! Clean car and perfect for the trip. Thahk you!",
-            name: "Neil Barry",
-            date: "Jul 2022",
-          }}
-        />
-      </CarouselSection>
+      <CarouselSection
+        title="Top hosts on Simp"
+        windows={3}
+        hosts={hostsArray}
+      />
       <FinalSection />
       <Footer />
     </>

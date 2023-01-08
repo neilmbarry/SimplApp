@@ -2,11 +2,11 @@ import React from "react";
 import classes from "./TitleSection.module.css";
 import Button from "../UI/Button";
 
-const TitleSection = ({ main, submain, button }) => {
+const TitleSection = ({ main, submain, button, className }) => {
   return (
-    <section className={classes.main}>
+    <section className={`${classes.main} ${className}`}>
       <h1>{main}</h1>
-      {submain ? <h3>{submain}</h3> : null}
+      {submain ? <h3>{submain}</h3> : <div className={classes.purpleBox}></div>}
       {button ? <Button text={button} /> : null}
     </section>
   );

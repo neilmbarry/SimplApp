@@ -3,3 +3,17 @@
   height: 50vh;
   background-color: rgba(205, 92, 92, 0.164);
 }
+
+.smallerScreen {
+  display: none !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .largerScreen {
+    display: none;
+  }
+  .smallerScreen {
+    display: flex !important;
+    width: 100%;
+  }
+}

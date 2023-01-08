@@ -7,6 +7,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import FooterColumn from "./FooterColumn";
 
 const Footer = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -14,18 +15,19 @@ const Footer = ({ className }) => {
     <div className={classesList}>
       <div className={classes.content}>
         <div className={classes.row}>
-          <div className={classes.column}>
-            <h4 className={classes.subtitle}>Simp</h4>
-            <ul className={classes.list}>
-              <li className={classes.item}>About</li>
-              <li className={classes.item}>Team</li>
-              <li className={classes.item}>Policies</li>
-              <li className={classes.item}>Careers</li>
-              <li className={classes.item}>Press</li>
-              <li className={classes.item}>OpenRoad</li>
-              <li className={classes.item}>Simp shop</li>
-            </ul>
-          </div>
+          <FooterColumn
+            linksArray={[
+              "About",
+              "Team",
+              "Policies",
+              "Careers",
+              "Press",
+              "OpenRoad",
+              "Simp shop",
+            ]}
+            title="Simpl"
+          />
+
           <div className={classes.column}>
             <h4 className={classes.subtitle}>Locations</h4>
             <ul className={classes.list}>

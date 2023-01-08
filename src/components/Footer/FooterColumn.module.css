@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.subtitle {
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.noshow {
+  margin-bottom: 3rem;
+  color: transparent;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: flex-start;
+}
+
+.altlist {
+  flex-direction: row;
+}
+
+.item {
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  font-size: 120%;
+  font-weight: 400;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}

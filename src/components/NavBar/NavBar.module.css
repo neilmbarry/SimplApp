@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.116);
 }

@@ -7,21 +7,39 @@ import photo4 from "../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash
 import photo5 from "../../img-compressed/tamara-bellis-0C2qrwkR1dI-unsplash.jpg";
 import photo6 from "../../img-compressed/tamara-bellis-uN1m9Ca0aqo-unsplash.jpg";
 import photo7 from "../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
 import Results from "./Results";
 import Result from "./Result";
 import Map from "./Map";
+import store from "../../store/store";
+import configActions from "../../store/configSlice";
+import SearchMobile from "../../components/Search/SearchMobile";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import MapFilterButton from "./MapFilterButton";
 
 const SearchResults = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+
+  const toggleSearch = () => {
+    store.dispatch(configActions.toggleSearch());
+  };
+
+  const [showMap, setShowMap] = useState(false);
+
+  const search = useSelector((state) => state.config.value.searchOpen);
+
   return (
     <div className={classesList}>
-      <SearchBar />
+      <SearchBar toggleSearch={toggleSearch} />
       <FilterBar />
       <div className={classes.mainPage}>
-        <Results>
+        <Backdrop show={null} onClick={null} />
+        <SearchMobile show={search} />
+        <Results showMap={showMap}>
           <Result
             info={{
               name: "Louis Vuitton Red Sun Dress",
@@ -123,7 +141,12 @@ const SearchResults = ({ className }) => {
             }}
           />
         </Results>
-        <Map />
+        <Map showMap={showMap} />
+        <MapFilterButton
+          showMap={showMap}
+          className={classes.mobile}
+          onToggle={() => setShowMap((prev) => !prev)}
+        />
       </div>
     </div>
   );

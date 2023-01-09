@@ -40,6 +40,7 @@ import Travelogue from "../../../components/Travelogue/Travelogue";
 import FinalSection from "../../../components/FinalSection/FinalSection";
 
 import Footer from "../../../components/Footer/Footer";
+import Backdrop from "../../../components/UI/Backdrop/Backdrop";
 
 const brandArray = [
   {
@@ -214,6 +215,7 @@ const FrontPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <>
+      <Backdrop />
       <NavBar />
       <Landing />
       <CarouselSection

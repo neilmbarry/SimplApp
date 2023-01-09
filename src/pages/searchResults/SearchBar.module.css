@@ -9,6 +9,7 @@
   z-index: 100;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgb(234, 234, 234);
 }
 
 .left {
@@ -99,5 +100,24 @@
   }
   .formBox {
     display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mobileBox {
+    display: flex;
+
+    flex: 1;
+    background-color: rgb(242, 242, 242);
+    padding: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 2rem;
+    align-items: center;
+    cursor: pointer;
+  }
+  .mobileInfo {
+    flex-direction: column;
+    gap: 0;
   }
 }

@@ -25,40 +25,35 @@ const Footer = ({ className }) => {
               "OpenRoad",
               "Simp shop",
             ]}
-            title="Simpl"
+            title="Simpl."
+          />
+          <FooterColumn
+            linksArray={["USA (EN)", "Canada (EN)", "Canada (FR)", "UK (EN)"]}
+            title="Locations"
+          />
+          <FooterColumn
+            linksArray={[
+              "Book an outfit",
+              "Weddings",
+              "Trust & Safety",
+              "Sustainability",
+              "FAQs",
+              "Get help",
+            ]}
+            title="Explore"
+          />
+          <FooterColumn
+            linksArray={[
+              "List your clothes",
+              "Calculator",
+              "All-star Hosts",
+              "Host tools",
+              "Insurance & protection",
+              "FAQs",
+            ]}
+            title="Hosting"
           />
 
-          <div className={classes.column}>
-            <h4 className={classes.subtitle}>Locations</h4>
-            <ul className={classes.list}>
-              <li className={classes.item}>USA (EN)</li>
-              <li className={classes.item}>Canada (EN)</li>
-              <li className={classes.item}> Canada (FR)</li>
-              <li className={classes.item}>UK (EN)</li>
-            </ul>
-          </div>
-          <div className={classes.column}>
-            <h4 className={classes.subtitle}>Explore</h4>
-            <ul className={classes.list}>
-              <li className={classes.item}>Book an outfit</li>
-              <li className={classes.item}>Weddings</li>
-              <li className={classes.item}>Trust & Safety</li>
-              <li className={classes.item}>Sustainability</li>
-              <li className={classes.item}>FAQs</li>
-              <li className={classes.item}>Get help</li>
-            </ul>
-          </div>
-          <div className={classes.column}>
-            <h4 className={classes.subtitle}>Hosting</h4>
-            <ul className={classes.list}>
-              <li className={classes.item}>List your clothes</li>
-              <li className={classes.item}>Calculator</li>
-              <li className={classes.item}>All-star Hosts</li>
-              <li className={classes.item}>Host tools</li>
-              <li className={classes.item}>Insurance & protection</li>
-              <li className={classes.item}>FAQs</li>
-            </ul>
-          </div>
           <div className={classes.column}>
             <div className={classes.socials}>
               <div className={classes.icons}>

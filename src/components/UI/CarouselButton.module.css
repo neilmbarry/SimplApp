@@ -1,10 +1,13 @@
 .main {
   position: absolute;
-  top: 1rem;
+  top: 0.5rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
   font-size: 1.7rem;
+  color: black;
+  width: 30px;
+  height: 30px;
 }
 
 .right {

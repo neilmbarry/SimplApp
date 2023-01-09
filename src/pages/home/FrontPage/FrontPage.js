@@ -216,7 +216,12 @@ const FrontPage = ({ className }) => {
     <>
       <NavBar />
       <Landing />
-      <CarouselSection title="Browse by brand" windows={4} tiles={brandArray} />
+      <CarouselSection
+        title="Browse by brand"
+        windows={4}
+        tiles={brandArray}
+        auto={true}
+      />
       <CarouselSection
         windows={1}
         slides={slidesArray}
@@ -252,7 +257,7 @@ const FrontPage = ({ className }) => {
       />
       <SubtitleSection main="Meet the hosts" />
       <CarouselSection
-        title="Top hosts on Simp"
+        title="Top hosts on Simpl."
         windows={3}
         hosts={hostsArray}
       />

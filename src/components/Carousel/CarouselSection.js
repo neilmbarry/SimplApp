@@ -9,6 +9,7 @@ import {
   generateHostTiles,
   generateSlides,
 } from "./generateTiles";
+import { useEffect } from "react";
 
 const CarouselSection = ({
   title,
@@ -18,10 +19,12 @@ const CarouselSection = ({
   hosts,
   slides,
   className,
+  auto,
 }) => {
   const [slide, setSlide] = useState(tiles?.length);
   const [animateTransition, setAnimateTransition] = useState(true);
   const [clickable, setClickable] = useState(true);
+
   const elements = tiles || hosts || slides;
   const nextSlide = () => {
     if (!clickable) return;
@@ -44,7 +47,7 @@ const CarouselSection = ({
   const prevSlide = () => {
     if (!clickable) return;
     setClickable(false);
-    console.log("next slide");
+    console.log("prev slide");
     if (slide > 1) {
       if (!animateTransition) setAnimateTransition(true);
       setTimeout(() => {

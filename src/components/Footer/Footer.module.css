@@ -1,13 +1,14 @@
 .main {
   background-color: #f4f4f4;
   width: 100%;
-  padding: 4rem;
+  padding: 4rem 2rem;
   z-index: 12;
   display: flex;
 }
 
 .content {
-  width: 70%;
+  max-width: 1000px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;

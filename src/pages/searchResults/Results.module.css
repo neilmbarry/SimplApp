@@ -5,8 +5,8 @@
   margin: 1rem;
   /* overflow: scroll;
   height: 620px; */
-  padding-top: 14rem;
-  padding-right: 2rem;
+  padding-top: 7rem;
+  padding-right: 0rem;
   background-color: white;
   /* justify-content: flex-start; */
 
@@ -22,5 +22,7 @@
   .main {
     width: 66%;
     display: flex;
+    padding-right: 2rem;
+    padding-top: 14rem;
   }
 }

@@ -36,6 +36,7 @@ const SearchResults = ({ className }) => {
     <div className={classesList}>
       <SearchBar toggleSearch={toggleSearch} />
       <FilterBar />
+
       <div className={classes.mainPage}>
         <Backdrop show={null} onClick={null} />
         <SearchMobile show={search} />

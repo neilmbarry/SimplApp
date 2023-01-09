@@ -13,6 +13,7 @@
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.197),
     -2px 0px 8px rgba(0, 0, 0, 0.197);
   cursor: pointer;
+  z-index: 50;
 }
 
 .left,
@@ -25,4 +26,10 @@
 
 .left {
   border-right: 1px solid white;
+}
+
+@media screen and (min-width: 1025px) {
+  .main {
+    display: none;
+  }
 }

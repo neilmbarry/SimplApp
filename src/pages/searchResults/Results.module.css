@@ -1,5 +1,5 @@
 .main {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   width: 66%;
   margin: 1rem;
@@ -7,5 +7,20 @@
   height: 620px; */
   padding-top: 14rem;
   padding-right: 2rem;
+  background-color: white;
+  /* justify-content: flex-start; */
+
   /* flex: 2; */
+}
+
+.show {
+  width: 100%;
+  display: flex;
+}
+
+@media screen and (min-width: 1025px) {
+  .main {
+    width: 66%;
+    display: flex;
+  }
 }

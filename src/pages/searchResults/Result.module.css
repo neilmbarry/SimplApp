@@ -7,11 +7,19 @@
   overflow: hidden;
   cursor: pointer;
   transition: all ease 0.3s;
-  flex: 1 1 400px;
+  flex: 1 1 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .image {
-  height: 300px;
+  /* width: 100%; */
+  flex: 1;
+  /* max-height: 300px; */
 }
 
 .main:hover {

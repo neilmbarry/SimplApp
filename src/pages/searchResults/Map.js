@@ -4,8 +4,8 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import icon from "../../img-compressed/Icon.png";
 
-const Map = ({ className }) => {
-  const classesList = `${classes.main} ${className}`;
+const Map = ({ className, showMap }) => {
+  const classesList = `${classes.main} ${className} ${showMap && classes.show}`;
   const markerIcon = new L.Icon({
     iconUrl: icon,
     iconSize: [25, 35],

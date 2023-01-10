@@ -39,6 +39,12 @@
   flex: 1;
   padding: 0.5rem 1rem;
   border: 1px solid rgb(218, 218, 218);
+  border-radius: 0;
+  background-color: white;
+  color: black;
+  /* padding: 3rem; */
+  height: 40px;
+  font-size: 1.6rem;
 }
 
 .discountBox {
@@ -120,4 +126,12 @@
   border: 1px solid black;
   padding: 0.5rem;
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .continue,
+  .priceBox,
+  .faveCont {
+    display: none;
+  }
 }

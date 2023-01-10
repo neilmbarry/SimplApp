@@ -24,6 +24,7 @@ import HostInfo from "../HostInfo";
 import ProductDescription from "../ProductDescription";
 import ProductReviews from "../ProductReviews/ProductReviews";
 import BookingColumn from "../BookingColumn";
+import MobileConfirm from "../MobileConfirm/MobileConfirm";
 
 const productTemplate = {
   images: [photo],
@@ -114,6 +115,11 @@ const ProductPage = ({ className }) => {
           price={productTemplate.price}
           discount={productTemplate.discount}
           className={classes.booking}
+        />
+
+        <MobileConfirm
+          price={productTemplate.price}
+          discount={productTemplate.discount.amount}
         />
       </div>
       <Footer />

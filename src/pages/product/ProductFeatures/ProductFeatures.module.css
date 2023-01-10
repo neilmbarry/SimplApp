@@ -3,4 +3,10 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  width: 55%;
+}
+@media screen and (max-width: 480px) {
+  .main {
+    width: 100%;
+  }
 }

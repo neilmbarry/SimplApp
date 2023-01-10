@@ -1,0 +1,41 @@
+.main {
+  display: none;
+  position: fixed;
+  width: 100%;
+  /* max-width: 700px; */
+  margin: auto;
+  left: 0;
+  bottom: 4rem;
+  z-index: 100;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+  background-color: white;
+  border: 1px solid rgb(207, 207, 207);
+  display: flex;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.22);
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.strike {
+  color: rgb(77, 77, 77);
+  text-decoration: line-through;
+}
+.details {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    display: block;
+  }
+}

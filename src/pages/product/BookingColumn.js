@@ -49,7 +49,7 @@ const BookingColumn = ({ className, price, discount }) => {
           </div>
         </div>
 
-        <Button text="Continue" />
+        <Button text="Continue" className={classes.continue} />
       </div>
       <div className={classes.cancellationBox}>
         <FontAwesomeIcon icon={faThumbsUp} />
@@ -70,7 +70,7 @@ const BookingColumn = ({ className, price, discount }) => {
         <br />
         <h4>Insurance via Travelers</h4>
       </div>
-      <div className={classes.distanceBox}>
+      <div className={`${classes.distanceBox} ${classes.faveCont}`}>
         <Button text="Add to favourites" className={classes.favButton} />
       </div>
     </div>

@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  margin: 1rem 0;
+  gap: 2rem;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.reviewPic {
+  width: 50px;
+  height: 50px;
+  border-radius: 500px;
+  overflow: hidden;
+  /* flex: 1; */
+}
+
+.reviewInfo {
+  /* flex: 1;
+     */
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reviewInfo h5 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.reviewRating {
+  font-size: 2rem;
+  color: #593cfa;
+  /* word-spacing: 3rem; */
+}

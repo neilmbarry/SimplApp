@@ -1,0 +1,23 @@
+.review:last-child {
+  border: none;
+}
+.ratingBox {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.ratingBox svg {
+  margin-right: 0.5rem;
+  margin-left: 0.4rem;
+  color: #593cfa;
+  padding-bottom: 0.2rem;
+  font-size: 2rem;
+}
+
+.grey {
+  color: grey;
+}
+.larger {
+  font-size: 3rem;
+}

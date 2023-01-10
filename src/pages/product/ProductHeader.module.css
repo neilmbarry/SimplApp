@@ -1,0 +1,18 @@
+.title {
+  font-size: 400%;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+.star {
+  color: #593cfa;
+  padding-bottom: 0.2rem;
+  font-size: 2rem;
+}
+.trips {
+  font-weight: 300;
+}

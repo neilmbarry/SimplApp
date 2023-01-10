@@ -7,7 +7,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 const BookingColumn = ({ className, price, discount }) => {
   const classesList = `${classes.main} ${className}`;
   return (
-    <>
+    <div className={classesList}>
       <div className={classes.priceBox}>
         <h3>
           <span className={classes.oldPrice}>${price}</span> US$
@@ -31,7 +31,7 @@ const BookingColumn = ({ className, price, discount }) => {
           </div>
         </div>
         <div className={classes.datesBox}>
-          <h5>Pickip & return location</h5>
+          <h5>Pickup & return location</h5>
           <div className={classes.inputs}>
             <select>
               <option value="">Airport</option>
@@ -73,7 +73,7 @@ const BookingColumn = ({ className, price, discount }) => {
       <div className={classes.distanceBox}>
         <Button text="Add to favourites" className={classes.favButton} />
       </div>
-    </>
+    </div>
   );
 };
 

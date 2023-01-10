@@ -88,29 +88,33 @@ const ProductPage = ({ className }) => {
       <NavBar search={true} />
       <ProductImages images={productTemplate.images} />
       <div className={classes.pageContent}>
-        <div className={classes.columnLeft}>
-          <ProductHeader
-            title={productTemplate.name}
-            rating={productTemplate.rating}
-            trips={productTemplate.trips}
-          />
-          <ProductFeatures features={productTemplate.features} />
-          <HostInfo hostInfo={productTemplate.host} />
-          <ProductDescription
-            description={productTemplate.description}
-            features={productTemplate.features}
-          />
-          <ProductReviews
-            reviews={productTemplate.reviews}
-            rating={productTemplate.rating}
-          />
-        </div>
-        <div className={classes.columnRight}>
-          <BookingColumn
-            price={productTemplate.price}
-            discount={productTemplate.discount}
-          />
-        </div>
+        <ProductHeader
+          title={productTemplate.name}
+          rating={productTemplate.rating}
+          trips={productTemplate.trips}
+          className={classes.header}
+        />
+        <ProductFeatures
+          features={productTemplate.features}
+          className={classes.features}
+        />
+        <HostInfo hostInfo={productTemplate.host} className={classes.host} />
+        <ProductDescription
+          description={productTemplate.description}
+          features={productTemplate.features}
+          className={classes.description}
+        />
+        <ProductReviews
+          reviews={productTemplate.reviews}
+          rating={productTemplate.rating}
+          className={classes.reviews}
+        />
+
+        <BookingColumn
+          price={productTemplate.price}
+          discount={productTemplate.discount}
+          className={classes.booking}
+        />
       </div>
       <Footer />
     </div>

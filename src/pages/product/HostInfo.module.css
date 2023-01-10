@@ -39,6 +39,7 @@
 .hostRating svg {
   margin-left: 0.5rem;
   color: #593cfa;
+  /* width: 70px; */
 }
 
 .hostInfo {
@@ -50,6 +51,7 @@
 
 .hostInfo svg {
   margin-right: 5px;
+  /* width: 40px; */
 }
 
 .bullet svg {
@@ -87,5 +89,5 @@
 .additionalInfo svg {
   color: #593cfa;
   font-size: 3rem;
-  width: 30px;
+  min-width: 50px;
 }

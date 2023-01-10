@@ -12,7 +12,7 @@ import {
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
   return (
-    <>
+    <div className={classesList}>
       <h5 className={classes.title}>HOSTED BY</h5>
       <div className={classes.hostBox}>
         <div className={classes.hostPic}>
@@ -61,7 +61,7 @@ const HostInfo = ({ className, hostInfo }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -12,7 +12,7 @@ const ProductReviews = ({ className, reviews, rating }) => {
     );
   });
   return (
-    <>
+    <div className={classesList}>
       <h5>RATINGS AND REVIEWS</h5>
       <br />
       <div className={classes.ratingBox}>
@@ -23,7 +23,7 @@ const ProductReviews = ({ className, reviews, rating }) => {
       <br />
       <h5 className={classes.grey}>REVIEWS</h5>
       <div className={classes.reviewsBox}>{reviewsArray}</div>
-    </>
+    </div>
   );
 };
 

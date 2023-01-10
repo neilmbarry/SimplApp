@@ -5,7 +5,7 @@ import ProductFeatures from "./ProductFeatures/ProductFeatures";
 const ProductDescription = ({ className, description, features }) => {
   const classesList = `${classes.main} ${className}`;
   return (
-    <>
+    <div className={classesList}>
       <h5>DESCRIPTION</h5>
       <br />
       {description.bio.map((desc) => {
@@ -30,7 +30,7 @@ const ProductDescription = ({ className, description, features }) => {
       <br />
       <h4>Add optional extras at checkout.</h4>
       <br />
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,123 @@
+.priceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.tripOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.inputs {
+  display: flex;
+  width: 100%;
+}
+
+.datesBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.datesBox h4 {
+  color: #593cfa;
+}
+
+.inputs input,
+.inputs select {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.discountBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 10px;
+  font-weight: 300;
+}
+
+.discount h3 {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.discountValue h3 {
+  font-weight: 300;
+  color: green;
+  font-size: 1.5rem;
+}
+
+.cancellationBox {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1.5rem;
+  border-bottom: 1px solid #dddddd;
+}
+
+.distanceBox {
+  /* display: flex; */
+  /* align-items: center; */
+  padding: 1.5rem 0;
+  /* gap: 1.5rem; */
+  border-bottom: 1px solid #dddddd;
+}
+
+.distance {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.distance h4 {
+  font-weight: 400;
+}
+
+.distanceBox h6 {
+  color: grey;
+}
+
+.cancellationBox svg {
+  padding: 0.5rem;
+  font-size: 3rem;
+  color: #593cfa;
+}
+
+.cancellationText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.cancellationText h4 {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.cancellationText h5 {
+  font-size: 1.5rem;
+}
+
+.favButton {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 100%;
+}

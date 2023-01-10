@@ -18,8 +18,8 @@ const ProductReviews = ({ className, reviews, rating }) => {
       <div className={classes.ratingBox}>
         <h3 className={classes.larger}>{rating}</h3>
         <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+        <h4>({reviews.length} ratings)</h4>
       </div>
-      <h4>({reviews.length} ratings)</h4>
       <br />
       <h5 className={classes.grey}>REVIEWS</h5>
       <div className={classes.reviewsBox}>{reviewsArray}</div>

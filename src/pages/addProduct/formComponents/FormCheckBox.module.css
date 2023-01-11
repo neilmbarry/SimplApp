@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  color: #363839;
+  border: 2px solid #593cf9;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+}
+.input::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: -2px;
+  left: 5px;
+  width: 6px;
+  height: 14px;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.input:checked {
+  color: #fff;
+  border-color: #593cf9;
+  background: #593cf9;
+}
+.input:checked::before {
+  opacity: 1;
+}
+.input:checked ~ .label::before {
+  /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+}
+
+.label {
+  font-size: 1.2rem;
+  cursor: pointer;
+}

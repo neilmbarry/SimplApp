@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.button {
+  align-self: flex-start;
+  padding: 0.7rem 1.6rem;
+}
+.button * {
+  font-size: 1.6rem !important;
+}
+.lastItem {
+  margin-top: 3rem;
+}
+.next {
+  align-self: flex-start;
+  padding: 0.7rem 3rem;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+}
+.next:hover {
+  background-color: rgb(240, 240, 240);
+}
+.next * {
+  font-size: 1.6rem !important;
+}
+.short input {
+  width: 50%;
+}

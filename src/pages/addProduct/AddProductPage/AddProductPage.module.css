@@ -5,9 +5,24 @@
 
 .form {
   /* background-color: rgba(127, 255, 212, 0.185); */
-  max-width: 700px;
+
   width: 100%;
-  margin: auto;
-  min-height: 30rem;
+
+  /* min-height: 30rem; */
+
+  border-bottom: 1px solid rgb(221, 221, 221);
+  margin-bottom: 4rem;
+
+  /* border-top: 1px solid rgb(221, 221, 221); */
+}
+
+.pageContainer {
+  max-width: 650px;
   padding-top: 8rem;
+  margin: auto;
+  padding-bottom: 4rem;
+}
+
+.button {
+  padding: 0.7rem 3rem;
 }

@@ -1,0 +1,65 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form {
+  display: flex;
+  gap: 2rem;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+}
+.radio + .radio {
+  /* margin-top: 12px; */
+}
+.radio input {
+  display: none;
+}
+.radio input + span {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-top: 0.5px;
+  font-size: 1.3rem;
+}
+.radio input + span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #593cf9;
+  background: #fff;
+}
+.radio input + span:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #593cf9;
+  position: absolute;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  opacity: 0;
+  transform: scale(0, 0);
+  transition: all 0.2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+.radio input:checked + span:after {
+  opacity: 1;
+  transform: scale(1, 1);
+}

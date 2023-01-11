@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: 0.8rem;
+  border: 1px solid rgb(205, 205, 205);
+  font-size: 1.2rem;
+  border-radius: 0;
+}
+
+.input:focus {
+  border: 1px solid #593cf9;
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgb(205, 205, 205);
+}

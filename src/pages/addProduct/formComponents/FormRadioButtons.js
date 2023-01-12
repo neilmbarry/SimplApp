@@ -5,7 +5,7 @@ const FormRadioButtons = ({ className, options, label = "Placeholder*" }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
-      <h6 className={classes.title}>{label}</h6>
+      <h5 className={classes.title}>{label}</h5>
       <form className={classes.form}>
         <label className={classes.radio}>
           <input name="radio" type="radio" checked />

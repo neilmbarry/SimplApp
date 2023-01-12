@@ -19,7 +19,7 @@ const FormDropdown = ({
   });
   return (
     <div className={classesList}>
-      <h6 className={classes.title}>{label}</h6>
+      <h5 className={classes.title}>{label}</h5>
       <select type="text" className={classes.select}>
         {selectOptions}
       </select>

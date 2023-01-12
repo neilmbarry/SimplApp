@@ -6,9 +6,8 @@ import NavBar from "../../../components/NavBar/NavBar";
 import Landing from "../Landing/Landing";
 
 import CarouselSection from "../../../components/Carousel/CarouselSection";
-import CarouselTile from "../../../components/Carousel/CarouselTile";
+
 import CarouselSlide from "../../../components/Carousel/CarouselSlide";
-import HostTile from "../../../components/Carousel/HostTile";
 
 import SubtitleSection from "../../../components/TitleSection/TitleSection";
 
@@ -220,9 +219,10 @@ const FrontPage = ({ className }) => {
       <Landing />
       <CarouselSection
         title="Browse by brand"
-        windows={4}
+        windows={5}
         tiles={brandArray}
         auto={true}
+        width={1000}
       />
       <CarouselSection
         windows={1}

@@ -9,7 +9,6 @@ import {
   generateHostTiles,
   generateSlides,
 } from "./generateTiles";
-import { useEffect } from "react";
 
 const CarouselSection = ({
   title,
@@ -19,9 +18,11 @@ const CarouselSection = ({
   hosts,
   slides,
   className,
-  auto,
+  width,
 }) => {
-  const [slide, setSlide] = useState(tiles?.length);
+  const [slide, setSlide] = useState(
+    tiles?.length || hosts?.length || slides?.length
+  );
   const [animateTransition, setAnimateTransition] = useState(true);
   const [clickable, setClickable] = useState(true);
 
@@ -29,15 +30,18 @@ const CarouselSection = ({
   const nextSlide = () => {
     if (!clickable) return;
     setClickable(false);
-    console.log("next slide");
+
     if (slide < elements?.length * 2 - 1) {
-      if (!animateTransition) setAnimateTransition(true);
+      if (!animateTransition) {
+        setAnimateTransition(true);
+      }
       setTimeout(() => {
         setClickable(true);
       }, 500);
-      return setSlide(slide + 1);
+
+      return setSlide((slide) => slide + 1);
     }
-    setSlide(slide + 1);
+    setSlide((slide) => slide + 1);
     setTimeout(() => {
       setClickable(true);
       setAnimateTransition(false);
@@ -47,15 +51,15 @@ const CarouselSection = ({
   const prevSlide = () => {
     if (!clickable) return;
     setClickable(false);
-    console.log("prev slide");
+
     if (slide > 1) {
       if (!animateTransition) setAnimateTransition(true);
       setTimeout(() => {
         setClickable(true);
       }, 500);
-      return setSlide(slide - 1);
+      return setSlide((slide) => slide - 1);
     }
-    setSlide(slide - 1);
+    setSlide((slide) => slide - 1);
     setTimeout(() => {
       setClickable(true);
       setAnimateTransition(false);
@@ -66,18 +70,26 @@ const CarouselSection = ({
     // if (slide > 0) setSlide(slide - 1);
   };
 
-  const tilesComponent = generateTiles(tiles, windows, taller);
-  const hostsComponent = generateHostTiles(hosts, windows, taller);
-  const slidesComponent = generateSlides(slides, windows, taller);
+  const tilesComponent = generateTiles(tiles, windows, taller, width);
+  const hostsComponent = generateHostTiles(hosts, windows, taller, width);
+  const slidesComponent = generateSlides(slides, windows, taller, width);
 
-  const header = title ? <h3 className={classes.title}>{title}</h3> : "";
+  const header = title ? (
+    <h3 className={classes.title}>{title}</h3>
+  ) : (
+    <div className={classes.empty}></div>
+  );
 
   return (
     <div className={`${classes.sectionContainer} ${className}`}>
-      <div className={classes.windowContainer} style={{}}>
+      <div
+        className={`${classes.windowContainer}`}
+        style={{ width: width + "px" }}
+      >
         {header}
         <CarouselWindow
           windows={windows}
+          width={width}
           onNext={nextSlide}
           slide={slide}
           animateTransition={animateTransition}

@@ -13,6 +13,10 @@
   padding: 1rem;
 }
 
+.empty {
+  padding: 1.5rem;
+}
+
 .windowContainer {
   width: 100%;
   max-width: 1000px;

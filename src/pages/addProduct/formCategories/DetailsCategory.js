@@ -3,6 +3,8 @@ import classes from "./DetailsCategory.module.css";
 import FormLabelInput from "../formComponents/FormLabelInput";
 import FormDropdown from "../formComponents/FormDropdown";
 import FormCheckBox from "../formComponents/FormCheckBox";
+import FormTextArea from "../formComponents/FormTextArea";
+import Button from "../../../components/UI/Button";
 
 const optionsTemp = [
   "All-wheel drive",
@@ -28,8 +30,12 @@ const optionsTemp = [
   "Wheelchair",
 ];
 
-const DetailsCategory = ({ className }) => {
+const DetailsCategory = ({ className, onNext }) => {
   const classesList = `${classes.main} ${className}`;
+  const next = (e) => {
+    e.preventDefault();
+    onNext();
+  };
   return (
     <div className={classesList}>
       <div className={classes.row}>
@@ -61,6 +67,13 @@ const DetailsCategory = ({ className }) => {
           ))}
         </div>
       </div>
+      <h4>Description</h4>
+      <FormTextArea
+        label="Tell guests what makes your garment unique and why they'll love wearing
+        it."
+        placeholder="Try to be a detailed as possible."
+      />
+      {onNext && <Button text="Next" className={classes.next} onClick={next} />}
     </div>
   );
 };

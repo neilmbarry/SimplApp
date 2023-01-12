@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carousel {
+  margin: 0 !important;
+}
+.carouselWindow {
+  /* background-color: black; */
+  /* max-width: 500px; */
+}
+
+.button {
+  align-self: flex-start;
+  padding: 1rem 3rem;
+}

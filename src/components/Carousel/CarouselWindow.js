@@ -7,10 +7,11 @@ const CarouselWindow = ({
   children,
   animateTransition,
   slide,
-  leftClick,
+  adjustedWidth,
+  width,
 }) => {
   const translated = {
-    transform: `translateX(${slide * -(1 / windows) * 1000}px)`,
+    transform: `translateX(${slide * -(1 / windows) * (width || 1000)}px)`,
   };
 
   return (

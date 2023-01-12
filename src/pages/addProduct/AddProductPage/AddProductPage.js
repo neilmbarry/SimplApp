@@ -19,17 +19,21 @@ const AddProductPage = ({ className }) => {
     }
     setSectionOpen(section);
   };
+  const test = (e) => {
+    e.preventDefault();
+    console.log("test");
+  };
   return (
     <div className={classesList}>
       <NavBar search={false} />
       <div className={classes.pageContainer}>
         <h2>List your garment</h2>
-        <form action="" className={classes.form}>
+        <form action="" className={classes.form} onSubmit={test}>
           <FormSection
             isOpen={sectionOpen === 1}
             toggle={() => sectionChangeHandler(1)}
             title="Your Garment"
-            height={480}
+            height={500}
           >
             <GarmentCategory onNext={() => sectionChangeHandler(2)} />
           </FormSection>
@@ -37,6 +41,7 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 2}
             toggle={() => sectionChangeHandler(2)}
             title="Garment details"
+            height={680}
           >
             <DetailsCategory onNext={() => sectionChangeHandler(3)} />
           </FormSection>
@@ -50,7 +55,7 @@ const AddProductPage = ({ className }) => {
           <FormSection
             isOpen={sectionOpen === 4}
             toggle={() => sectionChangeHandler(4)}
-            title="Safety & quality standards"
+            title="Additional information"
           ></FormSection>
         </form>
         <Button text="Agree" className={classes.button} />

@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./CarouselTile.module.css";
 
-const CarouselTile = ({ picture, title, fraction, taller }) => {
-  const tileWidth = 1000 / fraction - 12;
+const CarouselTile = ({ picture, title, fraction, taller, width }) => {
+  const tileWidth = (width || 1000) / fraction - 12;
   const style = { width: `${tileWidth}px` };
   return (
     <div className={classes.tile} style={style}>

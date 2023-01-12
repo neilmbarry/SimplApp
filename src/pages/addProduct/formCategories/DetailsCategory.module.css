@@ -18,7 +18,8 @@
 }
 
 .checkBoxes {
-  padding-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -35,4 +36,18 @@
 }
 .container label {
   font-size: 1.6rem;
+}
+
+.next {
+  align-self: flex-start;
+  padding: 0.7rem 3rem;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+}
+.next:hover {
+  background-color: rgb(240, 240, 240);
+}
+.next * {
+  font-size: 1.6rem !important;
 }

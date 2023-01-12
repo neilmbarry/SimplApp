@@ -2,7 +2,7 @@ import CarouselTile from "./CarouselTile";
 import HostTile from "./HostTile";
 import CarouselSlide from "./CarouselSlide";
 
-export const generateTiles = (tiles, windows, taller) => {
+export const generateTiles = (tiles, windows, taller, width) => {
   if (!tiles) return;
   const tileComponents = tiles?.map((tile, i) => {
     return (
@@ -12,6 +12,7 @@ export const generateTiles = (tiles, windows, taller) => {
         key={tile.title}
         fraction={windows}
         taller={taller}
+        width={width}
       />
     );
   });
@@ -23,6 +24,7 @@ export const generateTiles = (tiles, windows, taller) => {
         key={tile.title + "dupe"}
         fraction={windows}
         taller={taller}
+        width={width}
       />
     );
   });
@@ -34,6 +36,7 @@ export const generateTiles = (tiles, windows, taller) => {
         key={tile.title + "before"}
         fraction={windows}
         taller={taller}
+        width={width}
       />
     );
   });
@@ -44,7 +47,7 @@ export const generateTiles = (tiles, windows, taller) => {
   ];
 };
 
-export const generateHostTiles = (hosts, windows, taller) => {
+export const generateHostTiles = (hosts, windows, taller, width) => {
   if (!hosts) return;
   const tileComponents = hosts?.map((host, i) => {
     return (
@@ -53,6 +56,7 @@ export const generateHostTiles = (hosts, windows, taller) => {
         review={host.review}
         key={host.host.name}
         fraction={windows}
+        width={width}
       />
     );
   });
@@ -63,6 +67,7 @@ export const generateHostTiles = (hosts, windows, taller) => {
         review={host.review}
         key={host.host.name + "dupe"}
         fraction={windows}
+        width={width}
       />
     );
   });
@@ -73,6 +78,7 @@ export const generateHostTiles = (hosts, windows, taller) => {
         review={host.review}
         key={host.host.name + "before"}
         fraction={windows}
+        width={width}
       />
     );
   });
@@ -83,7 +89,7 @@ export const generateHostTiles = (hosts, windows, taller) => {
   ];
 };
 
-export const generateSlides = (slides, windows, taller) => {
+export const generateSlides = (slides, windows, taller, width) => {
   if (!slides) return;
   const tileComponents = slides?.map((slide, i) => {
     return (
@@ -94,6 +100,7 @@ export const generateSlides = (slides, windows, taller) => {
         paragraph={slide.paragraph}
         windows={windows}
         key={slide.span}
+        width={width}
       />
     );
   });
@@ -106,6 +113,7 @@ export const generateSlides = (slides, windows, taller) => {
         paragraph={slide.paragraph}
         windows={windows}
         key={slide.span + "dupe"}
+        width={width}
       />
     );
   });
@@ -118,6 +126,7 @@ export const generateSlides = (slides, windows, taller) => {
         paragraph={slide.paragraph}
         windows={windows}
         key={slide.span + "before"}
+        width={width}
       />
     );
   });

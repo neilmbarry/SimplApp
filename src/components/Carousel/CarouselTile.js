@@ -9,7 +9,7 @@ const CarouselTile = ({ picture, title, fraction, taller, width }) => {
       <div className={taller ? classes.picTaller : classes.pic}>
         <img src={picture} alt="" />
       </div>
-      <h4>{title}</h4>
+      {title && <h4>{title}</h4>}
     </div>
   );
 };

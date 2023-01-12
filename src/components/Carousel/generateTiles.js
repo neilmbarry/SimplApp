@@ -9,7 +9,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
       <CarouselTile
         picture={tile.image}
         title={tile.title}
-        key={tile.title}
+        key={tile.image}
         fraction={windows}
         taller={taller}
         width={width}
@@ -21,7 +21,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
       <CarouselTile
         picture={tile.image}
         title={tile.title}
-        key={tile.title + "dupe"}
+        key={tile.image + "dupe"}
         fraction={windows}
         taller={taller}
         width={width}
@@ -33,7 +33,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
       <CarouselTile
         picture={tile.image}
         title={tile.title}
-        key={tile.title + "before"}
+        key={tile.image + "before"}
         fraction={windows}
         taller={taller}
         width={width}

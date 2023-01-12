@@ -11,19 +11,19 @@ import Button from "../../../components/UI/Button";
 const activitiesArray = [
   {
     image: hiking,
-    title: "Hiking",
+    // title: "Hiking",
   },
   {
     image: dance,
-    title: "Dancing",
+    // title: "Dancing",
   },
   {
     image: run,
-    title: "Running",
+    // title: "Running",
   },
 ];
 
-const PhotosCategory = ({ className }) => {
+const PhotosCategory = ({ className, onNext }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
@@ -41,6 +41,9 @@ const PhotosCategory = ({ className }) => {
         width={650}
       />
       <Button text="Select" className={classes.button} />
+      {onNext && (
+        <Button text="Next" className={classes.next} onClick={onNext} />
+      )}
     </div>
   );
 };

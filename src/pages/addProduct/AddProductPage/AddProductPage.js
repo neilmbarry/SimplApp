@@ -48,7 +48,8 @@ const AddProductPage = ({ className }) => {
           <FormSection
             isOpen={sectionOpen === 3}
             toggle={() => sectionChangeHandler(3)}
-            title="Garment photos"
+            title="Garment photo"
+            height={390}
           >
             <PhotosCategory onNext={() => sectionChangeHandler(4)} />
           </FormSection>
@@ -56,9 +57,10 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 4}
             toggle={() => sectionChangeHandler(4)}
             title="Additional information"
+            height={200}
           ></FormSection>
         </form>
-        <Button text="Agree" className={classes.button} />
+        <Button text="Submit" className={classes.button} />
       </div>
       <Footer></Footer>
     </div>

@@ -58,7 +58,15 @@ const AddProductPage = ({ className }) => {
             toggle={() => sectionChangeHandler(4)}
             title="Additional information"
             height={200}
-          ></FormSection>
+          >
+            {
+              // TODO
+              // How many years old is the product?
+              // Check box for super host / certified
+              // Zipper / Buttons / Collar / Hood / Sleeves /
+              // Activity: Sport / Winter / Summer / Outdoors / Swimwear / Pajamas / Protective / Shoes / Boots / Socks / Gloves / Scarf / Formalwear / Suit / Wedding /
+            }
+          </FormSection>
         </form>
         <Button text="Submit" className={classes.button} />
       </div>

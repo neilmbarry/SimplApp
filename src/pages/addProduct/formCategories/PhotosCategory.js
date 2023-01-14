@@ -6,6 +6,12 @@ import CarouselSection from "../../../components/Carousel/CarouselSection";
 import hiking from "../../../img-compressed/hiking.jpg";
 import dance from "../../../img-compressed/dance.jpg";
 import run from "../../../img-compressed/runn.jpg";
+import coat from "../../../img/coat.jpg";
+import jacket from "../../../img/jaclet.jpg";
+import jeans from "../../../img/jeans.jpg";
+import shirt from "../../../img/santhosh-kumar-RqYTuWkTdEs-unsplash.jpg";
+import tshirt from "../../../img/tshirt.jpg";
+
 import Button from "../../../components/UI/Button";
 
 const activitiesArray = [
@@ -19,6 +25,26 @@ const activitiesArray = [
   },
   {
     image: run,
+    // title: "Running",
+  },
+  {
+    image: coat,
+    // title: "Running",
+  },
+  {
+    image: jacket,
+    // title: "Running",
+  },
+  {
+    image: jeans,
+    // title: "Running",
+  },
+  {
+    image: shirt,
+    // title: "Running",
+  },
+  {
+    image: tshirt,
     // title: "Running",
   },
 ];

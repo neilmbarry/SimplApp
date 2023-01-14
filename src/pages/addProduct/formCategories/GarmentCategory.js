@@ -24,7 +24,7 @@ const GarmentCategory = ({ className, onNext }) => {
         placeholder="Shirt, Pants, Hat etc."
         className={classes.short}
       />
-      <FormCheckBox option="My model number is 1981 or later" />
+      <FormCheckBox option="I purchased this item new" />
       <Button text="Save VIN" className={classes.button} />
       <FormDropdown />
       <FormRadioButtons />

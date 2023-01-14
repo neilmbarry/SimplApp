@@ -49,3 +49,15 @@
 
   transition: all ease 0.3s;
 }
+
+@media screen and (max-width: 1024px) {
+  .mobileHidden {
+    display: none;
+  }
+  .icon {
+    display: none;
+  }
+  .mainBar {
+    border-top: 0;
+  }
+}

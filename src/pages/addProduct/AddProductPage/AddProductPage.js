@@ -27,15 +27,18 @@ const AddProductPage = ({ className }) => {
     <div className={classesList}>
       <NavBar search={false} />
       <div className={classes.pageContainer}>
-        <h2>List your garment</h2>
-        <div action="" className={classes.form} onSubmit={test}>
+        <div className={classes.titles}>
+          <h2>List your garment</h2>
+          <h5 className={classes.subtitle}>{sectionOpen} of 8</h5>
+        </div>
+        <div className={classes.form} onSubmit={test}>
           <FormSection
             isOpen={sectionOpen === 1}
             toggle={() => sectionChangeHandler(1)}
             title="Your Garment"
             height={500}
           >
-            <GarmentCategory onNext={() => sectionChangeHandler(2)} />
+            <GarmentCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
           <FormSection
             isOpen={sectionOpen === 2}
@@ -43,16 +46,17 @@ const AddProductPage = ({ className }) => {
             title="Garment details"
             height={680}
           >
-            <DetailsCategory onNext={() => sectionChangeHandler(3)} />
+            <DetailsCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
           <FormSection
             isOpen={sectionOpen === 3}
             toggle={() => sectionChangeHandler(3)}
             title="Garment photo"
-            height={390}
+            height={340}
           >
-            <PhotosCategory onNext={() => sectionChangeHandler(4)} />
+            <PhotosCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
+
           <FormSection
             isOpen={sectionOpen === 4}
             toggle={() => sectionChangeHandler(4)}
@@ -64,7 +68,7 @@ const AddProductPage = ({ className }) => {
               // How many years old is the product?
               // Check box for super host / certified
               // Zipper / Buttons / Collar / Hood / Sleeves /
-              // Activity: Sport / Winter / Summer / Outdoors / Swimwear / Pajamas / Protective / Shoes / Boots / Socks / Gloves / Scarf / Formalwear / Suit / Wedding /
+              // Activity: Sport / Winter / Summer / Outdoors / Swimwear / Pajamas / Protective / Shoes / Boots / Socks / Gloves / Scarf / Formal wear / Suit / Wedding /
             }
           </FormSection>
         </div>

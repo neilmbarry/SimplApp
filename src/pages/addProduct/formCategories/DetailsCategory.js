@@ -30,11 +30,15 @@ const optionsTemp = [
   "Wheelchair",
 ];
 
-const DetailsCategory = ({ className, onNext }) => {
+const DetailsCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
   const next = (e) => {
     e.preventDefault();
-    onNext();
+    onPage(3);
+  };
+  const prev = (e) => {
+    e.preventDefault();
+    onPage(1);
   };
   return (
     <div className={classesList}>
@@ -73,7 +77,10 @@ const DetailsCategory = ({ className, onNext }) => {
         it."
         placeholder="Try to be a detailed as possible."
       />
-      {onNext && <Button text="Next" className={classes.next} onClick={next} />}
+      <div className={classes.buttonContainer}>
+        <Button text="Previous" className={classes.next} onClick={prev} />
+        <Button text="Next" className={classes.next} onClick={next} />
+      </div>
     </div>
   );
 };

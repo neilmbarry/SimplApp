@@ -1,6 +1,6 @@
 .main h2 {
   font-size: 4rem;
-  margin: 3rem 0;
+  /* margin: 3rem 0; */
 }
 
 .form {
@@ -11,7 +11,7 @@
   /* min-height: 30rem; */
 
   border-bottom: 1px solid rgb(221, 221, 221);
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 
   /* border-top: 1px solid rgb(221, 221, 221); */
 }
@@ -20,9 +20,29 @@
   max-width: 650px;
   padding-top: 8rem;
   margin: auto;
-  padding-bottom: 4rem;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  /* padding-bottom: 4rem; */
 }
 
 .button {
   padding: 0.7rem 3rem;
+}
+
+.subtitle {
+  color: grey;
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .subtitle {
+    display: block;
+  }
+  .form {
+    border-bottom: 0;
+  }
+  .pageContainer {
+    gap: 1rem;
+  }
 }

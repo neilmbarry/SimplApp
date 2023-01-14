@@ -49,8 +49,14 @@ const activitiesArray = [
   },
 ];
 
-const PhotosCategory = ({ className, onNext }) => {
+const PhotosCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
+  const next = () => {
+    onPage(4);
+  };
+  const prev = () => {
+    onPage(2);
+  };
   return (
     <div className={classesList}>
       <h6>
@@ -67,9 +73,11 @@ const PhotosCategory = ({ className, onNext }) => {
         width={650}
       />
       <Button text="Select" className={classes.button} />
-      {onNext && (
-        <Button text="Next" className={classes.next} onClick={onNext} />
-      )}
+
+      <div className={classes.buttonContainer}>
+        <Button text="Previous" className={classes.next} onClick={prev} />
+        <Button text="Next" className={classes.next} onClick={next} />
+      </div>
     </div>
   );
 };

@@ -6,12 +6,13 @@ import FormDropdown from "../formComponents/FormDropdown";
 import Button from "../../../components/UI/Button";
 import FormRadioButtons from "../formComponents/FormRadioButtons";
 
-const GarmentCategory = ({ className, onNext }) => {
+const GarmentCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
   const next = (e) => {
     e.preventDefault();
-    onNext();
+    onPage(2);
   };
+
   return (
     <div className={classesList}>
       <FormLabelInput

@@ -15,7 +15,7 @@ const FormSection = ({
   const heightToggle = isOpen ? height : 0;
 
   return (
-    <div className={classesList}>
+    <div className={`${classesList} ${!isOpen && classes.mobileHidden}`}>
       <div className={classes.mainBar} onClick={toggle}>
         <div className={classes.mainBarLeft}>
           <div className={`${isOpen && classes.openIcon} ${classes.icon}`}>

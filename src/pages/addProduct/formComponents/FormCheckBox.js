@@ -15,9 +15,7 @@ const FormCheckBox = ({
         value="todo"
         className={classes.input}
       />
-      <label for="todo" data-content="Get out of bed" className={classes.label}>
-        {option}
-      </label>
+      <label className={classes.label}>{option}</label>
     </div>
   );
 };

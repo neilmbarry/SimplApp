@@ -28,7 +28,7 @@ const AddProductPage = ({ className }) => {
       <NavBar search={false} />
       <div className={classes.pageContainer}>
         <h2>List your garment</h2>
-        <form action="" className={classes.form} onSubmit={test}>
+        <div action="" className={classes.form} onSubmit={test}>
           <FormSection
             isOpen={sectionOpen === 1}
             toggle={() => sectionChangeHandler(1)}
@@ -67,7 +67,7 @@ const AddProductPage = ({ className }) => {
               // Activity: Sport / Winter / Summer / Outdoors / Swimwear / Pajamas / Protective / Shoes / Boots / Socks / Gloves / Scarf / Formalwear / Suit / Wedding /
             }
           </FormSection>
-        </form>
+        </div>
         <Button text="Submit" className={classes.button} />
       </div>
       <Footer></Footer>

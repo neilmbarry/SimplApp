@@ -217,13 +217,7 @@ const FrontPage = ({ className }) => {
       <Backdrop />
       <NavBar />
       <Landing />
-      <CarouselSection
-        title="Browse by brand"
-        windows={5}
-        tiles={brandArray}
-        auto={true}
-        width={1000}
-      />
+      <CarouselSection title="Browse by brand" windows={5} tiles={brandArray} />
       <CarouselSection
         windows={1}
         slides={slidesArray}

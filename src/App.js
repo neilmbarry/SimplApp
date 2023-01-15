@@ -12,6 +12,7 @@ import SearchResults from "./pages/searchResults/SearchResults";
 
 import ProductPage from "./pages/product/ProductPage/ProductPage";
 import AddProductPage from "./pages/addProduct/AddProductPage/AddProductPage";
+import HostPage from "./pages/host/HostPage";
 import Menu from "./components/Menu/Menu";
 import { useEffect } from "react";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<FrontPage />} />
         <Route path="/search" element={<SearchResults />}></Route>
         <Route path="/product" element={<ProductPage />}></Route>
+        <Route path="/host" element={<HostPage />}></Route>
         <Route path="/addProduct" element={<AddProductPage />}></Route>
       </Routes>
     </>

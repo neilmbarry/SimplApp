@@ -1,0 +1,38 @@
+.main {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.hostPicContainer {
+  height: 100%;
+  width: 100%;
+  border-radius: 500px;
+  overflow: hidden;
+}
+
+.hostRating {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 500px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.123);
+}
+
+.hostRating h5 {
+  font-size: 1.7rem;
+  padding-top: 0.2rem;
+  font-weight: 300;
+}
+
+.hostRating svg {
+  margin-left: 0.5rem;
+  color: #593cfa;
+  /* width: 70px; */
+}

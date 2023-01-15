@@ -8,6 +8,7 @@ import {
   faAward,
   faHandSparkles,
 } from "@fortawesome/free-solid-svg-icons";
+import HostImage from "../host/HostImage/HostImage";
 
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
@@ -15,15 +16,7 @@ const HostInfo = ({ className, hostInfo }) => {
     <div className={classesList}>
       <h5 className={classes.title}>HOSTED BY</h5>
       <div className={classes.hostBox}>
-        <div className={classes.hostPic}>
-          <div className={classes.hostPicContainer}>
-            <img src={hostInfo.image} alt={hostInfo.image} />
-          </div>
-          <div className={classes.hostRating}>
-            <h5>{hostInfo.rating.toFixed(1)}</h5>
-            <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-          </div>
-        </div>
+        <HostImage hostInfo={hostInfo} />
         <div className={classes.hostInfo}>
           <h3>{hostInfo.name}</h3>
           {hostInfo.allStar && (

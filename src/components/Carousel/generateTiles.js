@@ -1,6 +1,7 @@
 import CarouselTile from "./CarouselTile";
 import HostTile from "./HostTile";
 import CarouselSlide from "./CarouselSlide";
+import { Link } from "react-router-dom";
 
 export const generateTiles = (tiles, windows, taller, width) => {
   if (!tiles) return;
@@ -51,13 +52,15 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   if (!hosts) return;
   const tileComponents = hosts?.map((host, i) => {
     return (
-      <HostTile
-        info={host.host}
-        review={host.review}
-        key={host.host.name}
-        fraction={windows}
-        width={width}
-      />
+      <Link to="/host">
+        <HostTile
+          info={host.host}
+          review={host.review}
+          key={host.host.name}
+          fraction={windows}
+          width={width}
+        />
+      </Link>
     );
   });
   const tileComponentsDuplicate = hosts?.map((host, i) => {

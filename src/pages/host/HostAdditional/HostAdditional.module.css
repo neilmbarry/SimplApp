@@ -1,0 +1,26 @@
+.main {
+  margin: 3rem 0;
+}
+
+.additionalInfo {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.additionalText {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.additionalText h5 {
+  font-size: 1.5rem;
+  color: #593cfa;
+}
+
+.additionalInfo svg {
+  color: #593cfa;
+  font-size: 3rem;
+  min-width: 50px;
+}

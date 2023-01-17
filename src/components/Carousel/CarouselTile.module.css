@@ -10,6 +10,7 @@
   cursor: pointer;
   transition: all ease 0.2s;
   margin: 1rem 6px;
+  background-color: white;
 }
 
 .tile:hover {
@@ -26,6 +27,30 @@
   height: 300px;
 }
 
-.tile h4 {
+.title {
   padding: 1.5rem;
+}
+
+.product {
+  padding: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ratingBox {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ratingBox * {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.star {
+  color: #593cfa;
+  margin-top: -3px;
 }

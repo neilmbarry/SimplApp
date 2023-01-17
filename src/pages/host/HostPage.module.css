@@ -13,18 +13,34 @@
   position: relative;
   max-width: 1000px;
   width: 100%;
-  border: 2px dashed red;
-  gap: 3rem;
+  /* border: 2px dashed red; */
+  gap: 12rem;
   margin: auto;
   padding: 3rem;
   padding-top: 9rem;
-  display: grid;
-  grid-row: 2 / span 5;
-  grid-template-columns: 2fr 2fr;
-  grid-template-areas: "title about" "veri about" "lang about";
+  display: flex;
 }
 
-.titleContent {
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  flex: 1;
+  width: 100%;
+}
+
+.left {
+  flex: 2;
+  /* background-color: greenyellow; */
+}
+
+.right {
+  flex: 3;
+  /* background-color: red; */
+}
+
+/* .titleContent {
   grid-area: title;
 }
 
@@ -58,7 +74,7 @@
 
 .reviews {
   grid-area: about;
-}
+} */
 
 .hostImage {
   background-color: white;
@@ -70,4 +86,20 @@
   top: 0;
   left: 20px;
   transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1024px) {
+  .pageContent {
+    flex-direction: column;
+    max-width: 700px;
+    margin: auto;
+    gap: 2rem;
+  }
+  .titleBox {
+    text-align: center;
+  }
+  .hostImage {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

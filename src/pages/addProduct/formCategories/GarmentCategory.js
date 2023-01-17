@@ -28,7 +28,7 @@ const GarmentCategory = ({ className, onPage }) => {
       <FormCheckBox option="I purchased this item new" />
       <Button text="Save VIN" className={classes.button} />
       <FormDropdown />
-      <FormRadioButtons />
+      <FormRadioButtons options={["here", "there"]} />
       <FormCheckBox
         option="My garment has never been stolen"
         className={classes.lastItem}

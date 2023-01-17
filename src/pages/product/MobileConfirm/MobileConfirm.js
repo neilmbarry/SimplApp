@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../components/UI/Button";
 import classes from "./MobileConfirm.module.css";
 
-const MobileConfirm = ({ className, price, discount }) => {
+const MobileConfirm = ({ className, price, discount, onConfirm }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
@@ -15,7 +15,7 @@ const MobileConfirm = ({ className, price, discount }) => {
           <h6 className={classes.details}>View price details</h6>
         </div>
         <div className={classes.continue}>
-          <Button text="Continue"></Button>
+          <Button text="Continue" onClick={onConfirm}></Button>
         </div>
       </div>
     </div>

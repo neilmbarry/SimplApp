@@ -32,6 +32,10 @@ const SearchResults = ({ className }) => {
   const [showMap, setShowMap] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
 
+  const showFilters = () => {
+    store.dispatch(configActions.setModal("filter"));
+  };
+
   const search = useSelector((state) => state.config.value.searchOpen);
 
   return (
@@ -148,6 +152,7 @@ const SearchResults = ({ className }) => {
         <MapFilterButton
           showMap={showMap}
           className={classes.mobile}
+          onFilter={showFilters}
           onToggle={() => setShowMap((prev) => !prev)}
         />
       </div>

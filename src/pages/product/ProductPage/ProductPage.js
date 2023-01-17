@@ -25,6 +25,8 @@ import ProductDescription from "../ProductDescription";
 import ProductReviews from "../ProductReviews/ProductReviews";
 import BookingColumn from "../BookingColumn";
 import MobileConfirm from "../MobileConfirm/MobileConfirm";
+import store from "../../../store/store";
+import configActions from "../../../store/configSlice";
 
 const productTemplate = {
   images: [photo],
@@ -84,6 +86,11 @@ const productTemplate = {
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+
+  const checkout = () => {
+    store.dispatch(configActions.setModal("checkout"));
+  };
+
   return (
     <div className={classesList}>
       <NavBar search={true} />
@@ -115,11 +122,13 @@ const ProductPage = ({ className }) => {
           price={productTemplate.price}
           discount={productTemplate.discount}
           className={classes.booking}
+          onConfirm={checkout}
         />
 
         <MobileConfirm
           price={productTemplate.price}
           discount={productTemplate.discount.amount}
+          onConfirm={checkout}
         />
       </div>
       <Footer />

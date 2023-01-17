@@ -9,10 +9,14 @@ import configActions from "../../store/configSlice";
 import { useSelector } from "react-redux";
 import LoginModal from "./AuthModals/LoginModal";
 import SignupModal from "./AuthModals/SignupModal";
+import FilterModal from "../../pages/searchResults/Filter/FilterModal";
+import CheckoutModal from "./CheckoutModal/CheckoutModal";
 
 const modalReference = {
   login: <LoginModal />,
   signup: <SignupModal />,
+  filter: <FilterModal />,
+  checkout: <CheckoutModal />,
 };
 
 const Modal = ({ className }) => {

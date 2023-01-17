@@ -30,7 +30,7 @@ const ProductFeatures = ({ className, features }) => {
   const randomIconIndex = () => {
     return Math.floor(Math.random() * iconsArray.length);
   };
-  console.log(randomIconIndex);
+  // console.log(randomIconIndex());
   const featuresArray = features.map((feat) => {
     return (
       <Feature key={feat} feature={feat} icon={iconsArray[randomIconIndex()]} />

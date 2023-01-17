@@ -1,13 +1,15 @@
 import React from "react";
 import classes from "./FilterButton.module.css";
 
-const FilterButton = ({ className, onClick, text, children }) => {
+const FilterButton = ({ className, onClick, text, children, showOptions }) => {
   const classesList = `${classes.main} ${className}`;
   return (
-    <button onClick={onClick} className={classesList}>
-      {children && <div className={classes.child}>{children}</div>}
-      {text}
-    </button>
+    <div className={classesList}>
+      <button onClick={onClick} className={classes.button}>
+        {text}
+      </button>
+      {showOptions && <div className={classes.child}>{children}</div>}
+    </div>
   );
 };
 

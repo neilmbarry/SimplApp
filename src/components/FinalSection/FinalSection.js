@@ -21,7 +21,7 @@ const FinalSection = ({ className }) => {
             <img src={illustration1} alt="" />
           </div>
         </div>
-        <div className={classes.column}>
+        <div className={`${classes.column} ${classes.second}`}>
           <div className={classes.image}>
             <img src={illustration2} alt="" />
           </div>

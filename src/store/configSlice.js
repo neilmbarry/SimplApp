@@ -19,9 +19,16 @@ export const configSlice = createSlice({
     closeAll: (state) => {
       state.value.menuOpen = false;
       state.value.searchOpen = false;
+      state.value.filterModal = false;
     },
     setModal: (state, action) => {
       state.value.modal = action.payload;
+    },
+    setFilterModal: (state, action) => {
+      state.value.filterModal = action.payload;
+    },
+    closeFilterModal: (state) => {
+      state.value.filterModal = false;
     },
   },
 });

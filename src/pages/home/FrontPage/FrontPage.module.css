@@ -1,8 +1,8 @@
-.map {
+/* .map {
   width: 100%;
   height: 50vh;
   background-color: rgba(205, 92, 92, 0.164);
-}
+} */
 
 .smallerScreen {
   display: none !important;
@@ -14,7 +14,7 @@
   }
   .smallerScreen {
     display: flex !important;
-    width: 80%;
+    width: 100%;
     padding: 3rem;
   }
 }

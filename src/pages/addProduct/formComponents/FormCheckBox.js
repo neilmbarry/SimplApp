@@ -1,10 +1,7 @@
 import React from "react";
 import classes from "./FormCheckBox.module.css";
 
-const FormCheckBox = ({
-  className,
-  option = "My model number is 1981 or later",
-}) => {
+const FormCheckBox = ({ className, option = "Placeholder" }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>

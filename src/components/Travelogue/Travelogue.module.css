@@ -26,3 +26,16 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 768px) {
+  .infoBox {
+    top: 0;
+    transform: translate(-10%, 0);
+    width: 100%;
+  }
+  .bg {
+    height: 100%;
+    padding-left: 0rem;
+    padding-top: 12rem;
+  }
+}

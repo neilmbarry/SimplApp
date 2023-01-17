@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  min-width: 200px;
+}
+
+.check * {
+  font-size: 1.6rem;
+}

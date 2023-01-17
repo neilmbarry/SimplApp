@@ -10,7 +10,8 @@ import photo7 from "../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg"
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 import SearchBar from "./SearchBar";
-import FilterBar from "./FilterBar";
+import FilterBar from "./Filter/FilterBar";
+
 import Results from "./Results";
 import Result from "./Result";
 import Map from "./Map";
@@ -29,6 +30,7 @@ const SearchResults = ({ className }) => {
   };
 
   const [showMap, setShowMap] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   const search = useSelector((state) => state.config.value.searchOpen);
 

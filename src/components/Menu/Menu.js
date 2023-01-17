@@ -23,7 +23,7 @@ const Menu = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const menuOpen = useSelector((state) => state.config.value.menuOpen);
   const openLogin = () => {
-    store.dispatch(configActions.setModal("login"));
+    store.dispatch(configActions.setModal("signup"));
   };
   const close = () => {
     store.dispatch(configActions.toggleMenu());

@@ -8,8 +8,11 @@ const Search = () => {
     <div className={classes.container}>
       <form className={classes.form}>
         <div className={classes.formItem}>
-          <h6>Where</h6>
-          <input type="text" placeholder="City, address or hotel" />
+          <h6>What</h6>
+          <input
+            type="text"
+            placeholder="Search by item (shirts, pants, shoes etc.)"
+          />
         </div>
         <div className={classes.formItem}>
           <h6>From</h6>

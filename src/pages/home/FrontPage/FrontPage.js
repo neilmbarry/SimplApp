@@ -24,12 +24,21 @@ import photo5 from "../../../img-compressed/tamara-bellis-0C2qrwkR1dI-unsplash.j
 import photo6 from "../../../img-compressed/tamara-bellis-uN1m9Ca0aqo-unsplash.jpg";
 import photo7 from "../../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
 
-import tokyo from "../../../img-compressed/tokyo.jpg";
-import paris from "../../../img-compressed/paris.jpg";
-import la from "../../../img-compressed/la.jpg";
-import london from "../../../img-compressed/london.jpg";
-import sydney from "../../../img-compressed/sydney.jpg";
-import toronto from "../../../img-compressed/toronto.jpg";
+import shirtBlue from "../../../img-compressed/shirt-blue-3.jpg";
+import swim from "../../../img-compressed/swim.jpg";
+import pants from "../../../img-compressed/pants.jpg";
+import pajama from "../../../img-compressed/pajama.jpg";
+import sport from "../../../img-compressed/sport.jpg";
+import shoes from "../../../img-compressed/shoes.jpg";
+import dress from "../../../img-compressed/dress.jpg";
+
+import prada from "../../../img-compressed/prada.jpg";
+import nike from "../../../img-compressed/nike.jpg";
+import lululemon from "../../../img-compressed/lululemon.jpg";
+import adidas from "../../../img-compressed/adidas.jpg";
+import gucci from "../../../img-compressed/gucci.jpg";
+import louis from "../../../img-compressed/louis.jpg";
+
 import hiking from "../../../img-compressed/hiking.jpg";
 import dance from "../../../img-compressed/dance.jpg";
 import run from "../../../img-compressed/runn.jpg";
@@ -43,66 +52,66 @@ import Backdrop from "../../../components/UI/Backdrop/Backdrop";
 
 const brandArray = [
   {
-    title: "Versace",
-    image: photo1,
+    title: "Shirts",
+    image: shirtBlue,
   },
   {
-    title: "Burberry",
-    image: photo2,
+    title: "Pants",
+    image: pants,
   },
   {
-    title: "Ralph Lauren",
-    image: photo3,
+    title: "Dresses",
+    image: dress,
   },
   {
-    title: "Chanel",
-    image: photo4,
+    title: "Shoes",
+    image: shoes,
   },
   {
-    title: "Gucci",
-    image: photo5,
+    title: "Swimwear",
+    image: swim,
   },
   {
-    title: "Louis Vuitton",
-    image: photo6,
+    title: "Sports",
+    image: sport,
   },
   {
-    title: "H&M",
-    image: photo7,
+    title: "Pajamas",
+    image: pajama,
   },
 ];
 
 const locationArray = [
   {
-    title: "London",
-    image: london,
+    title: "Nike",
+    image: nike,
   },
   {
-    title: "Tokyo",
-    image: tokyo,
+    title: "Louis Vuitton",
+    image: louis,
   },
   {
-    title: "Paris",
-    image: paris,
+    title: "Gucci",
+    image: gucci,
   },
   {
-    title: "Los Angeles",
-    image: la,
+    title: "Adidas",
+    image: adidas,
   },
   {
-    title: "Sydney",
-    image: sydney,
+    title: "Lululemon",
+    image: lululemon,
   },
   {
-    title: "Toronto",
-    image: toronto,
+    title: "Prada",
+    image: prada,
   },
 ];
 
 const activitiesArray = [
   {
     image: hiking,
-    title: "Hiking",
+    title: "Formal",
   },
   {
     image: dance,
@@ -110,7 +119,19 @@ const activitiesArray = [
   },
   {
     image: run,
-    title: "Running",
+    title: "Sport",
+  },
+  {
+    image: hiking,
+    title: "Swimming",
+  },
+  {
+    image: dance,
+    title: "Casual",
+  },
+  {
+    image: run,
+    title: "Winter",
   },
 ];
 
@@ -217,7 +238,7 @@ const FrontPage = ({ className }) => {
       <Backdrop />
       <NavBar />
       <Landing />
-      <CarouselSection title="Browse by brand" windows={5} tiles={brandArray} />
+      <CarouselSection title="Browse by type" windows={5} tiles={brandArray} />
       <CarouselSection
         windows={1}
         slides={slidesArray}
@@ -233,7 +254,7 @@ const FrontPage = ({ className }) => {
       />
 
       <CarouselSection
-        title="Browse by destination"
+        title="Browse by brand"
         windows={6}
         tiles={locationArray}
       />

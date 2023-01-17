@@ -1,3 +1,6 @@
+.main {
+}
+
 .main h2 {
   font-size: 4rem;
   /* margin: 3rem 0; */
@@ -23,6 +26,8 @@
   display: flex;
   gap: 3rem;
   flex-direction: column;
+  min-height: 80vh;
+  justify-content: center;
   /* padding-bottom: 4rem; */
 }
 

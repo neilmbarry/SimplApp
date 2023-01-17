@@ -16,13 +16,21 @@ import {
   faPerson,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
+import store from "../../store/store";
+import configActions from "../../store/configSlice";
 
 const Menu = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const menuOpen = useSelector((state) => state.config.value.menuOpen);
+  const openLogin = () => {
+    store.dispatch(configActions.setModal("login"));
+  };
+  const close = () => {
+    store.dispatch(configActions.toggleMenu());
+  };
   return (
     menuOpen && (
-      <div className={classesList}>
+      <div className={classesList} onClick={close}>
         <MenuItem text="Favourites" icon={faHeart} />
         <MenuItem text="Trips" icon={faRoad} />
         <MenuItem text="Inbox" icon={faComment} />
@@ -35,7 +43,11 @@ const Menu = ({ className }) => {
         <MenuItem text="Contact support" icon={faHeadset} />
         <MenuItem text="Legal" icon={faFileLines} />
         <div className={classes.divider}></div>
-        <MenuItem text="Log out" icon={faArrowRightFromBracket} />
+        <MenuItem
+          text="Log out"
+          icon={faArrowRightFromBracket}
+          onClick={openLogin}
+        />
       </div>
     )
   );

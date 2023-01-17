@@ -11,3 +11,16 @@
   font-weight: 500;
   font-size: 1.8rem;
 }
+
+.alt {
+  padding: 0.7rem 3rem;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+}
+.alt:hover {
+  background-color: rgb(240, 240, 240);
+}
+.alt * {
+  font-size: 1.6rem !important;
+}

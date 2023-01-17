@@ -15,6 +15,7 @@ import AddProductPage from "./pages/addProduct/AddProductPage/AddProductPage";
 import HostPage from "./pages/host/HostPage";
 import Menu from "./components/Menu/Menu";
 import { useEffect } from "react";
+import Modal from "./components/Modals/Modal";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <Menu />
+      <Modal />
 
       <Routes>
         <Route path="/" element={<FrontPage />} />

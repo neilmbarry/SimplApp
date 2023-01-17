@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   menuOpen: false,
   searchOpen: false,
+  modal: false,
 };
 
 export const configSlice = createSlice({
@@ -18,6 +19,9 @@ export const configSlice = createSlice({
     closeAll: (state) => {
       state.value.menuOpen = false;
       state.value.searchOpen = false;
+    },
+    setModal: (state, action) => {
+      state.value.modal = action.payload;
     },
   },
 });

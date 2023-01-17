@@ -14,6 +14,8 @@
 .navLeft {
   display: flex;
   align-items: center;
+  /* width: 100%; */
+  min-width: 50%;
 }
 
 .searchBox {
@@ -23,6 +25,8 @@
   color: rgb(200, 200, 200);
   display: flex;
   align-items: center;
+  max-width: 300px;
+  width: 100%;
 }
 
 .input {
@@ -31,7 +35,6 @@
   outline: none;
   font-size: 1.5rem;
   width: 100%;
-  max-width: 300px;
 }
 
 .navItems {

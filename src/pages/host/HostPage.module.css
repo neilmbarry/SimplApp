@@ -1,7 +1,7 @@
 .banner {
   padding-top: 6rem;
   height: 265px;
-  background-color: red;
+  /* background-color: red; */
   border-bottom: solid rgb(224, 224, 224) 1px;
 }
 
@@ -12,13 +12,52 @@
 .pageContent {
   position: relative;
   max-width: 1000px;
+  width: 100%;
+  border: 2px dashed red;
+  gap: 3rem;
   margin: auto;
   padding: 3rem;
   padding-top: 9rem;
   display: grid;
-  gap: 3rem;
-  grid-template-columns: 2fr 3fr;
-  grid-template-areas: "title about";
+  grid-row: 2 / span 5;
+  grid-template-columns: 2fr 2fr;
+  grid-template-areas: "title about" "veri about" "lang about";
+}
+
+.titleContent {
+  grid-area: title;
+}
+
+.verified {
+  grid-area: veri;
+}
+
+.lang {
+  grid-area: lang;
+}
+
+.works {
+  grid-area: works;
+}
+
+.school {
+  grid-area: school;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.about {
+  grid-area: about;
+}
+
+.products {
+  grid-area: about;
+}
+
+.reviews {
+  grid-area: about;
 }
 
 .hostImage {

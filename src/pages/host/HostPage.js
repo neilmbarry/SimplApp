@@ -25,32 +25,34 @@ const HostPage = ({ className }) => {
           <HostImage hostInfo={hostInfo} className={classes.hostImage} />
           <div className={classes.titleBox}>
             <h2>Neil B.</h2>
-            <h6>Toronto, CA</h6>
+            <HostComponent title="Toronto, CA">
+              <p>4819 trips - Joined Dec 2020</p>
+            </HostComponent>
           </div>
           <HostAdditional />
         </div>
-        <HostComponent title="Verified Info">
+        <HostComponent title="Verified Info" className={classes.verified}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="Languages">
+        <HostComponent title="Languages" className={classes.lang}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="Works">
+        <HostComponent title="Works" className={classes.works}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="School">
+        <HostComponent title="School" className={classes.school}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="Host stats">
+        <HostComponent title="Host stats" className={classes.stats}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="About Vincent">
+        <HostComponent title="About Vincent" className={classes.about}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="Vincent's garments">
+        <HostComponent title="Vincent's garments" className={classes.products}>
           <p>Placeholder</p>
         </HostComponent>
-        <HostComponent title="Reviews from guests">
+        <HostComponent title="Reviews from guests" className={classes.reviews}>
           <p>Placeholder</p>
         </HostComponent>
       </div>

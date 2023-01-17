@@ -9,6 +9,7 @@ import {
   faHandSparkles,
 } from "@fortawesome/free-solid-svg-icons";
 import HostImage from "../host/HostImage/HostImage";
+import HostAdditional from "../host/HostAdditional/HostAdditional";
 
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
@@ -32,7 +33,8 @@ const HostInfo = ({ className, hostInfo }) => {
           <h5>Typically responds in 2 minutes</h5>
         </div>
       </div>
-      <div className={classes.additionalGroup}>
+      <HostAdditional />
+      {/* <div className={classes.additionalGroup}>
         <div className={classes.additionalInfo}>
           <FontAwesomeIcon icon={faAward} />
           <div className={classes.additionalText}>
@@ -53,7 +55,7 @@ const HostInfo = ({ className, hostInfo }) => {
             <h5>Learn More</h5>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

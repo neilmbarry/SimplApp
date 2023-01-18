@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import classes from "./Landing.module.css";
 
-import photo7 from "../../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
 import Search from "../../../components/Search/Search";
 import TitleSection from "../../../components/TitleSection/TitleSection";
+import images from "../../../helpers/imagesObj";
 
 const Landing = () => {
   return (
     <section className={classes.landing}>
       <Search />
       <div className={classes.background}>
-        <img src={photo7} alt="Piccy" />
+        <img src={images["hat"]} alt="Piccy" />
       </div>
       <TitleSection
         className={classes.title}

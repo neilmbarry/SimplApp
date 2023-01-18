@@ -3,48 +3,35 @@ import classes from "./PhotosCategory.module.css";
 
 import CarouselSection from "../../../components/Carousel/CarouselSection";
 
-import hiking from "../../../img-compressed/hiking.jpg";
-import dance from "../../../img-compressed/dance.jpg";
-import run from "../../../img-compressed/runn.jpg";
-import coat from "../../../img/coat.jpg";
-import jacket from "../../../img/jaclet.jpg";
-import jeans from "../../../img/jeans.jpg";
-import shirt from "../../../img/santhosh-kumar-RqYTuWkTdEs-unsplash.jpg";
-import tshirt from "../../../img/tshirt.jpg";
-
 import Button from "../../../components/UI/Button";
 
 const activitiesArray = [
   {
-    image: hiking,
+    image: "hiking",
     // title: "Hiking",
   },
   {
-    image: dance,
+    image: "dance",
     // title: "Dancing",
   },
   {
-    image: run,
+    image: "runner",
     // title: "Running",
   },
   {
-    image: coat,
+    image: "coatbrown",
     // title: "Running",
   },
   {
-    image: jacket,
+    image: "jacketbrown",
     // title: "Running",
   },
   {
-    image: jeans,
+    image: "pants",
     // title: "Running",
   },
   {
-    image: shirt,
-    // title: "Running",
-  },
-  {
-    image: tshirt,
+    image: "shirtblue",
     // title: "Running",
   },
 ];
@@ -59,11 +46,11 @@ const PhotosCategory = ({ className, onPage }) => {
   };
   return (
     <div className={classesList}>
-      <h6>
+      <h5>
         A high quality photo can increase your earning potential by attracting
         more guests. Here we have a curated list of photos for you to choose
         from.
-      </h6>
+      </h5>
       <CarouselSection
         // title="Browse by experience"
         windows={3}
@@ -72,7 +59,7 @@ const PhotosCategory = ({ className, onPage }) => {
         className={classes.carousel}
         width={650}
       />
-      <Button text="Select" className={classes.button} />
+      {/* <Button text="Select" className={classes.button} /> */}
 
       <div className={classes.buttonContainer}>
         <Button text="Previous" className={classes.next} onClick={prev} />

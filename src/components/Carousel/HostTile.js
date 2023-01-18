@@ -3,16 +3,17 @@ import classes from "./HostTile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
+import images from "../../helpers/imagesObj";
 
-const CarouselTile = ({ fraction, info, review }) => {
+const CarouselTile = ({ fraction, info, review, parentKey }) => {
   const tileWidth = 1000 / fraction - 12;
   const style = { width: `${tileWidth}px` };
 
   return (
-    <div className={classes.tile} style={style}>
+    <div className={classes.tile} style={style} key={parentKey}>
       <div className={classes.hostInfo}>
         <div className={classes.hostImage}>
-          <img src={info.image} alt="" />
+          <img src={images[info.image]} alt="" />
         </div>
         <div className={classes.hostText}>
           <h4>{info.name}</h4>

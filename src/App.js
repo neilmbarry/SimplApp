@@ -14,12 +14,14 @@ import ProductPage from "./pages/product/ProductPage/ProductPage";
 import AddProductPage from "./pages/addProduct/AddProductPage/AddProductPage";
 import HostPage from "./pages/host/HostPage";
 import Menu from "./components/Menu/Menu";
-import { useEffect } from "react";
 import Modal from "./components/Modals/Modal";
+import { useEffect } from "react";
+import images from "./helpers/imagesObj";
 
 function App() {
   const location = useLocation();
-
+  console.log("here");
+  console.log(images);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);

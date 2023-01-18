@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./CarouselTile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import images from "../../helpers/imagesObj";
 
 const CarouselTile = ({ picture, title, fraction, taller, width, product }) => {
   const tileWidth = (width || 1000) / fraction - 12;
@@ -9,7 +10,7 @@ const CarouselTile = ({ picture, title, fraction, taller, width, product }) => {
   return (
     <div className={classes.tile} style={style}>
       <div className={taller ? classes.picTaller : classes.pic}>
-        <img src={picture} alt="" />
+        <img src={images[picture]} alt="" />
       </div>
       {title && <h4 className={classes.title}>{title}</h4>}
       {product && (

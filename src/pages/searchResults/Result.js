@@ -5,6 +5,8 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Savings from "../../components/UI/Savings";
 import { Link } from "react-router-dom";
 
+import images from "../../helpers/imagesObj";
+
 const Result = ({ className, info }) => {
   const classesList = `${classes.main} ${className}`;
   return (
@@ -12,7 +14,7 @@ const Result = ({ className, info }) => {
       <Link to="/product">
         <div className={classes.container}>
           <div className={classes.image}>
-            <img src={info.image} alt="" />
+            <img src={images[info.image]} alt="" />
           </div>
           <div className={classes.infoBox}>
             <h3>{info.name}</h3>

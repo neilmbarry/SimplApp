@@ -16,23 +16,34 @@ const GarmentCategory = ({ className, onPage }) => {
   return (
     <div className={classesList}>
       <FormLabelInput
-        label="Where is your garment located?"
-        placeholder="Enter address"
+        label="What is your garment called?*"
+        placeholder="e.g. Levi's Blue Jeans"
       />
-
-      <FormLabelInput
-        label="What type of clothing?*"
-        placeholder="Shirt, Pants, Hat etc."
-        className={classes.short}
-      />
-      <FormCheckBox option="I purchased this item new" />
-      <Button text="Save VIN" className={classes.button} />
+      <div className={classes.row}>
+        <FormDropdown
+          label="Clothing Type*"
+          options={["Shirt", "Pants", "Dress", "Shoes", "Sports"]}
+        />
+        <FormDropdown label="Size" options={["Small", "Medium", "Large"]} />
+      </div>
+      <div className={classes.row}>
+        <FormLabelInput
+          label="Does your garment have a brand name?"
+          placeholder="Adidas, Nike etc."
+        />
+        <FormDropdown
+          label="Which activity would be best suited?"
+          options={["Small", "Medium", "Large"]}
+        />
+      </div>
+      <FormCheckBox option="This item has pockets!" />
+      {/* <Button text="Save VIN" className={classes.button} />
       <FormDropdown />
       <FormRadioButtons options={["here", "there"]} />
       <FormCheckBox
         option="My garment has never been stolen"
         className={classes.lastItem}
-      />
+      /> */}
       <Button text="Next" className={classes.next} onClick={next} />
     </div>
   );

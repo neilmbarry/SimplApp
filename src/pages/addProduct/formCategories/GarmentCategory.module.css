@@ -27,5 +27,10 @@
   font-size: 1.6rem !important;
 }
 .short input {
-  width: 50%;
+  width: 40%;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
 }

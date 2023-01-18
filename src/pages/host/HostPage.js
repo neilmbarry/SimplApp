@@ -3,14 +3,16 @@ import classes from "./HostPage.module.css";
 import NavBar from "../../components/NavBar/NavBar";
 import banner from "../../img/banner.png";
 import HostImage from "./HostImage/HostImage";
-import photo from "../../img-compressed/992-can-2x.jpg";
+
 import HostAdditional from "./HostAdditional/HostAdditional";
 import HostComponent from "./HostComponent/HostComponent";
 import CarouselTile from "../../components/Carousel/CarouselTile";
 import ProductReviews from "../product/ProductReviews/ProductReviews";
 
+import images from "../../helpers/imagesObj";
+
 const hostInfo = {
-  image: photo,
+  image: "runner",
   rating: 5,
 };
 
@@ -20,7 +22,7 @@ const reviewsTemp = [
     reviewer: "Neil B.",
     review:
       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: photo,
+    image: "runner",
     dateAdded: "June 20, 2022",
   },
   {
@@ -28,7 +30,7 @@ const reviewsTemp = [
     reviewer: "Neil B.",
     review:
       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: photo,
+    image: "runner",
     dateAdded: "June 20, 2022",
   },
   {
@@ -37,7 +39,7 @@ const reviewsTemp = [
     dateAdded: "June 20, 2022",
     review:
       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: photo,
+    image: "runner",
   },
 ];
 
@@ -90,7 +92,7 @@ const HostPage = ({ className }) => {
             className={classes.products}
           >
             <CarouselTile
-              picture={photo}
+              picture="hat"
               taller={true}
               product={{ title: "My car", rating: 4.9, reviews: 235 }}
             />

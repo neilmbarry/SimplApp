@@ -36,7 +36,7 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 1}
             toggle={() => sectionChangeHandler(1)}
             title="Your Garment"
-            height={500}
+            height={320}
           >
             <GarmentCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
@@ -44,7 +44,7 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 2}
             toggle={() => sectionChangeHandler(2)}
             title="Garment details"
-            height={680}
+            height={490}
           >
             <DetailsCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
@@ -52,7 +52,7 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 3}
             toggle={() => sectionChangeHandler(3)}
             title="Garment photo"
-            height={340}
+            height={300}
           >
             <PhotosCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>
@@ -60,8 +60,8 @@ const AddProductPage = ({ className }) => {
           <FormSection
             isOpen={sectionOpen === 4}
             toggle={() => sectionChangeHandler(4)}
-            title="Additional information"
-            height={200}
+            title="Pricing"
+            height={100}
           >
             {
               // TODO

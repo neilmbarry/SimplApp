@@ -52,11 +52,10 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   if (!hosts) return;
   const tileComponents = hosts?.map((host, i) => {
     return (
-      <Link to="/host">
+      <Link to="/host" key={host.host.name}>
         <HostTile
           info={host.host}
           review={host.review}
-          key={host.host.name}
           fraction={windows}
           width={width}
         />

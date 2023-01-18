@@ -1,21 +1,7 @@
 import React from "react";
 import classes from "./ProductPage.module.css";
 import NavBar from "../../../components/NavBar/NavBar";
-import photo from "../../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
-import photo2 from "../../../img-compressed/runn.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHandSparkles,
-  faStar,
-  faBatteryFull,
-  faCar,
-  faChair,
-  faTrophy,
-  faCircle,
-  faAward,
-  faThumbsUp,
-} from "@fortawesome/free-solid-svg-icons";
-import Button from "../../../components/UI/Button";
+
 import Footer from "../../../components/Footer/Footer";
 import ProductImages from "../ProductImages";
 import ProductHeader from "../ProductHeader";
@@ -29,7 +15,7 @@ import store from "../../../store/store";
 import configActions from "../../../store/configSlice";
 
 const productTemplate = {
-  images: [photo],
+  image: "blazer",
   name: "Louis Vuitton Grey Blazer",
   rating: 4.97,
   trips: 36,
@@ -41,7 +27,7 @@ const productTemplate = {
     trips: 258,
     allStar: true,
     trained: true,
-    image: photo2,
+    image: "runner",
   },
   description: {
     bio: [
@@ -57,7 +43,7 @@ const productTemplate = {
       reviewer: "Neil B.",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: photo,
+      image: "runner",
       dateAdded: "June 20, 2022",
     },
     {
@@ -65,7 +51,7 @@ const productTemplate = {
       reviewer: "Neil B.",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: photo,
+      image: "runner",
       dateAdded: "June 20, 2022",
     },
     {
@@ -74,7 +60,7 @@ const productTemplate = {
       dateAdded: "June 20, 2022",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: photo,
+      image: "runner",
     },
   ],
   price: 729,
@@ -94,7 +80,7 @@ const ProductPage = ({ className }) => {
   return (
     <div className={classesList}>
       <NavBar search={true} />
-      <ProductImages images={productTemplate.images} />
+      <ProductImages image={productTemplate.image} />
       <div className={classes.pageContent}>
         <ProductHeader
           title={productTemplate.name}

@@ -1,12 +1,6 @@
 import React from "react";
 import classes from "./SearchResults.module.css";
-import photo1 from "../../img-compressed/tamara-bellis-mNZ-GvOQUUY-unsplash.jpg";
-import photo2 from "../../img-compressed/chantelle-taylor-KGR6BzW6k4w-unsplash.jpg";
-import photo3 from "../../img-compressed/hannah-skelly-ZddhWFwzEDo-unsplash.jpg";
-import photo4 from "../../img-compressed/jonathan-francisca-HY-Nr7GQs3k-unsplash.jpg";
-import photo5 from "../../img-compressed/tamara-bellis-0C2qrwkR1dI-unsplash.jpg";
-import photo6 from "../../img-compressed/tamara-bellis-uN1m9Ca0aqo-unsplash.jpg";
-import photo7 from "../../img-compressed/tamara-bellis-WdPfMcpeQas-unsplash.jpg";
+
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 import SearchBar from "./SearchBar";
@@ -30,7 +24,6 @@ const SearchResults = ({ className }) => {
   };
 
   const [showMap, setShowMap] = useState(false);
-  const [showFilterModal, setShowFilterModal] = useState(false);
 
   const showFilters = () => {
     store.dispatch(configActions.setModal("filter"));
@@ -52,7 +45,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo6,
+              image: "dressred",
               price: 199,
               oldPrice: 225,
             }}
@@ -62,7 +55,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Pink Sleeved Dress",
               rating: 4.98,
               trips: 68,
-              image: photo1,
+              image: "dresspink",
               price: 159,
               oldPrice: 205,
             }}
@@ -72,7 +65,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Cream Dress",
               rating: 4.92,
               trips: 78,
-              image: photo3,
+              image: "dress",
               price: 125,
               oldPrice: 149,
             }}
@@ -82,7 +75,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Grey Blazer",
               rating: 4.78,
               trips: 21,
-              image: photo4,
+              image: "blazer",
               price: 199,
               // oldPrice: 225,
             }}
@@ -92,7 +85,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo5,
+              image: "dressred",
               price: 199,
               oldPrice: 225,
             }}
@@ -102,7 +95,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo6,
+              image: "dresspinker",
               price: 199,
               oldPrice: 225,
             }}
@@ -112,7 +105,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo1,
+              image: "blazer",
               price: 199,
               oldPrice: 225,
             }}
@@ -122,7 +115,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo3,
+              image: "swim",
               price: 199,
               oldPrice: 225,
             }}
@@ -132,7 +125,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo4,
+              image: "shoes",
               price: 199,
               oldPrice: 225,
             }}
@@ -142,7 +135,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: photo5,
+              image: "winter",
               price: 199,
               oldPrice: 225,
             }}

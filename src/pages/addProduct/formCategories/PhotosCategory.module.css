@@ -29,3 +29,8 @@
 .next * {
   font-size: 1.6rem !important;
 }
+
+.buttonContainer {
+  gap: 1rem;
+  display: flex;
+}

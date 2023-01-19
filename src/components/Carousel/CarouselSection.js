@@ -19,6 +19,7 @@ const CarouselSection = ({
   slides,
   className,
   width,
+  userSelect,
 }) => {
   const [slide, setSlide] = useState(
     tiles?.length || hosts?.length || slides?.length
@@ -70,7 +71,13 @@ const CarouselSection = ({
     // if (slide > 0) setSlide(slide - 1);
   };
 
-  const tilesComponent = generateTiles(tiles, windows, taller, width);
+  const tilesComponent = generateTiles(
+    tiles,
+    windows,
+    taller,
+    width,
+    userSelect
+  );
   const hostsComponent = generateHostTiles(hosts, windows, taller, width);
   const slidesComponent = generateSlides(slides, windows, taller, width);
 

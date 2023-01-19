@@ -11,6 +11,7 @@
   transition: all ease 0.2s;
   margin: 1rem 6px;
   background-color: white;
+  position: relative;
 }
 
 .tile:hover {
@@ -53,4 +54,22 @@
 .star {
   color: #593cfa;
   margin-top: -3px;
+}
+
+.selected {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  color: white;
+
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 100px;
+  background-color: #593cfa;
+  z-index: 90;
 }

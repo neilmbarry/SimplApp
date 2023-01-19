@@ -8,6 +8,7 @@ const FormDropdown = ({
   label = "Placeholder*",
   options = optionsTemp,
   selected,
+  parentRef,
 }) => {
   const classesList = `${classes.main} ${className}`;
   const selectOptions = options.map((option) => {
@@ -20,7 +21,11 @@ const FormDropdown = ({
   return (
     <div className={classes.main}>
       <h5 className={classes.title}>{label}</h5>
-      <select type="text" className={`${classes.select} ${className}`}>
+      <select
+        type="text"
+        className={`${classes.select} ${className}`}
+        ref={parentRef}
+      >
         {selectOptions}
       </select>
     </div>

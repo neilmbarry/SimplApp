@@ -7,15 +7,15 @@ const FormRadioButtons = ({ className, options, label, column }) => {
   const optionsArray = options.map((op, i) => {
     if (i === 0) {
       return (
-        <label className={classes.radio}>
-          <input name="radio" type="radio" defaultChecked key={op + i} />
+        <label className={classes.radio} key={op + i}>
+          <input name="radio" type="radio" defaultChecked />
           <span>{op}</span>
         </label>
       );
     }
     return (
-      <label className={classes.radio}>
-        <input name="radio" type="radio" key={op + i} />
+      <label className={classes.radio} key={op + i}>
+        <input name="radio" type="radio" />
         <span>{op}</span>
       </label>
     );
@@ -23,7 +23,7 @@ const FormRadioButtons = ({ className, options, label, column }) => {
 
   return (
     <div className={classes.container}>
-      {label && <h5 className={classes.title}>{label}</h5>}
+      {label && <h4 className={classes.title}>{label}</h4>}
       <form className={classesList}>
         {/* <label className={classes.radio}>
           <input name="radio" type="radio" defaultChecked />

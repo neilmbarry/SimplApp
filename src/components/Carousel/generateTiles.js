@@ -3,7 +3,7 @@ import HostTile from "./HostTile";
 import CarouselSlide from "./CarouselSlide";
 import { Link } from "react-router-dom";
 
-export const generateTiles = (tiles, windows, taller, width) => {
+export const generateTiles = (tiles, windows, taller, width, userSelect) => {
   if (!tiles) return;
   const tileComponents = tiles?.map((tile, i) => {
     return (
@@ -14,6 +14,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
         fraction={windows}
         taller={taller}
         width={width}
+        userSelect={userSelect}
       />
     );
   });
@@ -26,6 +27,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
         fraction={windows}
         taller={taller}
         width={width}
+        userSelect={userSelect}
       />
     );
   });
@@ -38,6 +40,7 @@ export const generateTiles = (tiles, windows, taller, width) => {
         fraction={windows}
         taller={taller}
         width={width}
+        userSelect={userSelect}
       />
     );
   });

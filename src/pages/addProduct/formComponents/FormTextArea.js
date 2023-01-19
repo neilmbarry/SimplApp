@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./FormTextArea.module.css";
 
-const FormTextArea = ({ className, label, placeholder }) => {
+const FormTextArea = ({ className, label, placeholder, parentRef }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
@@ -11,6 +11,7 @@ const FormTextArea = ({ className, label, placeholder }) => {
         cols="30"
         rows="8"
         placeholder={placeholder}
+        ref={parentRef}
       ></textarea>
     </div>
   );

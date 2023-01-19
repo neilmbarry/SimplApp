@@ -8,6 +8,7 @@ import FormSection from "./FormSection";
 import GarmentCategory from "../formCategories/GarmentCategory";
 import DetailsCategory from "../formCategories/DetailsCategory";
 import PhotosCategory from "../formCategories/PhotosCategory";
+import PricingCategory from "../formCategories/PricingCategory";
 import Button from "../../../components/UI/Button";
 
 const AddProductPage = ({ className }) => {
@@ -61,15 +62,9 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 4}
             toggle={() => sectionChangeHandler(4)}
             title="Pricing"
-            height={100}
+            height={170}
           >
-            {
-              // TODO
-              // How many years old is the product?
-              // Check box for super host / certified
-              // Zipper / Buttons / Collar / Hood / Sleeves /
-              // Activity: Sport / Winter / Summer / Outdoors / Swimwear / Pajamas / Protective / Shoes / Boots / Socks / Gloves / Scarf / Formal wear / Suit / Wedding /
-            }
+            <PricingCategory />
           </FormSection>
         </div>
         <Button text="Submit" className={classes.button} />

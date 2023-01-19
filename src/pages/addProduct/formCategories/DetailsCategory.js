@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import classes from "./DetailsCategory.module.css";
 import FormLabelInput from "../formComponents/FormLabelInput";
 import FormDropdown from "../formComponents/FormDropdown";
@@ -24,14 +24,30 @@ const optionsTemp = [
   "Keyless entry",
   "Recyclable",
   "Adjustable",
-
   "USB input",
 ].sort((a, b) => (a[0] > b[0] ? 1 : -1));
 
 const DetailsCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
+
+  const [checkedList, setCheckedList] = useState([]);
+
+  const checkHandler = (option) => {
+    if (checkedList.includes(option)) {
+      return setCheckedList((prev) => prev.filter((op) => op !== option));
+    }
+    return setCheckedList((prev) => [...prev, option]);
+  };
+
+  const description = useRef();
+
   const next = (e) => {
     e.preventDefault();
+    const details = {
+      description: description.current.value,
+      features: checkedList,
+    };
+    console.log(details);
     onPage(3);
   };
   const prev = (e) => {
@@ -45,33 +61,20 @@ const DetailsCategory = ({ className, onPage }) => {
         label="Tell guests what makes your garment unique and why they'll love wearing
         it."
         placeholder="Try to be a detailed as possible."
+        parentRef={description}
       />
-      {/* <div className={classes.row}>
-        <FormLabelInput label="Brand name" placeholder="Nike, Adidas etc." />
-        <FormLabelInput
-          label="Garment name"
-          placeholder="Trouser snakes etc."
-        />
-      </div>
-      <div className={classes.row}>
-        <FormDropdown
-          label="Garment color"
-          options={["Red", "Orange", "Yellow", "Green", "Blue"]}
-        />
-        <FormDropdown
-          label="Garment size"
-          options={["Medium", "Small", "Large"]}
-        />
-        <FormDropdown
-          label="Garment material"
-          options={["Leather", "Suede", "Cotton", "Polyester", "Spandex"]}
-        />
-      </div> */}
+
       <div className={classes.checkBoxes}>
         <h5>Garment features (tick all that apply)</h5>
         <div className={classes.container}>
           {optionsTemp.map((op) => (
-            <FormCheckBox option={op} key={op} />
+            <FormCheckBox
+              option={op}
+              key={op}
+              name={op}
+              checked={checkedList.includes(op)}
+              onClick={() => checkHandler(op)}
+            />
           ))}
         </div>
       </div>

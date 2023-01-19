@@ -19,12 +19,12 @@ export const pants = [
   "pants7",
 ];
 export const dresses = [
-  "dresses1",
-  "dresses2",
-  "dresses3",
-  "dresses4",
-  "dresses5",
-  "dresses6",
+  "dress1",
+  "dress2",
+  "dress3",
+  "dress4",
+  "hat",
+  "dress6",
 ];
 export const shoes = [
   "shoes1",
@@ -53,3 +53,14 @@ export const sports = [
   "sport6",
 ];
 export const pajamas = ["pajama1", "pajama2", "pajama3", "pajama4"];
+
+const imageObj = {
+  shirts: shirts,
+  pants: pants,
+  dresses: dresses,
+  jackets: jackets,
+  sports: sports,
+  pajamas: pajamas,
+};
+
+export default imageObj;

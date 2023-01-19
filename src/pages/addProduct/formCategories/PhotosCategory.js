@@ -5,45 +5,42 @@ import CarouselSection from "../../../components/Carousel/CarouselSection";
 
 import Button from "../../../components/UI/Button";
 
-const activitiesArray = [
-  {
-    image: "hiking",
-    // title: "Hiking",
-  },
-  {
-    image: "dance",
-    // title: "Dancing",
-  },
-  {
-    image: "runner",
-    // title: "Running",
-  },
-  {
-    image: "coatbrown",
-    // title: "Running",
-  },
-  {
-    image: "jacketbrown",
-    // title: "Running",
-  },
-  {
-    image: "pants",
-    // title: "Running",
-  },
-  {
-    image: "shirtblue",
-    // title: "Running",
-  },
-];
+import {
+  shirts,
+  pants,
+  shoes,
+  dresses,
+  jackets,
+  sports,
+  pajamas,
+} from "../../../helpers/imageArrays";
+import imageObj from "../../../helpers/imageArrays";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const PhotosCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
+  const clothesType = useSelector((state) => state.newProduct.value.info.type);
+
   const next = () => {
     onPage(4);
   };
   const prev = () => {
     onPage(2);
   };
+  // const tilesArray = (clothesType || shirts).map((el) => {
+  //   return { image: el };
+  // });
+  // console.log(imageObj[]);
+  const tilesArray = imageObj[clothesType].map((el) => {
+    return { image: el };
+  });
+
+  // useEffect(() => {
+  //   setClothesType(selectedClothesType);
+  // }, [selectedClothesType]);
+
   return (
     <div className={classesList}>
       <h5>
@@ -55,9 +52,12 @@ const PhotosCategory = ({ className, onPage }) => {
         // title="Browse by experience"
         windows={3}
         // taller={true}
-        tiles={activitiesArray}
+
+        tiles={tilesArray}
         className={classes.carousel}
         width={650}
+        userSelect={true}
+        selected={"shirt1"}
       />
       {/* <Button text="Select" className={classes.button} /> */}
 

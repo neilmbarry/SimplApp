@@ -1,14 +1,37 @@
 import React from "react";
 import classes from "./CarouselTile.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import images from "../../helpers/imagesObj";
+import { useSelector } from "react-redux";
+import store from "../../store/store";
+import newProductActions from "../../store/newProductSlice";
 
-const CarouselTile = ({ picture, title, fraction, taller, width, product }) => {
+const CarouselTile = ({
+  picture,
+  title,
+  fraction,
+  taller,
+  width,
+  product,
+  userSelect,
+}) => {
+  const imageSelected = useSelector((state) => state.newProduct.value.image);
+  console.log(imageSelected);
+  const clickHandler = () => {
+    if (!userSelect) return;
+    store.dispatch(newProductActions.updateImage(picture));
+  };
   const tileWidth = (width || 1000) / fraction - 12;
   const style = { width: `${tileWidth}px` };
   return (
-    <div className={classes.tile} style={style}>
+    <div className={classes.tile} style={style} onClick={clickHandler}>
+      {imageSelected === picture && (
+        <div className={classes.selected}>
+          <FontAwesomeIcon icon={faCheck} />
+        </div>
+      )}
       <div className={taller ? classes.picTaller : classes.pic}>
         <img src={images[picture]} alt="" />
       </div>

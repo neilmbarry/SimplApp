@@ -1,20 +1,34 @@
 import React from "react";
 import classes from "./FormRadioButtons.module.css";
 
-const FormRadioButtons = ({ className, options, label, column }) => {
+const FormRadioButtons = ({
+  className,
+  options,
+  label,
+  selected,
+  onChange,
+}) => {
   const classesList = `${classes.main} ${className}`;
 
   const optionsArray = options.map((op, i) => {
-    if (i === 0) {
+    if (op === selected) {
       return (
-        <label className={classes.radio} key={op + i}>
+        <label
+          className={classes.radio}
+          key={op + i}
+          onClick={() => onChange(op)}
+        >
           <input name="radio" type="radio" defaultChecked />
           <span>{op}</span>
         </label>
       );
     }
     return (
-      <label className={classes.radio} key={op + i}>
+      <label
+        className={classes.radio}
+        key={op + i}
+        onClick={() => onChange(op)}
+      >
         <input name="radio" type="radio" />
         <span>{op}</span>
       </label>

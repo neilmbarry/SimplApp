@@ -3,13 +3,15 @@ import classes from "./ProductReview.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
+import images from "../../../helpers/imagesObj";
+
 const ProductReview = ({ className, review }) => {
   const classesList = `${classes.main} ${className}`;
 
   return (
     <div className={classesList}>
       <div className={classes.reviewPic}>
-        <img src={review.image} alt="" />
+        <img src={images[review.image]} alt="" />
       </div>
       <div className={classes.reviewInfo}>
         <div className={classes.reviewRating}>

@@ -55,10 +55,11 @@ export const sports = [
 export const pajamas = ["pajama1", "pajama2", "pajama3", "pajama4"];
 
 const imageObj = {
-  shirts: shirts,
+  shirt: shirts,
   pants: pants,
-  dresses: dresses,
-  jackets: jackets,
+  dress: dresses,
+  jacket: jackets,
+  shoes: shoes,
   sports: sports,
   pajamas: pajamas,
 };

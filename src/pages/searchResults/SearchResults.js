@@ -45,7 +45,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: "dressred",
+              image: "dress1",
               price: 199,
               oldPrice: 225,
             }}
@@ -55,7 +55,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Pink Sleeved Dress",
               rating: 4.98,
               trips: 68,
-              image: "dresspink",
+              image: "dress4",
               price: 159,
               oldPrice: 205,
             }}
@@ -65,7 +65,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Cream Dress",
               rating: 4.92,
               trips: 78,
-              image: "dress",
+              image: "dress2",
               price: 125,
               oldPrice: 149,
             }}
@@ -85,7 +85,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: "dressred",
+              image: "shoes3",
               price: 199,
               oldPrice: 225,
             }}
@@ -95,7 +95,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: "dresspinker",
+              image: "pants1",
               price: 199,
               oldPrice: 225,
             }}
@@ -105,7 +105,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: "blazer",
+              image: "pants4",
               price: 199,
               oldPrice: 225,
             }}
@@ -125,7 +125,7 @@ const SearchResults = ({ className }) => {
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
               trips: 238,
-              image: "shoes",
+              image: "shoes1",
               price: 199,
               oldPrice: 225,
             }}

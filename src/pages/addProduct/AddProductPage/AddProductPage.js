@@ -10,10 +10,11 @@ import DetailsCategory from "../formCategories/DetailsCategory";
 import PhotosCategory from "../formCategories/PhotosCategory";
 import PricingCategory from "../formCategories/PricingCategory";
 import Button from "../../../components/UI/Button";
+import { useSelector } from "react-redux";
 
 const AddProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
-  const [sectionOpen, setSectionOpen] = useState(null);
+  const [sectionOpen, setSectionOpen] = useState(1);
   const sectionChangeHandler = (section) => {
     if (section === sectionOpen) {
       return setSectionOpen(null);
@@ -24,6 +25,14 @@ const AddProductPage = ({ className }) => {
     e.preventDefault();
     console.log("test");
   };
+
+  const product = useSelector((state) => state.newProduct.value);
+
+  const submitHandler = () => {
+    const JsonString = JSON.stringify(product);
+    console.log(JsonString);
+  };
+
   return (
     <div className={classesList}>
       <NavBar search={false} />
@@ -67,7 +76,11 @@ const AddProductPage = ({ className }) => {
             <PricingCategory />
           </FormSection>
         </div>
-        <Button text="Submit" className={classes.button} />
+        <Button
+          text="Submit"
+          className={classes.button}
+          onClick={submitHandler}
+        />
       </div>
       <Footer></Footer>
     </div>

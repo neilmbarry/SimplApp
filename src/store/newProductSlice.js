@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   info: {
     name: null,
-    type: "shirts",
+    type: "shirt",
     size: "medium",
     brand: null,
     activity: null,
@@ -34,8 +34,11 @@ export const newProductSlice = createSlice({
     updateImage: (state, action) => {
       state.value.image = action.payload;
     },
-    updateValue: (state, action) => {
-      state.value.value = action.payload;
+    updatePrice: (state, action) => {
+      state.value.value.price = action.payload;
+    },
+    updateDiscount: (state, action) => {
+      state.value.value.discount = action.payload;
     },
     reset: (state) => {
       state.value = initialState;

@@ -3,9 +3,21 @@ import classes from "./PricingCategory.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollar } from "@fortawesome/free-solid-svg-icons";
 import FormRadioButtons from "../formComponents/FormRadioButtons";
+import { useRef } from "react";
+import { useSelector } from "react-redux";
+import store from "../../../store/store";
+import newProductActions from "../../../store/newProductSlice";
 
 const PricingCategory = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+  const discount = useSelector(
+    (state) => state.newProduct.value.value.discount
+  );
+  const updateDiscount = (selected) => {
+    console.log("updateing");
+    store.dispatch(newProductActions.updateDiscount(selected));
+  };
+  const price = useRef();
   return (
     <div className={classesList}>
       <div className={classes.priceComponent}>
@@ -18,12 +30,15 @@ const PricingCategory = ({ className }) => {
             max={999}
             min={1}
             placeholder={100}
+            ref={price}
           />
         </div>
       </div>
       <FormRadioButtons
-        options={["Early Bird", "Seniors", "Student"]}
+        options={["No discount", "Early bird", "Seniors", "Student"]}
         label="Would you like to offer a discount?"
+        selected={discount}
+        onChange={updateDiscount}
       />
     </div>
   );

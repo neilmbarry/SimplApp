@@ -8,7 +8,11 @@ const ProductReviews = ({ className, reviews, rating }) => {
   const classesList = `${classes.main} ${className}`;
   const reviewsArray = reviews.map((review) => {
     return (
-      <ProductReview key={review} review={review} className={classes.review} />
+      <ProductReview
+        key={review.image}
+        review={review}
+        className={classes.review}
+      />
     );
   });
   return (

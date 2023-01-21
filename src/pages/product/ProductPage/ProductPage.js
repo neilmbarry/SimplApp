@@ -15,7 +15,7 @@ import store from "../../../store/store";
 import configActions from "../../../store/configSlice";
 
 const productTemplate = {
-  image: "blazer",
+  image: "jacket2",
   name: "Louis Vuitton Grey Blazer",
   rating: 4.97,
   trips: 36,
@@ -43,7 +43,7 @@ const productTemplate = {
       reviewer: "Neil B.",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: "runner",
+      image: "man1",
       dateAdded: "June 20, 2022",
     },
     {
@@ -51,7 +51,7 @@ const productTemplate = {
       reviewer: "Neil B.",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: "runner",
+      image: "man2",
       dateAdded: "June 20, 2022",
     },
     {
@@ -60,7 +60,7 @@ const productTemplate = {
       dateAdded: "June 20, 2022",
       review:
         "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-      image: "runner",
+      image: "man3",
     },
   ],
   price: 729,

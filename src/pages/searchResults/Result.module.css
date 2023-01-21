@@ -19,7 +19,7 @@
 .image {
   /* width: 100%; */
   flex: 1;
-  /* max-height: 300px; */
+  max-height: 300px;
 }
 
 .main:hover {

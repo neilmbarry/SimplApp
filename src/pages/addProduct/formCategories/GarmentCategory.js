@@ -5,6 +5,8 @@ import FormCheckBox from "../formComponents/FormCheckBox";
 import FormDropdown from "../formComponents/FormDropdown";
 import Button from "../../../components/UI/Button";
 import FormRadioButtons from "../formComponents/FormRadioButtons";
+import store from "../../../store/store";
+import newProductActions from "../../../store/newProductSlice";
 
 const GarmentCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
@@ -25,6 +27,7 @@ const GarmentCategory = ({ className, onPage }) => {
       pockets: pockets.current.checked,
     };
     console.log(info);
+    store.dispatch(newProductActions.updateInfo(info));
     e.preventDefault();
     onPage(2);
   };
@@ -40,7 +43,15 @@ const GarmentCategory = ({ className, onPage }) => {
       <div className={classes.row}>
         <FormDropdown
           label="Clothing Type*"
-          options={["Shirt", "Pants", "Dress", "Shoes", "Sports"]}
+          options={[
+            "Shirt",
+            "Pants",
+            "Dress",
+            "Shoes",
+            "Sports",
+            "Pajamas",
+            "Jacket",
+          ]}
           parentRef={type}
         />
         <FormDropdown

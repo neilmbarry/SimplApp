@@ -5,6 +5,8 @@ import FormDropdown from "../formComponents/FormDropdown";
 import FormCheckBox from "../formComponents/FormCheckBox";
 import FormTextArea from "../formComponents/FormTextArea";
 import Button from "../../../components/UI/Button";
+import store from "../../../store/store";
+import newProductActions from "../../../store/newProductSlice";
 
 const optionsTemp = [
   "Buttons",
@@ -48,6 +50,8 @@ const DetailsCategory = ({ className, onPage }) => {
       features: checkedList,
     };
     console.log(details);
+
+    store.dispatch(newProductActions.updateDetails(details));
     onPage(3);
   };
   const prev = (e) => {

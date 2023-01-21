@@ -27,7 +27,7 @@ const CarouselTile = ({
   const style = { width: `${tileWidth}px` };
   return (
     <div className={classes.tile} style={style} onClick={clickHandler}>
-      {imageSelected === picture && (
+      {imageSelected === picture && userSelect && (
         <div className={classes.selected}>
           <FontAwesomeIcon icon={faCheck} />
         </div>

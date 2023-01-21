@@ -32,8 +32,8 @@ const PhotosCategory = ({ className, onPage }) => {
   // const tilesArray = (clothesType || shirts).map((el) => {
   //   return { image: el };
   // });
-  // console.log(imageObj[]);
-  const tilesArray = imageObj[clothesType].map((el) => {
+  console.log(imageObj, clothesType);
+  const tilesArray = imageObj[clothesType.toLowerCase()].map((el) => {
     return { image: el };
   });
 

@@ -18,7 +18,7 @@ const CarouselTile = ({
   userSelect,
 }) => {
   const imageSelected = useSelector((state) => state.newProduct.value.image);
-  console.log(imageSelected);
+  // console.log(imageSelected);
   const clickHandler = () => {
     if (!userSelect) return;
     store.dispatch(newProductActions.updateImage(picture));

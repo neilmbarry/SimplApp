@@ -19,16 +19,16 @@ const HostInfo = ({ className, hostInfo }) => {
       <div className={classes.hostBox}>
         <HostImage hostInfo={hostInfo} />
         <div className={classes.hostInfo}>
-          <h3>{hostInfo.name}</h3>
-          {hostInfo.allStar && (
+          <h3>{hostInfo?.name}</h3>
+          {hostInfo?.allStar && (
             <h4>
               <FontAwesomeIcon icon={faTrophy} />
               All-Star Host
             </h4>
           )}
           <h4 className={classes.bullet}>
-            {hostInfo.trips} trips <FontAwesomeIcon icon={faCircle} /> Joined{" "}
-            {hostInfo.joined}
+            {hostInfo?.trips} trips <FontAwesomeIcon icon={faCircle} /> Joined{" "}
+            {hostInfo?.joined}
           </h4>
           <h5>Typically responds in 2 minutes</h5>
         </div>

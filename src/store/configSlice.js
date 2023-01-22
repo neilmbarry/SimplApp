@@ -4,6 +4,8 @@ const initialState = {
   menuOpen: false,
   searchOpen: false,
   modal: false,
+  token: null,
+  notification: null,
 };
 
 export const configSlice = createSlice({
@@ -23,6 +25,12 @@ export const configSlice = createSlice({
     },
     setModal: (state, action) => {
       state.value.modal = action.payload;
+    },
+    setNotification: (state, action) => {
+      state.value.notification = action.payload;
+    },
+    setToken: (state, action) => {
+      state.value.token = action.payload;
     },
     setFilterModal: (state, action) => {
       state.value.filterModal = action.payload;

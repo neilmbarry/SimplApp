@@ -17,6 +17,9 @@ const PricingCategory = ({ className }) => {
     console.log("updateing");
     store.dispatch(newProductActions.updateDiscount(selected));
   };
+  const updatePrice = () => {
+    store.dispatch(newProductActions.updatePrice(price.current.value));
+  };
   const price = useRef();
   return (
     <div className={classesList}>
@@ -31,6 +34,7 @@ const PricingCategory = ({ className }) => {
             min={1}
             placeholder={100}
             ref={price}
+            onChange={updatePrice}
           />
         </div>
       </div>

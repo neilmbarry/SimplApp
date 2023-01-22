@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Neil Barry",
+    "email": "neilbarry@gmail.com",
+    "role": "admin",
+    "password": "neilneil",
+    "passwordConfirm": "neilneil"
+  },
+  {
+    "name": "Steph Barry",
+    "email": "stephbarry@gmail.com",
+    "role": "user",
+    "password": "stephsteph",
+    "passwordConfirm": "stephsteph"
+  },
+  {
+    "name": "Deborah Barry",
+    "email": "deborahbarry@gmail.com",
+    "role": "user",
+    "password": "deborahdeborah",
+    "passwordConfirm": "deborahdeborah"
+  }
+]

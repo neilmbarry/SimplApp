@@ -11,7 +11,7 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
       <div className={classes.priceBox}>
         <h3>
           <span className={classes.oldPrice}>${price}</span> US$
-          {price - discount.amount} total
+          {price - discount?.amount} total
         </h3>
         <h4>View price details</h4>
       </div>
@@ -42,10 +42,10 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
         </div>
         <div className={classes.discountBox}>
           <div className={classes.discount}>
-            <h3>{discount.type} discount</h3>
+            <h3>{discount?.type} discount</h3>
           </div>
           <div className={classes.discountValue}>
-            <h3>US${discount.amount}</h3>
+            <h3>US${discount?.amount}</h3>
           </div>
         </div>
 

@@ -8,14 +8,12 @@ const ProductDescription = ({ className, description, features }) => {
     <div className={classesList}>
       <h5>DESCRIPTION</h5>
       <br />
-      {description.bio.map((desc) => {
-        return (
-          <div key={desc}>
-            <h4>{desc}</h4>
-            <br />
-          </div>
-        );
-      })}
+      {description && (
+        <div>
+          <h4>{description}</h4>
+          <br />
+        </div>
+      )}
       <h5>DELUXE CLASS</h5>
       <br />
       <h4>

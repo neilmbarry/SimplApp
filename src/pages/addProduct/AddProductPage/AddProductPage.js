@@ -30,7 +30,7 @@ const AddProductPage = ({ className }) => {
 
   const submitHandler = () => {
     const JsonString = JSON.stringify(product);
-    console.log(JsonString);
+    console.log(JsonString, product);
   };
 
   return (

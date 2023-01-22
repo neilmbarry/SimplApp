@@ -6,7 +6,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductReviews = ({ className, reviews, rating }) => {
   const classesList = `${classes.main} ${className}`;
-  const reviewsArray = reviews.map((review) => {
+  const reviewsArray = reviews?.map((review) => {
     return (
       <ProductReview
         key={review.image}
@@ -22,7 +22,7 @@ const ProductReviews = ({ className, reviews, rating }) => {
       <div className={classes.ratingBox}>
         <h3 className={classes.larger}>{rating}</h3>
         <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-        <h4>({reviews.length} ratings)</h4>
+        <h4>({reviews?.length} ratings)</h4>
       </div>
       <br />
       <h5 className={classes.grey}>REVIEWS</h5>

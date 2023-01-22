@@ -28,26 +28,51 @@ const Menu = ({ className }) => {
   const close = () => {
     store.dispatch(configActions.toggleMenu());
   };
+  const token = useSelector((state) => state.config.value.token);
   return (
     menuOpen && (
       <div className={classesList} onClick={close}>
-        <MenuItem text="Favourites" icon={faHeart} />
-        <MenuItem text="Trips" icon={faRoad} />
-        <MenuItem text="Inbox" icon={faComment} />
-        <div className={classes.divider}></div>
-        <MenuItem text="Profile" icon={faPerson} />
-        <MenuItem text="Account" icon={faRightToBracket} />
-        <MenuItem text="Become a host" icon={faShirt} />
-        <div className={classes.divider}></div>
+        {token ? (
+          <>
+            <MenuItem text="Favourites" icon={faHeart} />
+            <MenuItem text="Trips" icon={faRoad} />
+            <MenuItem text="Inbox" icon={faComment} />
+
+            <div className={classes.divider}></div>
+          </>
+        ) : (
+          <>
+            <MenuItem
+              text="Log in / Sign up"
+              icon={faArrowRightFromBracket}
+              onClick={openLogin}
+            />
+            <div className={classes.divider}></div>
+          </>
+        )}
+        {token && (
+          <>
+            {" "}
+            <MenuItem text="Profile" icon={faPerson} />
+            <MenuItem text="Account" icon={faRightToBracket} />
+            <MenuItem text="Become a host" icon={faShirt} />
+            <div className={classes.divider}></div>
+          </>
+        )}
         <MenuItem text="How Simpl. works" icon={faKey} />
         <MenuItem text="Contact support" icon={faHeadset} />
         <MenuItem text="Legal" icon={faFileLines} />
-        <div className={classes.divider}></div>
-        <MenuItem
-          text="Log out"
-          icon={faArrowRightFromBracket}
-          onClick={openLogin}
-        />
+        {token && (
+          <>
+            {" "}
+            <div className={classes.divider}></div>
+            <MenuItem
+              text="Log out"
+              icon={faArrowRightFromBracket}
+              onClick={openLogin}
+            />
+          </>
+        )}
       </div>
     )
   );

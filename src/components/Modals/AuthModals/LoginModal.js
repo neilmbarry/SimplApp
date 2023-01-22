@@ -6,13 +6,13 @@ import classes from "./LoginModal.module.css";
 
 const LoginModal = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
-  const emailRef = useRef();
+  const usernameRef = useRef();
   const passwordRef = useRef();
   const login = () => {
-    const email = emailRef.current.value;
+    const username = usernameRef.current.value;
     const password = passwordRef.current.value;
 
-    console.log(email, password);
+    console.log(username, password);
   };
 
   const switchAuth = () => {
@@ -23,12 +23,13 @@ const LoginModal = ({ className }) => {
       <h2 className={classes.title}>Welcome back</h2>
       <form className={classes.form}>
         <div className={classes.inputElement}>
-          <label className={classes.label}>Email</label>
+          <label className={classes.label}>User name</label>
           <input
-            type="email"
+            type="text"
             className={classes.input}
-            placeholder="Email"
-            ref={emailRef}
+            placeholder="User name"
+            id="username"
+            ref={usernameRef}
           />
         </div>
         <div className={classes.inputElement}>

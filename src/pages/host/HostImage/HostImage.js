@@ -9,10 +9,10 @@ const HostImage = ({ className, hostInfo }) => {
   return (
     <div className={classesList}>
       <div className={classes.hostPicContainer}>
-        <img src={images[hostInfo.image]} alt={hostInfo.image} />
+        <img src={images[hostInfo?.image]} alt="The host" />
       </div>
       <div className={classes.hostRating}>
-        <h5>{hostInfo.rating.toFixed(1)}</h5>
+        <h5>{hostInfo?.rating?.toFixed(1)}</h5>
         <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
       </div>
     </div>

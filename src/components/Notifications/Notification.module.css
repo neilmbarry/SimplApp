@@ -1,0 +1,11 @@
+.main {
+  position: fixed;
+  bottom: 4rem;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  z-index: 900;
+  left: 50%;
+  transform: translateX(-50%);
+}

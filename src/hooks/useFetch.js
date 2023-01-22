@@ -28,7 +28,7 @@ const useFetch = ({ url }) => {
   }
 
   const postRequest = useCallback(
-    (body) => {
+    (body, token) => {
       setData(null);
       setError(null);
       setLoading(true);
@@ -37,6 +37,7 @@ const useFetch = ({ url }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       })
         .then((res) => {

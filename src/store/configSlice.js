@@ -5,6 +5,7 @@ const initialState = {
   searchOpen: false,
   modal: false,
   token: null,
+  userImage: null,
   notification: null,
 };
 
@@ -31,6 +32,9 @@ export const configSlice = createSlice({
     },
     setToken: (state, action) => {
       state.value.token = action.payload;
+    },
+    setUserImage: (state, action) => {
+      state.value.userImage = action.payload;
     },
     setFilterModal: (state, action) => {
       state.value.filterModal = action.payload;

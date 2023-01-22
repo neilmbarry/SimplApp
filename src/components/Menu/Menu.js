@@ -25,6 +25,12 @@ const Menu = ({ className }) => {
   const openLogin = () => {
     store.dispatch(configActions.setModal("signup"));
   };
+
+  const logout = () => {
+    store.dispatch(configActions.setToken(null));
+    store.dispatch(configActions.setNotification("You were logged out."));
+  };
+
   const close = () => {
     store.dispatch(configActions.toggleMenu());
   };
@@ -69,7 +75,7 @@ const Menu = ({ className }) => {
             <MenuItem
               text="Log out"
               icon={faArrowRightFromBracket}
-              onClick={openLogin}
+              onClick={logout}
             />
           </>
         )}

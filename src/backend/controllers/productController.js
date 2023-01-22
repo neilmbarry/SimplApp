@@ -59,7 +59,9 @@ exports.createProduct = async (req, res, next) => {
 exports.getProduct = async (req, res, next) => {
   try {
     const { slug } = req.params;
-    const product = await Product.findOne({ slug }).populate("reviews");
+    const product = await Product.findOne({ slug })
+      .populate("reviews")
+      .populate("host");
     if (!product) {
       return next(new AppError("Could not find Product with that ID", 404));
     }

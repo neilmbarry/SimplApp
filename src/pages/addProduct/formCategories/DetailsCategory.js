@@ -51,7 +51,7 @@ const DetailsCategory = ({ className, onPage }) => {
     };
     console.log(details);
 
-    store.dispatch(newProductActions.updateDetails(details));
+    store.dispatch(newProductActions.updateInfo(details));
     onPage(3);
   };
   const prev = (e) => {

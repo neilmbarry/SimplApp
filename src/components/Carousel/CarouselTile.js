@@ -21,7 +21,11 @@ const CarouselTile = ({
   // console.log(imageSelected);
   const clickHandler = () => {
     if (!userSelect) return;
-    store.dispatch(newProductActions.updateImage(picture));
+    store.dispatch(
+      newProductActions.updateInfo({
+        image: picture,
+      })
+    );
   };
   const tileWidth = (width || 1000) / fraction - 12;
   const style = { width: `${tileWidth}px` };

@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 
 const PhotosCategory = ({ className, onPage }) => {
   const classesList = `${classes.main} ${className}`;
-  const clothesType = useSelector((state) => state.newProduct.value.info.type);
+  const clothesType = useSelector((state) => state.newProduct.value.type);
 
   const next = () => {
     onPage(4);

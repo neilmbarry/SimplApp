@@ -11,10 +11,22 @@ import PhotosCategory from "../formCategories/PhotosCategory";
 import PricingCategory from "../formCategories/PricingCategory";
 import Button from "../../../components/UI/Button";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import store from "../../../store/store";
+import configActions from "../../../store/configSlice";
+import { useEffect } from "react";
+import useFetch from "../../../hooks/useFetch";
+import { BASE_URL } from "../../../config/configParameters";
 
 const AddProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const [sectionOpen, setSectionOpen] = useState(1);
+
+  const token = useSelector((state) => state.config.value.token);
+  const { loading, error, data, postRequest } = useFetch({
+    url: BASE_URL + "products",
+  });
+
   const sectionChangeHandler = (section) => {
     if (section === sectionOpen) {
       return setSectionOpen(null);
@@ -29,9 +41,28 @@ const AddProductPage = ({ className }) => {
   const product = useSelector((state) => state.newProduct.value);
 
   const submitHandler = () => {
-    const JsonString = JSON.stringify(product);
-    console.log(JsonString, product);
+    console.log(product);
+    const body = JSON.stringify(product);
+    postRequest(body, token);
   };
+
+  useEffect(() => {
+    if (data?.status === "success") {
+      console.log(data);
+
+      store.dispatch(configActions.setNotification("Product Added"));
+    }
+    if (error) {
+      console.warn(data);
+      store.dispatch(configActions.setNotification("Error"));
+    }
+  }, [error, data]);
+
+  if (!token) {
+    store.dispatch(configActions.setNotification("You must be logged in"));
+    store.dispatch(configActions.setModal("signup"));
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className={classesList}>
@@ -77,7 +108,7 @@ const AddProductPage = ({ className }) => {
           </FormSection>
         </div>
         <Button
-          text="Submit"
+          text={loading ? "loading" : "Submit"}
           className={classes.button}
           onClick={submitHandler}
         />

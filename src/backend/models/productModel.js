@@ -49,16 +49,18 @@ const productSchema = new mongoose.Schema(
     },
     size: {
       type: String,
-
+      required: [true, "A Product must have a size."],
       enum: {
         values: ["Extra Small", "Small", "Medium", "Large", "Extra Large"],
       },
+      default: "Medium",
     },
     activity: {
       type: String,
       enum: {
-        values: ["Extra Small", "Small", "Medium", "Large", "Extra Large"],
+        values: ["Sport", "Formal", "Casual", "Outdoors", "Winter"],
       },
+      default: "Casual",
     },
     pockets: {
       type: Boolean,
@@ -97,10 +99,9 @@ productSchema.virtual("reviews", {
 });
 
 // productSchema.pre(/^find/, async function (next) {
-//   console.log('hangin on pre find Product schema');
 //   this.populate({
-//     path: 'reviews',
-//     select: 'name rating summary createdAt -Product',
+//     path: "host",
+//     select: 'firstName lastName trips rating summary createdAt -Product',
 //   });
 //   next();
 // });

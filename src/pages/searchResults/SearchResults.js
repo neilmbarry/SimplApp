@@ -15,6 +15,9 @@ import SearchMobile from "../../components/Search/SearchMobile";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import MapFilterButton from "./MapFilterButton";
+import useFetch from "../../hooks/useFetch";
+import { BASE_URL } from "../../config/configParameters";
+import { useEffect } from "react";
 
 const SearchResults = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -24,12 +27,42 @@ const SearchResults = ({ className }) => {
   };
 
   const [showMap, setShowMap] = useState(false);
+  const [results, setResults] = useState([]);
 
   const showFilters = () => {
     store.dispatch(configActions.setModal("filter"));
   };
+  const { loading, error, data, getRequest } = useFetch({
+    url: BASE_URL + "products",
+  });
+
+  const resultsJSX = data?.products.map((res) => {
+    return (
+      <Result
+        key={res.slug}
+        info={{
+          name: res.name,
+          rating: res.rating,
+          trips: res.trips,
+          image: res.image,
+          price: res.price,
+          oldPrice: "to be changed",
+          slug: res.slug,
+          discount: res.discount,
+        }}
+      />
+    );
+  });
 
   const search = useSelector((state) => state.config.value.searchOpen);
+
+  console.log(data, loading, error);
+
+  useEffect(() => {
+    // console.log(data, error);
+    getRequest();
+    // setResults(data?.products);
+  }, []);
 
   return (
     <div className={classesList}>
@@ -40,7 +73,8 @@ const SearchResults = ({ className }) => {
         <Backdrop show={null} onClick={null} />
         <SearchMobile show={search} />
         <Results showMap={showMap}>
-          <Result
+          {resultsJSX}
+          {/* <Result
             info={{
               name: "Louis Vuitton Red Sun Dress",
               rating: 4.92,
@@ -138,8 +172,7 @@ const SearchResults = ({ className }) => {
               image: "winter",
               price: 199,
               oldPrice: 225,
-            }}
-          />
+            }} */}
         </Results>
         <Map showMap={showMap} />
         <MapFilterButton

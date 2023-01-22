@@ -10,15 +10,19 @@ import newProductActions from "../../../store/newProductSlice";
 
 const PricingCategory = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
-  const discount = useSelector(
-    (state) => state.newProduct.value.value.discount
-  );
+  const discount = useSelector((state) => state.newProduct.value.discount);
   const updateDiscount = (selected) => {
     console.log("updateing");
-    store.dispatch(newProductActions.updateDiscount(selected));
+    store.dispatch(
+      newProductActions.updateInfo({
+        discount: selected,
+      })
+    );
   };
   const updatePrice = () => {
-    store.dispatch(newProductActions.updatePrice(price.current.value));
+    store.dispatch(
+      newProductActions.updateInfo({ price: price.current.value })
+    );
   };
   const price = useRef();
   return (

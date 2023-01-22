@@ -25,3 +25,19 @@
   background-color: rgb(240, 240, 240);
   border: 1px solid rgb(225, 225, 225);
 }
+
+.userContainer {
+  border: 2px solid rgb(183, 183, 183);
+  border-radius: 500px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.userIcon {
+  font-size: 2rem;
+  color: rgb(132, 132, 132);
+}

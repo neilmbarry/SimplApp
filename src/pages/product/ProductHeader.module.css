@@ -16,3 +16,7 @@
 .trips {
   font-weight: 300;
 }
+.new {
+  font-weight: 500 !important;
+  color: #593cfa;
+}

@@ -11,34 +11,38 @@ const Result = ({ className, info }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
-      <Link to="/product">
+      <Link to={`/product/${info.slug}`}>
         <div className={classes.container}>
           <div className={classes.image}>
-            <img src={images[info.image]} alt="" />
+            <img src={images[info.image]} alt="product" />
           </div>
           <div className={classes.infoBox}>
             <h3>{info.name}</h3>
             <div className={classes.ratingBox}>
-              <h5>{info.rating}</h5>
-              <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-              <h5>({info.trips} trips)</h5>
+              {info?.trips > 0 ? (
+                <>
+                  <h5>{info.rating || "N/A"}</h5>
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <h5>({info.trips} trips)</h5>
+                </>
+              ) : (
+                <h4 className={classes.new}>New!</h4>
+              )}
             </div>
           </div>
           <div className={classes.priceBox}>
             <div className={classes.totals}>
               <h3>
-                <span className={classes.oldPrice}>
-                  {info.oldPrice && "$" + info.oldPrice}
-                </span>
-                {"  "}
-                US${info.price} total
+                {info.discount && (
+                  <span className={classes.oldPrice}>
+                    {info.price && "$" + info.price}
+                  </span>
+                )}
+                {"  "}${info.price - (info.discount ? 10 : 0)} total
               </h3>
               <h5 className={classes.details}>View price details</h5>
-              {info.oldPrice && (
-                <Savings
-                  className={classes.savings}
-                  saves={info.oldPrice - info.price}
-                />
+              {info.discount && (
+                <Savings className={classes.savings} saves={10} />
               )}
             </div>
           </div>

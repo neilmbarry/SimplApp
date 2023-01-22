@@ -29,6 +29,7 @@ const SignupModal = ({ className }) => {
       lastName: lastRef.current.value,
       username: usernameRef.current.value,
       password: passwordRef.current.value,
+      image: "man3",
     };
     postRequest(JSON.stringify(newUser));
   };
@@ -42,6 +43,7 @@ const SignupModal = ({ className }) => {
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
       store.dispatch(configActions.setToken(data.token));
+      store.dispatch(configActions.setUserImage(data.newUser.image));
     }
     if (error) {
       console.warn(data);
@@ -53,7 +55,7 @@ const SignupModal = ({ className }) => {
     <div className={classesList}>
       <h2 className={classes.title}>Let's get started</h2>
 
-      <form className={classes.form}>
+      <form className={classes.form} autoComplete="off">
         <div className={classes.namesBox}>
           <div className={classes.inputElement}>
             <label className={classes.label}>First name</label>
@@ -62,6 +64,7 @@ const SignupModal = ({ className }) => {
               className={classes.input}
               placeholder="First name"
               ref={firstRef}
+              autoComplete="nope"
             />
           </div>
           <div className={classes.inputElement}>
@@ -71,6 +74,7 @@ const SignupModal = ({ className }) => {
               className={classes.input}
               placeholder="Last name"
               ref={lastRef}
+              autoComplete="nope"
             />
           </div>
         </div>
@@ -82,6 +86,7 @@ const SignupModal = ({ className }) => {
             className={classes.input}
             placeholder="User name"
             ref={usernameRef}
+            autoComplete="nope"
           />
         </div>
         <div className={classes.inputElement}>
@@ -91,6 +96,7 @@ const SignupModal = ({ className }) => {
             className={classes.input}
             placeholder="Password"
             ref={passwordRef}
+            autoComplete="nope"
           />
         </div>
       </form>

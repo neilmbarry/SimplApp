@@ -10,8 +10,8 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
     <div className={classesList}>
       <div className={classes.priceBox}>
         <h3>
-          <span className={classes.oldPrice}>${price}</span> US$
-          {price - discount?.amount} total
+          <span className={classes.oldPrice}>${price}</span> $
+          {price - (discount ? 10 : 0)} total
         </h3>
         <h4>View price details</h4>
       </div>
@@ -30,7 +30,7 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
             <input type="time" defaultValue="10:00" />
           </div>
         </div>
-        <div className={classes.datesBox}>
+        {/* <div className={classes.datesBox}>
           <h5>Pickup & return location</h5>
           <div className={classes.inputs}>
             <select>
@@ -39,15 +39,17 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
               <option value="">Airport</option>
             </select>
           </div>
-        </div>
-        <div className={classes.discountBox}>
-          <div className={classes.discount}>
-            <h3>{discount?.type} discount</h3>
+        </div> */}
+        {discount && (
+          <div className={classes.discountBox}>
+            <div className={classes.discount}>
+              <h3>{discount} discount</h3>
+            </div>
+            <div className={classes.discountValue}>
+              <h3>$10</h3>
+            </div>
           </div>
-          <div className={classes.discountValue}>
-            <h3>US${discount?.amount}</h3>
-          </div>
-        </div>
+        )}
 
         <Button
           text="Continue"
@@ -59,16 +61,10 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
         <FontAwesomeIcon icon={faThumbsUp} />
         <div className={classes.cancellationText}>
           <h5>Free cancellation</h5>
-          <h4>Full refund before 8 Jul, 10:00 AM</h4>
+          <h4>Full refund up to 2 days before booking</h4>
         </div>
       </div>
-      <div className={classes.distanceBox}>
-        <div className={classes.distance}>
-          <h4>Distance included</h4>
-          <h4>600 mi</h4>
-        </div>
-        <h6>US$1.02/mi fee for additional miles driven</h6>
-      </div>
+
       <div className={classes.distanceBox}>
         <h6>INSURANCE & PROTECTION</h6>
         <br />

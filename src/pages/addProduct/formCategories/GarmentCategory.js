@@ -68,7 +68,7 @@ const GarmentCategory = ({ className, onPage }) => {
         />
         <FormDropdown
           label="Which activity would be best suited?"
-          options={["Small", "Medium", "Large"]}
+          options={["Casual", "Sport", "Formal", "Outdoors", "Winter"]}
           parentRef={activity}
         />
       </div>

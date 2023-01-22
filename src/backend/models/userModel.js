@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "A user must have a last name."],
     },
+    trips: {
+      type: Number,
+      default: 0,
+    },
 
     role: {
       type: String,
@@ -44,12 +48,12 @@ const userSchema = new mongoose.Schema(
         ref: "Product",
       },
     ],
-    reviews: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: "Reviews",
-      },
-    ],
+    // reviews: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: "Reviews",
+    //   },
+    // ],
     active: {
       type: Boolean,
       default: true,
@@ -73,6 +77,12 @@ userSchema.pre("save", async function (next) {
   // if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 12);
   next();
+});
+
+userSchema.virtual("reviews", {
+  ref: "Review",
+  foreignField: "User",
+  localField: "_id",
 });
 
 // userSchema.pre('save', function (next) {

@@ -14,6 +14,10 @@ import MobileConfirm from "../MobileConfirm/MobileConfirm";
 import store from "../../../store/store";
 import configActions from "../../../store/configSlice";
 import { useState } from "react";
+import { productIcons } from "../../../config/icons";
+import { useParams } from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
+import ProductInfo from "../ProductFeatures/ProductInfo";
 
 // const productTemplate? = {
 //   image: "jacket2",
@@ -75,14 +79,18 @@ const ProductPage = ({ className }) => {
     store.dispatch(configActions.setModal("checkout"));
   };
 
+  const params = useParams();
+
+  const { loading, error, data, getRequest } = useFetch({
+    url: `http://127.0.0.1:8000/api/v1/products/${params.slug}`,
+  });
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/v1/products")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setProductTemplate(data.products[0]);
-      });
-  }, []);
+    if (!data) {
+      return getRequest();
+    }
+    setProductTemplate(data.product);
+  }, [data, getRequest]);
 
   return (
     <div className={classesList}>
@@ -95,10 +103,16 @@ const ProductPage = ({ className }) => {
           trips={productTemplate?.trips}
           className={classes.header}
         />
-        <ProductFeatures
-          features={productTemplate?.features}
+        <ProductInfo product={productTemplate} className={classes.features} />
+        {/* <ProductFeatures
+          product={productTemplate}
           className={classes.features}
         />
+        <ProductFeatures
+          product={productTemplate}
+          className={classes.features}
+        /> */}
+
         <HostInfo hostInfo={productTemplate?.host} className={classes.host} />
         <ProductDescription
           description={productTemplate?.description}
@@ -120,7 +134,7 @@ const ProductPage = ({ className }) => {
 
         <MobileConfirm
           price={productTemplate?.price}
-          discount={productTemplate?.discount.amount}
+          discount={productTemplate?.discount}
           onConfirm={checkout}
         />
       </div>

@@ -8,7 +8,7 @@ const hostInfo = {
   name: "Neil",
 };
 
-const HostAdditional = ({ className }) => {
+const HostAdditional = ({ className, host }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
@@ -16,7 +16,7 @@ const HostAdditional = ({ className }) => {
         <FontAwesomeIcon icon={faAward} />
         <div className={classes.additionalText}>
           <h4>
-            All-Star Hosts like {hostInfo.name} are the top-rated and most
+            All-Star Hosts like {host?.firstName} are the top-rated and most
             experienced hosts on Simpl.
           </h4>
           <h5>Learn More</h5>
@@ -26,7 +26,7 @@ const HostAdditional = ({ className }) => {
         <FontAwesomeIcon icon={faHandSparkles} />
         <div className={classes.additionalText}>
           <h4>
-            {hostInfo.name} has completed training on enhanced cleaning and
+            {host?.firstName} has completed training on enhanced cleaning and
             desinfection practices.
           </h4>
           <h5>Learn More</h5>

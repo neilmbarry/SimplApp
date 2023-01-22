@@ -10,12 +10,18 @@ const ProductHeader = ({ className, title, rating, trips }) => {
     <div className={classesList}>
       <h2 className={classes.title}>{title}</h2>
       <div className={classes.ratingBox}>
-        <h3 className={classes.rating}>{rating}</h3>
-        <FontAwesomeIcon
-          icon={faStar}
-          className={classes.star}
-        ></FontAwesomeIcon>
-        <h4 className={classes.trips}>({trips} trips)</h4>
+        {trips > 0 ? (
+          <>
+            <h3 className={classes.rating}>{rating || "N/A"}</h3>
+            <FontAwesomeIcon
+              icon={faStar}
+              className={classes.star}
+            ></FontAwesomeIcon>
+            <h4 className={classes.trips}>({trips} trips)</h4>
+          </>
+        ) : (
+          <h4 className={classes.new}>New!</h4>
+        )}
       </div>
     </div>
   );

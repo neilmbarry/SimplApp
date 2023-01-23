@@ -18,66 +18,13 @@ import { productIcons } from "../../../config/icons";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import ProductInfo from "../ProductFeatures/ProductInfo";
-
-// const productTemplate? = {
-//   image: "jacket2",
-//   name: "Louis Vuitton Grey Blazer",
-//   rating: 4.97,
-//   trips: 36,
-//   features: ["Re-chargeable", "4 pockets", "1 seat"],
-//   // host: {
-//   //   name: "Neil B.",
-//   //   joined: "Sept 2013",
-//   //   rating: 5,
-//   //   trips: 258,
-//   //   allStar: true,
-//   //   trained: true,
-//   //   image: "runner",
-//   // },
-//   description:
-//     "*FREE SUPERCHARGING AT ANY TESLA SUPERCHARGERS*    This is one of the very rare Tesla on here that offer you guys free supercharging.*Corona virus update - all cars will be sterilized with 30 min. before and after each rental!",
-//   // reviews: [
-//   //   {
-//   //     rating: 5,
-//   //     reviewer: "Neil B.",
-//   //     review:
-//   //       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-//   //     image: "man1",
-//   //     dateAdded: "June 20, 2022",
-//   //   },
-//   //   {
-//   //     rating: 5,
-//   //     reviewer: "Neil B.",
-//   //     review:
-//   //       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-//   //     image: "man2",
-//   //     dateAdded: "June 20, 2022",
-//   //   },
-//   //   {
-//   //     rating: 5,
-//   //     reviewer: "Neil B.",
-//   //     dateAdded: "June 20, 2022",
-//   //     review:
-//   //       "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-//   //     image: "man3",
-//   //   },
-//   // ],
-//   reviews: [],
-//   price: 729,
-//   discount: {
-//     type: "3+ day",
-//     amount: 19,
-//   },
-// };
+import { useSelector } from "react-redux";
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
 
-  const [productTemplate, setProductTemplate] = useState(null);
-
-  const checkout = () => {
-    store.dispatch(configActions.setModal("checkout"));
-  };
+  const product = useSelector((state) => state.config.value.currentProduct);
+  const token = useSelector((state) => state.config.value.token);
 
   const params = useParams();
 
@@ -85,56 +32,67 @@ const ProductPage = ({ className }) => {
     url: `http://127.0.0.1:8000/api/v1/products/${params.slug}`,
   });
 
+  const checkout = () => {
+    if (!token) {
+      return store.dispatch(configActions.setModal("signup"));
+    }
+
+    store.dispatch(configActions.setModal("checkout"));
+  };
+
+  console.log(product);
+
   useEffect(() => {
     if (!data) {
       return getRequest();
     }
-    setProductTemplate(data.product);
+    // setProduct(data.product);
+    store.dispatch(configActions.setCurrentProduct(data.product));
   }, [data, getRequest]);
 
   return (
     <div className={classesList}>
       <NavBar search={true} />
-      <ProductImages image={productTemplate?.image} />
+      <ProductImages image={product?.image} />
       <div className={classes.pageContent}>
         <ProductHeader
-          title={productTemplate?.name}
-          rating={productTemplate?.rating}
-          trips={productTemplate?.trips}
+          title={product?.name}
+          rating={product?.ratingsAverage}
+          trips={product?.reviews.length}
           className={classes.header}
         />
-        <ProductInfo product={productTemplate} className={classes.features} />
+        <ProductInfo product={product} className={classes.features} />
         {/* <ProductFeatures
-          product={productTemplate}
+          product={product}
           className={classes.features}
         />
         <ProductFeatures
-          product={productTemplate}
+          product={product}
           className={classes.features}
         /> */}
 
-        <HostInfo hostInfo={productTemplate?.host} className={classes.host} />
+        <HostInfo hostInfo={product?.host} className={classes.host} />
         <ProductDescription
-          description={productTemplate?.description}
-          features={productTemplate?.features}
+          description={product?.description}
+          features={product?.features}
           className={classes.description}
         />
         <ProductReviews
-          reviews={productTemplate?.reviews}
-          rating={productTemplate?.rating}
+          reviews={product?.reviews}
+          rating={product?.ratingsAverage}
           className={classes.reviews}
         />
 
         <BookingColumn
-          price={productTemplate?.price}
-          discount={productTemplate?.discount}
+          price={product?.price}
+          discount={product?.discount}
           className={classes.booking}
           onConfirm={checkout}
         />
 
         <MobileConfirm
-          price={productTemplate?.price}
-          discount={productTemplate?.discount}
+          price={product?.price}
+          discount={product?.discount}
           onConfirm={checkout}
         />
       </div>

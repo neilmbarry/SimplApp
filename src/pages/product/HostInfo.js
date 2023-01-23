@@ -10,9 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import HostImage from "../host/HostImage/HostImage";
 import HostAdditional from "../host/HostAdditional/HostAdditional";
+import { dateFormat } from "../../helpers/dateFormat";
 
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
+  console.log(hostInfo);
   return (
     <div className={classesList}>
       <h5 className={classes.title}>HOSTED BY</h5>
@@ -27,8 +29,9 @@ const HostInfo = ({ className, hostInfo }) => {
             </h4>
           )}
           <h4 className={classes.bullet}>
-            {hostInfo?.trips} trips <FontAwesomeIcon icon={faCircle} /> Joined{" "}
-            {hostInfo?.joined}
+            {hostInfo?.reviews?.length} trips{" "}
+            <FontAwesomeIcon icon={faCircle} /> Joined{" "}
+            {dateFormat(hostInfo?.joined)}
           </h4>
           <h5>Typically responds in 2 minutes</h5>
         </div>

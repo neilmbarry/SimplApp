@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const Cocktail = require("./productModel");
+const Product = require("./productModel");
+const User = require("./userModel");
 
 const reviewSchema = mongoose.Schema({
   rating: {
@@ -31,42 +32,80 @@ const reviewSchema = mongoose.Schema({
 });
 
 reviewSchema.pre(/^find/, async function (next) {
+  console.log("PREFINDING REVIEW");
   this.populate({
     path: "user",
-    select: "name",
+    select: "firstName lastName image",
   });
   next();
 });
 
-reviewSchema.statics.calcAverages = async function (cocktailId) {
-  const stats = await this.aggregate([
-    {
-      $match: { cocktail: cocktailId },
-    },
-    {
-      $group: {
-        _id: "$cocktail",
-        ratingsQuantity: { $sum: 1 },
-        ratingsAverage: { $avg: "$rating" },
+reviewSchema.statics.calcAverages = async function (itemId) {
+  try {
+    const stats = await this.aggregate([
+      {
+        $match: { product: itemId },
       },
-    },
-  ]);
+      {
+        $group: {
+          _id: "$product",
+          ratingsQuantity: { $sum: 1 },
+          ratingsAverage: { $avg: "$rating" },
+        },
+      },
+    ]);
 
-  if (stats) {
-    await Cocktail.findByIdAndUpdate(cocktailId, {
-      ratingsQuantity: stats[0].ratingsQuantity,
-      ratingsAverage: stats[0].ratingsAverage,
-    });
-  } else {
-    await Cocktail.findByIdAndUpdate(cocktailId, {
-      ratingsQuantity: 0,
-      ratingsAverage: 0,
-    });
+    console.log("STATS2?11111?", stats);
+
+    if (stats) {
+      await Product.findByIdAndUpdate(itemId, {
+        ratingsQuantity: stats[0]?.ratingsQuantity,
+        ratingsAverage: stats[0]?.ratingsAverage,
+      });
+    } else {
+      await Product.findByIdAndUpdate(itemId, {
+        ratingsQuantity: 0,
+        ratingsAverage: 0,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  try {
+    const stats2 = await this.aggregate([
+      {
+        $match: { host: itemId },
+      },
+      {
+        $group: {
+          _id: "$user",
+          ratingsQuantity: { $sum: 1 },
+          ratingsAverage: { $avg: "$rating" },
+        },
+      },
+    ]);
+
+    console.log('STATS2??"?', stats2);
+
+    if (stats2) {
+      await User.findByIdAndUpdate(itemId, {
+        ratingsQuantity: stats2[0]?.ratingsQuantity,
+        ratingsAverage: stats2[0]?.ratingsAverage,
+      });
+    } else {
+      await User.findByIdAndUpdate(itemId, {
+        ratingsQuantity: 0,
+        ratingsAverage: 0,
+      });
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
 
 reviewSchema.post("save", function () {
-  this.constructor.calcAverages(this.cocktail);
+  this.constructor.calcAverages(this.product);
+  this.constructor.calcAverages(this.host);
 });
 
 const Review = mongoose.model("Review", reviewSchema);

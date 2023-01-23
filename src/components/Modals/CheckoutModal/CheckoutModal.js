@@ -1,32 +1,115 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../UI/Button";
 import classes from "./CheckoutModal.module.css";
+import HostImage from "../../../pages/host/HostImage/HostImage";
+import ReviewStarContainer from "../../UI/RatingStars/ReviewStarContainer";
+import FormTextArea from "../../../pages/addProduct/formComponents/FormTextArea";
+import { useSelector } from "react-redux";
+import useFetch from "../../../hooks/useFetch";
+import { BASE_URL } from "../../../config/configParameters";
+import store from "../../../store/store";
+import configActions from "../../../store/configSlice";
 
 const CheckoutModal = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+  const hostReviewRef = useRef();
+  const productReviewRef = useRef();
+  const [hostRating, setHostRating] = useState();
+  const [productRating, setProductRating] = useState();
+
+  const token = useSelector((state) => state.config.value.token);
+  const product = useSelector((state) => state.config.value.currentProduct);
+
+  const { loading, error, data, postRequest } = useFetch({
+    url: BASE_URL + "reviews",
+  });
+
+  const submitReviews = () => {
+    const hostReview = {
+      rating: hostRating,
+      summary: hostReviewRef.current.value,
+      hostId: product.host.id,
+    };
+    const productReview = {
+      rating: productRating,
+      summary: productReviewRef.current.value,
+      productId: product.id,
+    };
+    console.log(hostReview, productReview);
+    const body = JSON.stringify(productReview);
+    const hostBody = JSON.stringify(hostReview);
+    postRequest(body, token);
+    postRequest(hostBody, token);
+  };
+
+  useEffect(() => {
+    if (data?.status === "success") {
+      console.log(data);
+      store.dispatch(configActions.setModal(null));
+      store.dispatch(configActions.setNotification("Success"));
+      store.dispatch(configActions.setToken(data.token));
+      store.dispatch(configActions.setUserImage(data.image));
+    }
+    if (error) {
+      console.warn(data);
+      store.dispatch(configActions.setNotification("Error"));
+    }
+  }, [error, data]);
+
   return (
     <div className={classesList}>
-      <h2 className={classes.title}>How was your experience?</h2>
+      <h2 className={classes.title}>Review your experience</h2>
       <form className={classes.form}>
         <div className={classes.inputElement}>
-          <label className={classes.label}>Email</label>
-          <input type="email" className={classes.input} placeholder="Email" />
+          <div className={classes.reviewContainer}>
+            <div className={classes.infoContainer}>
+              <h3 className={classes.label}>
+                {product?.host.firstName} {product?.host.lastName[0]}.
+              </h3>
+              <HostImage hostInfo={product.host} />
+            </div>
+            <div className={classes.ratingBox}>
+              <ReviewStarContainer
+                onClick={(rating) => setHostRating(rating)}
+              />
+              <FormTextArea
+                className={classes.textArea}
+                placeholder="Enter a short review of your host"
+                parentRef={hostReviewRef}
+              />
+            </div>
+          </div>
         </div>
         <div className={classes.inputElement}>
-          <label className={classes.label}>Password</label>
-          <input
-            type="password"
-            className={classes.input}
-            placeholder="Password"
-          />
+          <div className={classes.reviewContainer}>
+            <div className={classes.infoContainer}>
+              <h3 className={classes.label}>{product.name}</h3>
+              <HostImage
+                hostInfo={{
+                  image: product.image,
+                  ratingsAverage: product.ratingsAverage,
+                }}
+              />
+            </div>
+            <div className={classes.ratingBox}>
+              <ReviewStarContainer
+                onClick={(rating) => setProductRating(rating)}
+              />
+              <FormTextArea
+                className={classes.textArea}
+                placeholder="Enter a short review of the product"
+                parentRef={productReviewRef}
+              />
+            </div>
+          </div>
         </div>
       </form>
 
-      <Button text="Submit" onClick={null} />
-      <div className={classes.switchBox}>
+      <Button text="Submit" onClick={submitReviews} />
+      {/* <div className={classes.switchBox}>
         <h5>Too much trouble?</h5>
         <Button alt={true} text="Skip" onClick={null} />
-      </div>
+      </div> */}
     </div>
   );
 };

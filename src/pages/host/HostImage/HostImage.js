@@ -12,9 +12,9 @@ const HostImage = ({ className, hostInfo }) => {
         <img src={images[hostInfo?.image]} alt="The host" />
       </div>
       <div className={classes.hostRating}>
-        {hostInfo?.rating ? (
+        {hostInfo?.ratingsAverage ? (
           <>
-            <h5>{hostInfo?.rating?.toFixed(1)}</h5>
+            <h5>{hostInfo?.ratingsAverage.toFixed(1)}</h5>
             <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
           </>
         ) : (

@@ -1,5 +1,5 @@
-const Review = require('../models/reviewModel');
-const AppError = require('../utils/appError');
+const Review = require("../models/reviewModel");
+const AppError = require("../utils/appError");
 
 exports.getAllReviews = async (req, res, next) => {
   try {
@@ -10,7 +10,7 @@ exports.getAllReviews = async (req, res, next) => {
     const reviews = await Review.find(filter);
 
     res.status(200).json({
-      status: 'success',
+      status: "success",
       results: reviews.length,
       requestedAt: req.requestedAt,
       reviews,
@@ -25,11 +25,12 @@ exports.createReview = async (req, res, next) => {
       rating: req.body.rating,
       summary: req.body.summary,
       user: req.user.id,
-      cocktail: req.params.cocktailId || req.body.cocktailId,
+      product: req.params.productId || req.body.productId || null,
+      host: req.params.hostId || req.body.hostId || null,
     };
     await Review.create(newReview);
     res.status(200).json({
-      status: 'success',
+      status: "success",
       newReview,
     });
   } catch (err) {
@@ -39,14 +40,14 @@ exports.createReview = async (req, res, next) => {
 exports.getReview = async (req, res, next) => {
   try {
     const reviewId = req.params.id;
-    const review = await Review.findById(reviewId);
+    const review = await Review.findById(reviewId).populate("user");
 
     if (!review) {
-      return next(new AppError('No review associated with that ID.', 404));
+      return next(new AppError("No review associated with that ID.", 404));
     }
 
     res.status(200).json({
-      status: 'success',
+      status: "success",
       review,
     });
   } catch (err) {
@@ -61,14 +62,14 @@ exports.updateReview = async (req, res, next) => {
     });
 
     if (!review) {
-      return next(new AppError('No review associated with that ID.', 404));
+      return next(new AppError("No review associated with that ID.", 404));
     }
 
     await review.save();
 
     res.status(200).json({
-      status: 'success',
-      message: 'Review Updated!',
+      status: "success",
+      message: "Review Updated!",
     });
   } catch (err) {
     return next(err);
@@ -78,10 +79,10 @@ exports.deleteReview = async (req, res, next) => {
   try {
     const review = await Review.findByIdAndDelete(req.params.id);
     if (!review) {
-      return next(new AppError('Could not find review with this id.', 404));
+      return next(new AppError("Could not find review with this id.", 404));
     }
     res.status(204).json({
-      status: 'success',
+      status: "success",
     });
   } catch (err) {
     return next(err);

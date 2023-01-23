@@ -38,6 +38,8 @@ router.route("/toggleFave").patch(toggleFave);
 
 router.route("/getFaves").get(getFaves);
 
+router.route("/:id").patch(updateUser);
+
 // Must be ADMIN to access routes below
 router.use(restrictTo("admin"));
 

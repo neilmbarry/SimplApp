@@ -20,7 +20,7 @@ router.route("/").get(getAllProducts).post(protect, createProduct);
 router
   .route("/:slug")
   .get(getProduct)
-  .patch(protect, restrictTo("admin", "author"), updateProduct)
+  .patch(protect, updateProduct)
   .delete(protect, restrictTo("admin", "author"), deleteProduct);
 
 module.exports = router;

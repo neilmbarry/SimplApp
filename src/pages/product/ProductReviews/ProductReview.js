@@ -2,8 +2,10 @@ import React from "react";
 import classes from "./ProductReview.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { dateFormat } from "../../../helpers/dateFormat";
 
 import images from "../../../helpers/imagesObj";
+import StarsContainer from "./StarsContainer";
 
 const ProductReview = ({ className, review }) => {
   const classesList = `${classes.main} ${className}`;
@@ -11,24 +13,22 @@ const ProductReview = ({ className, review }) => {
   return (
     <div className={classesList}>
       <div className={classes.reviewPic}>
-        <img src={images[review.image]} alt="" />
+        <img src={images[review.user.image || "man1"]} alt="user" />
       </div>
       <div className={classes.reviewInfo}>
-        <div className={classes.reviewRating}>
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-        </div>
+        <StarsContainer rating={review.rating} />
+
         <div className={classes.reviewName}>
           <h6>
-            {review.reviewer} -{" "}
-            <span className={classes.grey}> {review.dateAdded}</span>
+            {review.user.firstName || "Anon."} -{" "}
+            <span className={classes.grey}>
+              {" "}
+              {dateFormat(review.createdAt)}
+            </span>
           </h6>
         </div>
         <div className={classes.reviewText}>
-          <h5>{review.review}</h5>
+          <h5>{review.summary}</h5>
         </div>
       </div>
     </div>

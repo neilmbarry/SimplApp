@@ -6,7 +6,7 @@ import imageObj from "../../helpers/imageArrays";
 
 const ProductImages = ({ className, image }) => {
   const classesList = `${classes.main} ${className}`;
-  console.log(imageObj, image);
+  
   return (
     <div className={classesList}>
       <img src={imagesObj[image]} alt="images[0]" />

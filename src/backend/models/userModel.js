@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema(
         ref: "Product",
       },
     ],
+    joined: {
+      type: Date,
+      default: Date.now(),
+    },
     // reviews: [
     //   {
     //     type: mongoose.Schema.ObjectId,
@@ -81,10 +85,17 @@ userSchema.pre("save", async function (next) {
 
 userSchema.virtual("reviews", {
   ref: "Review",
-  foreignField: "User",
+  foreignField: "host",
   localField: "_id",
 });
 
+// userSchema.pre(/^find/, async function (next) {
+//   this.populate({
+//     path: "host",
+//     select: "firstName lastName trips rating summary createdAt -Product",
+//   });
+//   next();
+// });
 // userSchema.pre('save', function (next) {
 //   if (!this.isModified('password') || this.isNew) return next();
 //   this.passwordChangedAt = Date.now();

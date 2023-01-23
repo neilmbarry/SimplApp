@@ -12,12 +12,12 @@ const ProductHeader = ({ className, title, rating, trips }) => {
       <div className={classes.ratingBox}>
         {trips > 0 ? (
           <>
-            <h3 className={classes.rating}>{rating || "N/A"}</h3>
+            <h3 className={classes.rating}>{rating?.toFixed(1) || "N/A"}</h3>
             <FontAwesomeIcon
               icon={faStar}
               className={classes.star}
             ></FontAwesomeIcon>
-            <h4 className={classes.trips}>({trips} trips)</h4>
+            <h4 className={classes.trips}>( {trips} trips )</h4>
           </>
         ) : (
           <h4 className={classes.new}>New!</h4>

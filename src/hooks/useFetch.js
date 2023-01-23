@@ -28,13 +28,13 @@ const useFetch = ({ url }) => {
   }
 
   const postRequest = useCallback(
-    (body, token) => {
+    (body, token, method) => {
       setData(null);
       setError(null);
       setLoading(true);
       fetch(url, {
         body,
-        method: "POST",
+        method: method || "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

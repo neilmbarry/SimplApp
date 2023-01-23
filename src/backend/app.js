@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const productRouter = require("./routes/productRoutes");
 const userRouter = require("./routes/userRoutes");
-// const reviewRouter = require('./routes/reviewRoutes');
+const reviewRouter = require("./routes/reviewRoutes");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 
@@ -40,7 +40,7 @@ app.use("/api/v1/users", userRouter);
 //   next();
 // });
 
-// app.use('/api/v1/reviews', reviewRouter);
+app.use("/api/v1/reviews", reviewRouter);
 
 app.all("*", (req, res, next) => {
   const error = new AppError(

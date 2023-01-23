@@ -28,6 +28,8 @@ const iconsArray = [
 ];
 
 const ProductInfo = ({ className, product }) => {
+  if (!product) return <></>;
+
   const classesList = `${classes.main} ${className}`;
   const randomIconIndex = () => {
     return Math.floor(Math.random() * iconsArray.length);

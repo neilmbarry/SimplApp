@@ -17,7 +17,7 @@ exports.getAllUsers = async (req, res, next) => {
 exports.getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("reviews");
     if (!user) return next(new AppError("No user with that ID", 404));
     res.status(200).json({
       status: "success",
@@ -44,11 +44,14 @@ exports.createUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
   try {
+    console.log(req.body, "REQ BODY");
     const userId = req.params.id || req.user.id;
-    await User.findByIdAndUpdate(userId, req.body);
+    const user = await User.findByIdAndUpdate(userId, req.body);
+    if (!user) return next(new AppError("No user with that ID", 404));
     res.status(200).json({
       status: "success",
       message: "User updated!",
+      user,
     });
   } catch (err) {
     return next(err);

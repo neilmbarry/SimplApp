@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Feature = ({ className, feature, icon }) => {
   const classesList = `${classes.main} ${className}`;
+  // console.log(icon);
   return (
     <div className={classesList}>
       <FontAwesomeIcon icon={icon} className={classes.icon}></FontAwesomeIcon>

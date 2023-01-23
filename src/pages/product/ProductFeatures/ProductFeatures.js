@@ -32,7 +32,7 @@ const ProductFeatures = ({ className, features }) => {
   const randomIconIndex = () => {
     return Math.floor(Math.random() * iconsArray.length);
   };
-  console.log(features);
+
   // console.log(randomIconIndex());
   const featuresArray = features?.map((feat) => {
     return (

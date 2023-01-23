@@ -7,6 +7,7 @@ const initialState = {
   token: null,
   userImage: null,
   notification: null,
+  currentProduct: null,
 };
 
 export const configSlice = createSlice({
@@ -41,6 +42,9 @@ export const configSlice = createSlice({
     },
     closeFilterModal: (state) => {
       state.value.filterModal = false;
+    },
+    setCurrentProduct: (state, action) => {
+      state.value.currentProduct = action.payload;
     },
   },
 });

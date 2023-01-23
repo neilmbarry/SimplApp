@@ -4,7 +4,7 @@ import ProductFeatures from "./ProductFeatures/ProductFeatures";
 
 const ProductDescription = ({ className, description, features }) => {
   const classesList = `${classes.main} ${className}`;
-  console.log(features, "FEATURES IN PROD DESC");
+
   return (
     <div className={classesList}>
       <h5>DESCRIPTION</h5>

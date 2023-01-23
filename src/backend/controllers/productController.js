@@ -61,7 +61,10 @@ exports.getProduct = async (req, res, next) => {
     const { slug } = req.params;
     const product = await Product.findOne({ slug })
       .populate("reviews")
-      .populate("host");
+      .populate({
+        path: "host",
+        // select: "firstName lastName image reviews ratingsAverage",
+      });
     if (!product) {
       return next(new AppError("Could not find Product with that ID", 404));
     }

@@ -7,6 +7,7 @@ import classes from "./SignupModal.module.css";
 
 import useFetch from "../../../hooks/useFetch";
 import { useEffect } from "react";
+import { BASE_URL } from "../../../config/configParameters";
 
 const SignupModal = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -15,8 +16,10 @@ const SignupModal = ({ className }) => {
   const usernameRef = useRef();
   const passwordRef = useRef();
 
+  console.log(BASE_URL + "users/signup");
+
   const { data, loading, error, postRequest } = useFetch({
-    url: "http://127.0.0.1:8000/api/v1/users/signup",
+    url: BASE_URL + "users/signup",
   });
 
   if (error) {

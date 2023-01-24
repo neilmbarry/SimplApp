@@ -20,6 +20,7 @@ const CarouselSection = ({
   className,
   width,
   userSelect,
+  onClick,
 }) => {
   const [slide, setSlide] = useState(
     tiles?.length || hosts?.length || slides?.length
@@ -88,7 +89,10 @@ const CarouselSection = ({
   );
 
   return (
-    <div className={`${classes.sectionContainer} ${className}`}>
+    <div
+      className={`${classes.sectionContainer} ${className}`}
+      onClick={onClick}
+    >
       <div
         className={`${classes.windowContainer}`}
         style={{ width: width + "px" }}

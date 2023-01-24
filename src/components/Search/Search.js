@@ -29,8 +29,8 @@ const Search = () => {
           </div>
         </div>
 
-        <div className={classes.formItem}>
-          <Link to="/search">
+        <Link to="/search" className={classes.formItem}>
+          <div>
             <svg
               width="24px"
               height="24px"
@@ -47,8 +47,8 @@ const Search = () => {
                 fill="#121214"
               ></path>
             </svg>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <Link to="/search">
           <Button
             className={classes.formButton}

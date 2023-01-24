@@ -12,6 +12,7 @@ import Travelogue from "../../../components/Travelogue/Travelogue";
 import FinalSection from "../../../components/FinalSection/FinalSection";
 import Footer from "../../../components/Footer/Footer";
 import Backdrop from "../../../components/UI/Backdrop/Backdrop";
+import { useNavigate } from "react-router-dom";
 
 const typeArray = [
   {
@@ -200,16 +201,30 @@ const slidesArray = [
 
 const FrontPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+
+  const navigate = useNavigate();
+
+  const navTo = () => {
+    console.log("navigating");
+    navigate("/search");
+  };
+
   return (
     <>
       <Backdrop />
       <NavBar />
       <Landing />
-      <CarouselSection title="Browse by type" windows={5} tiles={typeArray} />
+      <CarouselSection
+        title="Browse by type"
+        windows={5}
+        tiles={typeArray}
+        onClick={navTo}
+      />
       <CarouselSection
         windows={1}
         slides={slidesArray}
         className={classes.largerScreen}
+        onClick={navTo}
       />
       <CarouselSlide
         className={classes.smallerScreen}
@@ -224,6 +239,7 @@ const FrontPage = ({ className }) => {
         title="Browse by brand"
         windows={6}
         tiles={brandsArray}
+        onClick={navTo}
       />
 
       <SubtitleSection
@@ -238,12 +254,14 @@ const FrontPage = ({ className }) => {
         windows={3}
         taller={true}
         tiles={activitiesArray}
+        onClick={navTo}
       />
       <SubtitleSection main="Meet the hosts" />
       <CarouselSection
         title="Top hosts on Simpl."
         windows={3}
         hosts={hostsArray}
+        onClick={navTo}
       />
       <FinalSection />
       <Footer />

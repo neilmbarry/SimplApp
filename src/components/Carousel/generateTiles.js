@@ -55,7 +55,7 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   if (!hosts) return;
   const tileComponents = hosts?.map((host, i) => {
     return (
-      <Link to="/host" key={host.host.name}>
+      <Link to="/search" key={host.host.name}>
         <HostTile
           info={host.host}
           review={host.review}
@@ -67,24 +67,28 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   });
   const tileComponentsDuplicate = hosts?.map((host, i) => {
     return (
-      <HostTile
-        info={host.host}
-        review={host.review}
-        key={host.host.name + "dupe"}
-        fraction={windows}
-        width={width}
-      />
+      <Link to="/search" key={host.host.name}>
+        <HostTile
+          info={host.host}
+          review={host.review}
+          key={host.host.name + "dupe"}
+          fraction={windows}
+          width={width}
+        />
+      </Link>
     );
   });
   const tileComponentsBefore = hosts?.map((host, i) => {
     return (
-      <HostTile
-        info={host.host}
-        review={host.review}
-        key={host.host.name + "before"}
-        fraction={windows}
-        width={width}
-      />
+      <Link to="/search" key={host.host.name}>
+        <HostTile
+          info={host.host}
+          review={host.review}
+          key={host.host.name + "before"}
+          fraction={windows}
+          width={width}
+        />
+      </Link>
     );
   });
   return [

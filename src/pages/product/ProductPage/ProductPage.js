@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import ProductInfo from "../ProductFeatures/ProductInfo";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../../../config/configParameters";
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -29,7 +30,7 @@ const ProductPage = ({ className }) => {
   const params = useParams();
 
   const { loading, error, data, getRequest } = useFetch({
-    url: `http://127.0.0.1:8000/api/v1/products/${params.slug}`,
+    url: `${BASE_URL}products/${params.slug}`,
   });
 
   const checkout = () => {

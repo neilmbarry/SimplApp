@@ -5,6 +5,7 @@ import Button from "../../UI/Button";
 import classes from "./LoginModal.module.css";
 import useFetch from "../../../hooks/useFetch";
 import { useEffect } from "react";
+import { BASE_URL } from "../../../config/configParameters";
 
 const LoginModal = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -12,7 +13,7 @@ const LoginModal = ({ className }) => {
   const passwordRef = useRef();
 
   const { loading, error, data, postRequest } = useFetch({
-    url: "http://127.0.0.1:8000/api/v1/users/login",
+    url: BASE_URL + "users/login",
   });
 
   const login = () => {

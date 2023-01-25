@@ -8,6 +8,10 @@ const initialState = {
   userImage: null,
   notification: null,
   currentProduct: null,
+  typeOptions: [],
+  brandOptions: [],
+  activityOptions: [],
+  sizeOptions: [],
 };
 
 export const configSlice = createSlice({
@@ -45,6 +49,9 @@ export const configSlice = createSlice({
     },
     setCurrentProduct: (state, action) => {
       state.value.currentProduct = action.payload;
+    },
+    updateQuery: (state, action) => {
+      state.value = { ...state.value, ...action.payload };
     },
   },
 });

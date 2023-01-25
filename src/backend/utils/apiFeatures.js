@@ -6,34 +6,37 @@ module.exports = class APIFeatures {
 
   filter() {
     const queryObj = { ...this.queryString };
-    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+
+    const excludedFields = ["page", "sort", "limit", "fields"];
     excludedFields.forEach((el) => delete queryObj[el]);
 
-    // 1B. Advanced filtering
-    // console.log(queryObj);
-    // console.log(queryObj.nameSearch, '<<<<<<<<<<<<,');
-
-    // queryObj.name = { $regex: '^M', $options: 'i' };
-
-    if (queryObj.nameSearch) {
-      queryObj.name = { $regex: `.*${queryObj.nameSearch}.*`, $options: 'i' };
+    if (queryObj.name) {
+      queryObj.name = { $regex: `.*${queryObj.name}.*`, $options: "i" };
     }
 
-    if (queryObj.idArray) {
-      // ['4jkhesrhfleirf','asdjhfaksdjf']
-      queryObj.idArray.forEach((id, i) => {
-        queryObj[`remove${i}_id`] = id;
-      });
+    if (queryObj.size) {
+      const sizes = queryObj.size.split(",");
+      queryObj.size = { $in: sizes };
     }
-
-    // console.log(queryObj);
+    if (queryObj.brand) {
+      const brands = queryObj.brand.split(",");
+      queryObj.brand = { $in: brands };
+    }
+    if (queryObj.type) {
+      const types = queryObj.type.split(",");
+      queryObj.type = { $in: types };
+    }
+    if (queryObj.activity) {
+      const activities = queryObj.activity.split(",");
+      queryObj.activity = { $in: activities };
+    }
 
     let queryString = JSON.stringify(queryObj);
 
-    queryString = queryString.replace(
-      /\b(gte|gt|lte|lt)\b/g,
-      (match) => `$${match}`
-    );
+    // queryString = queryString.replace(
+    //   /\b(gte|gt|lte|lt)\b/g,
+    //   (match) => `$${match}`
+    // );
 
     this.query = this.query.find(JSON.parse(queryString));
     return this;
@@ -42,24 +45,36 @@ module.exports = class APIFeatures {
   sort() {
     if (this.queryString.sort) {
       const sortBy = this.queryString.sort;
-      if (sortBy === 'rating') {
-        this.query = this.query.sort('-ratingsAverage -ratingsQuantity');
+      if (sortBy === "rating") {
+        this.query = this.query.sort("-ratingsAverage -ratingsQuantity");
       }
-      if (sortBy === 'newest') {
-        this.query = this.query.sort('-createdAt');
+      if (sortBy === "-rating") {
+        this.query = this.query.sort("ratingsAverage ratingsQuantity");
+      }
+      if (sortBy === "newest") {
+        this.query = this.query.sort("-createdAt");
+      }
+      if (sortBy === "-newest") {
+        this.query = this.query.sort("createdAt");
+      }
+      if (sortBy === "-price") {
+        this.query = this.query.sort("price");
+      }
+      if (sortBy === "price") {
+        this.query = this.query.sort("-price");
       }
     } else {
-      this.query = this.query.sort('name');
+      this.query = this.query.sort("name");
     }
     return this;
   }
 
   limitFields() {
     if (this.queryString.fields) {
-      const fields = this.queryString.fields.split(',').join(' ');
+      const fields = this.queryString.fields.split(",").join(" ");
       this.query = this.query.select(fields);
     } else {
-      this.query = this.query.select('-__v');
+      this.query = this.query.select("-__v");
     }
     return this;
   }

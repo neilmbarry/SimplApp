@@ -4,7 +4,7 @@ const APIFeatures = require("../utils/apiFeatures");
 
 exports.getAllProducts = async (req, res, next) => {
   try {
-    // console.log(req.query);
+    console.log(req.query, "req.query");
 
     const features = new APIFeatures(Product.find(), req.query)
       .filter()
@@ -12,17 +12,18 @@ exports.getAllProducts = async (req, res, next) => {
       .limitFields();
     // .paginate();
 
-    // console.log(features.query);
-
     const allMatchingProducts = await features.query;
 
-    const featuresPaginated = new APIFeatures(Product.find(), req.query)
-      .filter()
-      .sort()
-      .limitFields()
-      .paginate();
+    const test = await Product.find().find(
+      JSON.parse(JSON.stringify({ size: { $in: ["Medium"] } }))
+    );
+    // const featuresPaginated = new APIFeatures(Product.find(), req.query)
+    //   .filter()
+    //   .sort()
+    //   .limitFields()
+    //   .paginate();
 
-    const products = await featuresPaginated.query;
+    // const products = await featuresPaginated.query;
     console.log("Hello from the getAllProducts! 🙋‍♂️");
     res.status(200).json({
       status: "success",
@@ -31,7 +32,8 @@ exports.getAllProducts = async (req, res, next) => {
       searchTerm: req.query.nameSearch,
       results: allMatchingProducts.length,
       // Aggregateproducts: productsByIng,
-      products,
+      products: allMatchingProducts,
+      // test,
     });
   } catch (err) {
     return next(err);

@@ -18,6 +18,34 @@ import MapFilterButton from "./MapFilterButton";
 import useFetch from "../../hooks/useFetch";
 import { BASE_URL } from "../../config/configParameters";
 import { useEffect } from "react";
+import queryActions from "../../store/querySlice";
+
+const generateFilterOptions = (data) => {
+  const typeOptions = [];
+  const sizeOptions = [];
+  const brandOptions = [];
+  const activityOptions = [];
+  data.products.forEach((prod) => {
+    if (!typeOptions.includes(prod.type)) {
+      typeOptions.push(prod.type);
+    }
+    if (prod.brand && !brandOptions.includes(prod.brand)) {
+      brandOptions.push(prod.brand);
+    }
+    if (!sizeOptions.includes(prod.size)) {
+      sizeOptions.push(prod.size);
+    }
+    if (!activityOptions.includes(prod.activity)) {
+      activityOptions.push(prod.activity);
+    }
+  });
+  return {
+    typeOptions,
+    sizeOptions,
+    brandOptions,
+    activityOptions,
+  };
+};
 
 const SearchResults = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -27,31 +55,15 @@ const SearchResults = ({ className }) => {
   };
 
   const [showMap, setShowMap] = useState(false);
-  const [results, setResults] = useState([]);
+
+  const filters = useSelector((state) => state.query.value);
 
   const showFilters = () => {
     store.dispatch(configActions.setModal("filter"));
   };
   const { loading, error, data, getRequest } = useFetch({
     url: BASE_URL + "products",
-  });
-
-  const resultsJSX = data?.products.map((res) => {
-    return (
-      <Result
-        key={res.slug}
-        info={{
-          name: res.name,
-          rating: res.rating,
-          trips: res.trips,
-          image: res.image,
-          price: res.price,
-          oldPrice: "to be changed",
-          slug: res.slug,
-          discount: res.discount,
-        }}
-      />
-    );
+    filters,
   });
 
   const search = useSelector((state) => state.config.value.searchOpen);
@@ -62,7 +74,12 @@ const SearchResults = ({ className }) => {
     // console.log(data, error);
     getRequest();
     // setResults(data?.products);
-  }, []);
+  }, [filters]);
+
+  useEffect(() => {
+    if (!data) return;
+    store.dispatch(configActions.updateQuery(generateFilterOptions(data)));
+  }, [data]);
 
   return (
     <div className={classesList}>
@@ -72,108 +89,7 @@ const SearchResults = ({ className }) => {
       <div className={classes.mainPage}>
         <Backdrop show={null} onClick={null} />
         <SearchMobile show={search} />
-        <Results showMap={showMap}>
-          {resultsJSX}
-          {/* <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "dress1",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Pink Sleeved Dress",
-              rating: 4.98,
-              trips: 68,
-              image: "dress4",
-              price: 159,
-              oldPrice: 205,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Cream Dress",
-              rating: 4.92,
-              trips: 78,
-              image: "dress2",
-              price: 125,
-              oldPrice: 149,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Grey Blazer",
-              rating: 4.78,
-              trips: 21,
-              image: "blazer",
-              price: 199,
-              // oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "shoes3",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "pants1",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "pants4",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "swim",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "shoes1",
-              price: 199,
-              oldPrice: 225,
-            }}
-          />
-          <Result
-            info={{
-              name: "Louis Vuitton Red Sun Dress",
-              rating: 4.92,
-              trips: 238,
-              image: "winter",
-              price: 199,
-              oldPrice: 225,
-            }} */}
-        </Results>
+        <Results showMap={showMap} results={data?.products} />
         <Map showMap={showMap} />
         <MapFilterButton
           showMap={showMap}

@@ -6,31 +6,32 @@ const FormRadioButtons = ({
   options,
   label,
   selected,
-  onChange,
+  onSelect,
 }) => {
   const classesList = `${classes.main} ${className}`;
 
   const optionsArray = options.map((op, i) => {
-    if (op === selected) {
+    console.log("option comparison", op.option, selected);
+    if (op.option === selected) {
       return (
         <label
           className={classes.radio}
-          key={op + i}
-          onClick={() => onChange(op)}
+          key={op.label + i}
+          onClick={() => onSelect(op.option)}
         >
           <input name="radio" type="radio" defaultChecked />
-          <span>{op}</span>
+          <span>{op.label}</span>
         </label>
       );
     }
     return (
       <label
         className={classes.radio}
-        key={op + i}
-        onClick={() => onChange(op)}
+        key={op.label + i}
+        onClick={() => onSelect(op.option)}
       >
         <input name="radio" type="radio" />
-        <span>{op}</span>
+        <span>{op.label}</span>
       </label>
     );
   });

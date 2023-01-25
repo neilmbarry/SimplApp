@@ -67,11 +67,10 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   });
   const tileComponentsDuplicate = hosts?.map((host, i) => {
     return (
-      <Link to="/search" key={host.host.name}>
+      <Link to="/search" key={host.host.name + "dupe"}>
         <HostTile
           info={host.host}
           review={host.review}
-          key={host.host.name + "dupe"}
           fraction={windows}
           width={width}
         />
@@ -80,11 +79,10 @@ export const generateHostTiles = (hosts, windows, taller, width) => {
   });
   const tileComponentsBefore = hosts?.map((host, i) => {
     return (
-      <Link to="/search" key={host.host.name}>
+      <Link to="/search" key={host.host.name + "before"}>
         <HostTile
           info={host.host}
           review={host.review}
-          key={host.host.name + "before"}
           fraction={windows}
           width={width}
         />

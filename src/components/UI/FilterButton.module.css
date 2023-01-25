@@ -34,3 +34,8 @@
 .button:hover {
   background-color: rgb(204, 204, 204);
 }
+
+.active {
+  background-color: #593cfa;
+  color: white;
+}

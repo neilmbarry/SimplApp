@@ -1,6 +1,20 @@
 import { useState, useCallback } from "react";
 
-const useFetch = ({ url }) => {
+const generateQueryString = (filters) => {
+  if (!filters) return "";
+  const { searchTerm, activity, brand, size, sortBy, type } = filters;
+  const queryStringArray = [];
+  searchTerm && queryStringArray.push(`name=${searchTerm}`);
+  brand.length && queryStringArray.push(`brand=${brand.join(",")}`);
+  size.length && queryStringArray.push(`size=${size.join(",")}`);
+  activity.length && queryStringArray.push(`activity=${activity.join(",")}`);
+  type.length && queryStringArray.push(`type=${type.join(",")}`);
+  sortBy && queryStringArray.push(`sort=${sortBy}`);
+  const queryString = "?" + queryStringArray.join("&");
+  return queryString;
+};
+
+const useFetch = ({ url, filters }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -8,8 +22,11 @@ const useFetch = ({ url }) => {
 
   function getRequest() {
     console.log("Calling get request");
+    console.log(filters);
+    const queryString = generateQueryString(filters);
     setLoading(true);
-    fetch(url)
+    console.log(url + queryString);
+    fetch(url + queryString)
       .then((res) => {
         if (!res.ok) {
           //   throw Error("Could not access resource");

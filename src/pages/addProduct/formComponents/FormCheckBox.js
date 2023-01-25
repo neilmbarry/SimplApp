@@ -18,8 +18,8 @@ const FormCheckBox = ({
           id={name}
           className={classes.input}
           ref={parentRef}
-          onClick={onClick}
-          checked
+          onChange={() => onClick(option)}
+          defaultChecked
         />
       ) : (
         <input
@@ -27,7 +27,7 @@ const FormCheckBox = ({
           id={name}
           className={classes.input}
           ref={parentRef}
-          onClick={onClick}
+          onChange={() => onClick(option)}
         />
       )}
 

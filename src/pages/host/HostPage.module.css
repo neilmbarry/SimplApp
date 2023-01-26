@@ -109,6 +109,10 @@
   margin: 0 !important;
 }
 
+.modifyBox {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .pageContent {
     flex-direction: column;

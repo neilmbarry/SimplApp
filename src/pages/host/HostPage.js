@@ -10,7 +10,7 @@ import CarouselTile from "../../components/Carousel/CarouselTile";
 import ProductReviews from "../product/ProductReviews/ProductReviews";
 
 import images from "../../helpers/imagesObj";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import { useState } from "react";
 import FormTextArea from "../addProduct/formComponents/FormTextArea";
@@ -20,6 +20,9 @@ import { BASE_URL } from "../../config/configParameters";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { dateFormat } from "../../helpers/dateFormat";
+import { useRef } from "react";
+import store from "../../store/store";
+import configActions from "../../store/configSlice";
 
 const hostInfo = {
   image: "runner",
@@ -74,16 +77,62 @@ const HostPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const token = useSelector((state) => state.config.value.token);
   const [modifying, setModifying] = useState(false);
+  const textRef = useRef();
   const { id } = useParams();
-  const { loading, error, data, getRequest } = useFetch({
+  const { loading, error, data, getRequest, postRequest } = useFetch({
     url: BASE_URL + "users/" + id,
   });
+  const [selectedImage, setSelectedImage] = useState(data?.user?.image);
   console.log(data);
+
+  const submitUpdates = () => {
+    postRequest(
+      JSON.stringify({
+        image: selectedImage,
+        about: textRef.current.value,
+      }),
+      token,
+      "PATCH"
+    );
+    console.log(selectedImage, textRef.current.value);
+  };
+
+  const productsJSX = data?.user?.hostProducts?.map((prod) => {
+    return (
+      <Link to={"/product/" + prod.slug}>
+        <CarouselTile
+          picture={prod.image}
+          taller={true}
+          product={{
+            title: prod.name,
+            rating: prod.ratingsAverage,
+            reviews: prod.ratingsQuantity,
+          }}
+        />
+      </Link>
+    );
+  });
+
   useEffect(() => {
     if (!data) {
       getRequest(token);
     }
   }, []);
+
+  useEffect(() => {
+    getRequest(token);
+  }, [id]);
+
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+    console.log("rerunning");
+    if (id === "me") {
+      store.dispatch(configActions.setUserImage(data?.user?.image));
+    }
+  }, [data]);
+
   return (
     <div className={classesList}>
       <NavBar search={true} />
@@ -94,35 +143,39 @@ const HostPage = ({ className }) => {
         <div className={classes.left}>
           <div className={classes.titleContent}>
             <HostImage hostInfo={data?.user} className={classes.hostImage} />
-            {!modifying ? (
-              <div className={classes.modifyButtons}>
-                <Button
-                  text="Edit profile"
-                  className={classes.editButton}
-                  onClick={() => setModifying((prev) => !prev)}
-                />
-              </div>
-            ) : (
-              <div className={classes.modifyButtons}>
-                <Button
-                  text="Save Profile"
-                  className={classes.editButton}
-                  onClick={() => setModifying((prev) => !prev)}
-                />
-                <Button
-                  text="Cancel"
-                  alt={true}
-                  className={classes.editButton}
-                  onClick={() => setModifying((prev) => !prev)}
-                />
-              </div>
-            )}
+            <div className={id !== "me" && classes.modifyBox}>
+              {!modifying ? (
+                <div className={classes.modifyButtons}>
+                  <Button
+                    text="Edit profile"
+                    className={classes.editButton}
+                    onClick={() => setModifying((prev) => !prev)}
+                  />
+                </div>
+              ) : (
+                <div className={classes.modifyButtons}>
+                  <Button
+                    text="Save Profile"
+                    className={classes.editButton}
+                    onClick={() => submitUpdates()}
+                  />
+                  <Button
+                    text="Cancel"
+                    alt={true}
+                    className={classes.editButton}
+                    onClick={() => setModifying((prev) => !prev)}
+                  />
+                </div>
+              )}
+            </div>
             <div className={classes.titleBox}>
-              <h2>{data?.user.firstName + " " + data?.user.lastName + "."}</h2>
+              <h2>
+                {data?.user?.firstName + " " + data?.user?.lastName[0] + "."}
+              </h2>
               <HostComponent title="Toronto, CA">
                 <p>
-                  {data?.user.trips} trips - Joined{" "}
-                  {dateFormat(data?.user.joined)}
+                  {data?.user?.reviews?.length} trips - Joined{" "}
+                  {dateFormat(data?.user?.joined)}
                 </p>
               </HostComponent>
             </div>
@@ -145,14 +198,16 @@ const HostPage = ({ className }) => {
           </HostComponent> */}
         </div>
         <div className={classes.right}>
-          <HostComponent title="About Vincent" className={classes.about}>
+          <HostComponent
+            title={`About ${id === "me" ? "You" : data?.user?.firstName}`}
+            className={classes.about}
+          >
             {modifying ? (
-              <FormTextArea />
+              <FormTextArea parentRef={textRef} />
             ) : (
               <p>
-                Freelance Journalist, Screenwriter, Customer service agent,
-                Co-founder of the webseries Jada and Rémi, a mixed couple (An
-                African girl and a Quebecer).
+                {data?.user?.about ||
+                  "Tell hosts and guests about yourself and why you’re a responsible, trustworthy person. Share your favorite travel experiences, your hobbies, your dream car, or your driving experience. Feel free to include links to your LinkedIn, Twitter, or Facebook profiles so they get to know you even better."}
               </p>
             )}
           </HostComponent>
@@ -161,27 +216,28 @@ const HostPage = ({ className }) => {
               <CarouselSection
                 windows={3}
                 // taller={true}
-
+                onSelect={(img) => setSelectedImage(img)}
                 tiles={tilesArray}
                 className={classes.carousel}
                 width={500}
                 userSelect={true}
-                selected={"shirt1"}
+                selected={selectedImage}
               />
             </HostComponent>
           )}
           <HostComponent
-            title="Vincent's garments"
+            title={`${
+              id === "me" ? "Your" : data?.user?.firstName + "'s"
+            } garments`}
             className={classes.products}
           >
-            <CarouselTile
-              picture="hat"
-              taller={true}
-              product={{ title: "My car", rating: 4.9, reviews: 235 }}
-            />
+            {productsJSX}
           </HostComponent>
           <HostComponent title="" className={classes.reviews}>
-            <ProductReviews reviews={reviewsTemp} rating={4.9} />
+            <ProductReviews
+              reviews={data?.user?.reviews}
+              rating={data?.user?.ratingsAverage}
+            />
           </HostComponent>
         </div>
       </div>

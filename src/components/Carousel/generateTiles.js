@@ -3,7 +3,14 @@ import HostTile from "./HostTile";
 import CarouselSlide from "./CarouselSlide";
 import { Link } from "react-router-dom";
 
-export const generateTiles = (tiles, windows, taller, width, userSelect) => {
+export const generateTiles = (
+  tiles,
+  windows,
+  taller,
+  width,
+  userSelect,
+  onSelect
+) => {
   if (!tiles) return;
   const tileComponents = tiles?.map((tile, i) => {
     return (
@@ -15,6 +22,7 @@ export const generateTiles = (tiles, windows, taller, width, userSelect) => {
         taller={taller}
         width={width}
         userSelect={userSelect}
+        onClick={() => onSelect(tile.image)}
       />
     );
   });

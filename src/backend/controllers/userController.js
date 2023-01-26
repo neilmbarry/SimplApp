@@ -17,7 +17,9 @@ exports.getAllUsers = async (req, res, next) => {
 exports.getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id).populate("reviews");
+    const user = await User.findById(id)
+      .populate("reviews")
+      .populate("hostProducts");
     if (!user) return next(new AppError("No user with that ID", 404));
     res.status(200).json({
       status: "success",
@@ -46,7 +48,7 @@ exports.updateUser = async (req, res, next) => {
   try {
     console.log(req.body, "REQ BODY");
     const userId = req.params.id || req.user.id;
-    const user = await User.findByIdAndUpdate(userId, req.body);
+    const user = await User.findByIdAndUpdate(userId, req.body, { new: true });
     if (!user) return next(new AppError("No user with that ID", 404));
     res.status(200).json({
       status: "success",

@@ -32,7 +32,6 @@ const reviewSchema = mongoose.Schema({
 });
 
 reviewSchema.pre(/^find/, async function (next) {
-  console.log("PREFINDING REVIEW");
   this.populate({
     path: "user",
     select: "firstName lastName image",
@@ -40,11 +39,76 @@ reviewSchema.pre(/^find/, async function (next) {
   next();
 });
 
-reviewSchema.statics.calcAverages = async function (itemId) {
+// reviewSchema.statics.calcAverages = async function (itemId) {
+//   try {
+//     const stats = await this.aggregate([
+//       {
+//         $match: { product: itemId },
+//       },
+//       {
+//         $group: {
+//           _id: "$product",
+//           ratingsQuantity: { $sum: 1 },
+//           ratingsAverage: { $avg: "$rating" },
+//         },
+//       },
+//     ]);
+
+//     console.log("PRODUCT STATS", stats);
+
+//     if (stats) {
+//       await Product.findByIdAndUpdate(itemId, {
+//         ratingsQuantity: stats[0]?.ratingsQuantity,
+//         ratingsAverage: stats[0]?.ratingsAverage,
+//       });
+//     } else {
+//       await Product.findByIdAndUpdate(itemId, {
+//         ratingsQuantity: 0,
+//         ratingsAverage: 0,
+//       });
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   try {
+//     const stats2 = await this.aggregate([
+//       {
+//         $match: { host: itemId },
+//       },
+//       {
+//         $group: {
+//           _id: "$user",
+//           ratingsQuantity: { $sum: 1 },
+//           ratingsAverage: { $avg: "$rating" },
+//         },
+//       },
+//     ]);
+
+//     console.log('USER STATS', stats2);
+
+//     if (stats2) {
+//       await User.findByIdAndUpdate(itemId, {
+//         ratingsQuantity: stats2[0]?.ratingsQuantity,
+//         ratingsAverage: stats2[0]?.ratingsAverage,
+//       });
+//     } else {
+//       await User.findByIdAndUpdate(itemId, {
+//         ratingsQuantity: 0,
+//         ratingsAverage: 0,
+//       });
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+reviewSchema.statics.calcProdAverages = async function (prodId) {
+  if (!prodId) return;
+  console.log("CALC PROD AVERAGES");
   try {
     const stats = await this.aggregate([
       {
-        $match: { product: itemId },
+        $match: { product: prodId },
       },
       {
         $group: {
@@ -55,15 +119,15 @@ reviewSchema.statics.calcAverages = async function (itemId) {
       },
     ]);
 
-    console.log("STATS2?11111?", stats);
+    console.log("PRODUCT STATS", stats);
 
     if (stats) {
-      await Product.findByIdAndUpdate(itemId, {
+      await Product.findByIdAndUpdate(prodId, {
         ratingsQuantity: stats[0]?.ratingsQuantity,
         ratingsAverage: stats[0]?.ratingsAverage,
       });
     } else {
-      await Product.findByIdAndUpdate(itemId, {
+      await Product.findByIdAndUpdate(prodId, {
         ratingsQuantity: 0,
         ratingsAverage: 0,
       });
@@ -71,10 +135,15 @@ reviewSchema.statics.calcAverages = async function (itemId) {
   } catch (err) {
     console.log(err);
   }
+};
+
+reviewSchema.statics.calcHostAverages = async function (hostId) {
+  if (!hostId) return;
+  console.log("CALC HOST AVERAGES");
   try {
-    const stats2 = await this.aggregate([
+    const stats = await this.aggregate([
       {
-        $match: { host: itemId },
+        $match: { host: hostId },
       },
       {
         $group: {
@@ -85,15 +154,15 @@ reviewSchema.statics.calcAverages = async function (itemId) {
       },
     ]);
 
-    console.log('STATS2??"?', stats2);
+    console.log("HOST STATS", stats);
 
-    if (stats2) {
-      await User.findByIdAndUpdate(itemId, {
-        ratingsQuantity: stats2[0]?.ratingsQuantity,
-        ratingsAverage: stats2[0]?.ratingsAverage,
+    if (stats) {
+      await User.findByIdAndUpdate(hostId, {
+        ratingsQuantity: stats[0]?.ratingsQuantity,
+        ratingsAverage: stats[0]?.ratingsAverage,
       });
     } else {
-      await User.findByIdAndUpdate(itemId, {
+      await User.findByIdAndUpdate(hostId, {
         ratingsQuantity: 0,
         ratingsAverage: 0,
       });
@@ -104,8 +173,8 @@ reviewSchema.statics.calcAverages = async function (itemId) {
 };
 
 reviewSchema.post("save", function () {
-  this.constructor.calcAverages(this.product);
-  this.constructor.calcAverages(this.host);
+  this.constructor.calcProdAverages(this.product);
+  this.constructor.calcHostAverages(this.host);
 });
 
 const Review = mongoose.model("Review", reviewSchema);

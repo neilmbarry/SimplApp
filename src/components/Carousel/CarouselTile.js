@@ -16,6 +16,7 @@ const CarouselTile = ({
   width,
   product,
   userSelect,
+  onClick,
 }) => {
   const imageSelected = useSelector((state) => state.newProduct.value.image);
   // console.log(imageSelected);
@@ -26,6 +27,7 @@ const CarouselTile = ({
         image: picture,
       })
     );
+    onClick();
   };
   const tileWidth = (width || 1000) / fraction - 12;
   const style = { width: `${tileWidth}px` };
@@ -44,7 +46,11 @@ const CarouselTile = ({
         <div className={classes.product}>
           <h3 className={classes.prodTitle}>{product.title}</h3>
           <div className={classes.ratingBox}>
-            <h4>{product.rating || "unrated"}</h4>
+            {product.rating ? (
+              <h4>{product.rating.toFixed(1)}</h4>
+            ) : (
+              <h4 className={classes.purple}>New!</h4>
+            )}
             <FontAwesomeIcon icon={faStar} className={classes.star} />
             <h4>({product.reviews || "No"} trips)</h4>
           </div>

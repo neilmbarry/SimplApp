@@ -18,6 +18,7 @@ import {
 import { useSelector } from "react-redux";
 import store from "../../store/store";
 import configActions from "../../store/configSlice";
+import { Link } from "react-router-dom";
 
 const Menu = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
@@ -59,7 +60,9 @@ const Menu = ({ className }) => {
         {token && (
           <>
             {" "}
-            <MenuItem text="Profile" icon={faPerson} />
+            <Link to="host/me">
+              <MenuItem text="Profile" icon={faPerson} />
+            </Link>
             <MenuItem text="Account" icon={faRightToBracket} />
             <MenuItem text="Become a host" icon={faShirt} />
             <div className={classes.divider}></div>

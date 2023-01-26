@@ -20,6 +20,7 @@ const CarouselSection = ({
   className,
   width,
   userSelect,
+  onSelect,
   onClick,
 }) => {
   const [slide, setSlide] = useState(
@@ -77,7 +78,8 @@ const CarouselSection = ({
     windows,
     taller,
     width,
-    userSelect
+    userSelect,
+    onSelect
   );
   const hostsComponent = generateHostTiles(hosts, windows, taller, width);
   const slidesComponent = generateSlides(slides, windows, taller, width);

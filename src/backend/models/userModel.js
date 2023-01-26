@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "A user must have a last name."],
     },
+    about: {
+      type: String,
+    },
     trips: {
       type: Number,
       default: 0,
@@ -85,6 +88,12 @@ userSchema.pre("save", async function (next) {
 
 userSchema.virtual("reviews", {
   ref: "Review",
+  foreignField: "host",
+  localField: "_id",
+});
+
+userSchema.virtual("hostProducts", {
+  ref: "Product",
   foreignField: "host",
   localField: "_id",
 });

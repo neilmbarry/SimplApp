@@ -11,14 +11,19 @@ import {
 import HostImage from "../host/HostImage/HostImage";
 import HostAdditional from "../host/HostAdditional/HostAdditional";
 import { dateFormat } from "../../helpers/dateFormat";
+import { useNavigate } from "react-router-dom";
 
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
   console.log(hostInfo);
+  const navigate = useNavigate();
+  const goToHost = () => {
+    navigate("/host/" + hostInfo.id);
+  };
   return (
     <div className={classesList}>
       <h5 className={classes.title}>HOSTED BY</h5>
-      <div className={classes.hostBox}>
+      <div className={classes.hostBox} onClick={goToHost}>
         <HostImage hostInfo={hostInfo} />
         <div className={classes.hostInfo}>
           <h3>{`${hostInfo?.firstName} ${hostInfo?.lastName?.[0]}.`}</h3>
@@ -29,7 +34,7 @@ const HostInfo = ({ className, hostInfo }) => {
             </h4>
           )}
           <h4 className={classes.bullet}>
-            {hostInfo?.reviews?.length} trips{" "}
+            {hostInfo?.ratingsQuantity} trips{" "}
             <FontAwesomeIcon icon={faCircle} /> Joined{" "}
             {dateFormat(hostInfo?.joined)}
           </h4>

@@ -37,7 +37,7 @@ const LoginModal = ({ className }) => {
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
       store.dispatch(configActions.setToken(data.token));
-      store.dispatch(configActions.setUserImage(data.image));
+      store.dispatch(configActions.setUserImage(data.user.image));
     }
     if (error) {
       console.warn(data);

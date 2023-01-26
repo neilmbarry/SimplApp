@@ -20,6 +20,10 @@
   box-shadow: 0 5px 8px 2px rgba(0, 0, 0, 0.096);
 }
 
+.purple {
+  color: #593cfa;
+}
+
 .pic {
   height: 150px;
 }

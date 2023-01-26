@@ -47,8 +47,6 @@ const CheckoutModal = ({ className }) => {
       console.log(data);
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
-      store.dispatch(configActions.setToken(data.token));
-      store.dispatch(configActions.setUserImage(data.image));
     }
     if (error) {
       console.warn(data);

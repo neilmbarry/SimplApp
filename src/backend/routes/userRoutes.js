@@ -29,10 +29,11 @@ router.route("/login").post(login);
 
 router.route("/").get(getAllUsers).post(createUser);
 
+router.route("/me").get(protect, getMe, getUser).patch(protect, updateUser);
+router.route("/:id").get(getUser);
+
 // Must be logged in to access routes below
 router.use(protect);
-
-router.route("/me").get(getMe, getUser).patch(updateUser);
 
 router.route("/toggleFave").patch(toggleFave);
 

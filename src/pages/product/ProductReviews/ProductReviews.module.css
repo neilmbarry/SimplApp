@@ -1,4 +1,4 @@
-.review:last-child {
+.review:first-child {
   border: none;
 }
 .ratingBox {
@@ -20,4 +20,8 @@
 }
 .larger {
   font-size: 3rem;
+}
+.reviewsBox {
+  display: flex;
+  flex-direction: column-reverse;
 }

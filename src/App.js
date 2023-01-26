@@ -33,8 +33,9 @@ function App() {
         <Route path="/" element={<FrontPage />} />
         <Route path="/search" element={<SearchResults />}></Route>
         <Route path="/product/:slug" element={<ProductPage />}></Route>
-        <Route path="/host" element={<HostPage />}></Route>
+        <Route path="/host/:id" element={<HostPage />}></Route>
         <Route path="/addProduct" element={<AddProductPage />}></Route>
+        <Route path="/profile" element={<HostPage />}></Route>
         <Route path="*" element={<h1>Oops! There's nothing here!</h1>}></Route>
       </Routes>
     </>

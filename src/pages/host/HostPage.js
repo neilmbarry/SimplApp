@@ -10,6 +10,16 @@ import CarouselTile from "../../components/Carousel/CarouselTile";
 import ProductReviews from "../product/ProductReviews/ProductReviews";
 
 import images from "../../helpers/imagesObj";
+import { useParams } from "react-router-dom";
+import Button from "../../components/UI/Button";
+import { useState } from "react";
+import FormTextArea from "../addProduct/formComponents/FormTextArea";
+import CarouselSection from "../../components/Carousel/CarouselSection";
+import useFetch from "../../hooks/useFetch";
+import { BASE_URL } from "../../config/configParameters";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { dateFormat } from "../../helpers/dateFormat";
 
 const hostInfo = {
   image: "runner",
@@ -43,8 +53,37 @@ const reviewsTemp = [
   },
 ];
 
+const tilesArray = [
+  "man1",
+  "man2",
+  "man3",
+  "man4",
+  "man5",
+  "woman1",
+  "woman2",
+  "woman3",
+  "woman4",
+  "woman5",
+].map((el) => {
+  return {
+    image: el,
+  };
+});
+
 const HostPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
+  const token = useSelector((state) => state.config.value.token);
+  const [modifying, setModifying] = useState(false);
+  const { id } = useParams();
+  const { loading, error, data, getRequest } = useFetch({
+    url: BASE_URL + "users/" + id,
+  });
+  console.log(data);
+  useEffect(() => {
+    if (!data) {
+      getRequest(token);
+    }
+  }, []);
   return (
     <div className={classesList}>
       <NavBar search={true} />
@@ -54,11 +93,37 @@ const HostPage = ({ className }) => {
       <div className={classes.pageContent}>
         <div className={classes.left}>
           <div className={classes.titleContent}>
-            <HostImage hostInfo={hostInfo} className={classes.hostImage} />
+            <HostImage hostInfo={data?.user} className={classes.hostImage} />
+            {!modifying ? (
+              <div className={classes.modifyButtons}>
+                <Button
+                  text="Edit profile"
+                  className={classes.editButton}
+                  onClick={() => setModifying((prev) => !prev)}
+                />
+              </div>
+            ) : (
+              <div className={classes.modifyButtons}>
+                <Button
+                  text="Save Profile"
+                  className={classes.editButton}
+                  onClick={() => setModifying((prev) => !prev)}
+                />
+                <Button
+                  text="Cancel"
+                  alt={true}
+                  className={classes.editButton}
+                  onClick={() => setModifying((prev) => !prev)}
+                />
+              </div>
+            )}
             <div className={classes.titleBox}>
-              <h2>Neil B.</h2>
+              <h2>{data?.user.firstName + " " + data?.user.lastName + "."}</h2>
               <HostComponent title="Toronto, CA">
-                <p>4819 trips - Joined Dec 2020</p>
+                <p>
+                  {data?.user.trips} trips - Joined{" "}
+                  {dateFormat(data?.user.joined)}
+                </p>
               </HostComponent>
             </div>
             <HostAdditional />
@@ -81,12 +146,30 @@ const HostPage = ({ className }) => {
         </div>
         <div className={classes.right}>
           <HostComponent title="About Vincent" className={classes.about}>
-            <p>
-              Freelance Journalist, Screenwriter, Customer service agent,
-              Co-founder of the webseries Jada and Rémi, a mixed couple (An
-              African girl and a Quebecer).
-            </p>
+            {modifying ? (
+              <FormTextArea />
+            ) : (
+              <p>
+                Freelance Journalist, Screenwriter, Customer service agent,
+                Co-founder of the webseries Jada and Rémi, a mixed couple (An
+                African girl and a Quebecer).
+              </p>
+            )}
           </HostComponent>
+          {modifying && (
+            <HostComponent title="Change image" className={classes.products}>
+              <CarouselSection
+                windows={3}
+                // taller={true}
+
+                tiles={tilesArray}
+                className={classes.carousel}
+                width={500}
+                userSelect={true}
+                selected={"shirt1"}
+              />
+            </HostComponent>
+          )}
           <HostComponent
             title="Vincent's garments"
             className={classes.products}

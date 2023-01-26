@@ -89,10 +89,7 @@ const CarouselSection = ({
   );
 
   return (
-    <div
-      className={`${classes.sectionContainer} ${className}`}
-      onClick={onClick}
-    >
+    <div className={`${classes.sectionContainer} ${className}`} onClick={null}>
       <div
         className={`${classes.windowContainer}`}
         style={{ width: width + "px" }}

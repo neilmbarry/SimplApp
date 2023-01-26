@@ -1,8 +1,9 @@
 import React from "react";
 import classes from "./Results.module.css";
 import Result from "./Result";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
-const Results = ({ className, showMap, results }) => {
+const Results = ({ className, showMap, results, loading }) => {
   const classesList = `${classes.main} ${className} ${
     !showMap && classes.show
   }`;
@@ -12,6 +13,11 @@ const Results = ({ className, showMap, results }) => {
       {results?.map((res) => {
         return <Result key={res?.slug} info={res} />;
       })}
+      {loading && (
+        <>
+          <Spinner />
+        </>
+      )}
     </div>
   );
 };

@@ -13,14 +13,14 @@ const ProductReview = ({ className, review }) => {
   return (
     <div className={classesList}>
       <div className={classes.reviewPic}>
-        <img src={images[review.user.image || "man1"]} alt="user" />
+        <img src={images[review.user?.image || "man1"]} alt="user" />
       </div>
       <div className={classes.reviewInfo}>
         <StarsContainer rating={review.rating} />
 
         <div className={classes.reviewName}>
           <h6>
-            {review.user.firstName || "Anon."} -{" "}
+            {review.user?.firstName || "Anon."} -{" "}
             <span className={classes.grey}>
               {" "}
               {dateFormat(review.createdAt)}

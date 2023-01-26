@@ -10,7 +10,7 @@ const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
-const origin = true ? "https://simp-app.vercel.app" : "http://localhost:3000";
+const origin = false ? "https://simp-app.vercel.app" : "http://localhost:3000";
 
 app.use(
   cors({

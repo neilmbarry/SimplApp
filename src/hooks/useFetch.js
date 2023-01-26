@@ -20,13 +20,18 @@ const useFetch = ({ url, filters }) => {
   const [error, setError] = useState(null);
   //   console.log("useFetch rerendered", loading, data, error);
 
-  function getRequest() {
+  function getRequest(token) {
     console.log("Calling get request");
     console.log(filters);
     const queryString = generateQueryString(filters);
     setLoading(true);
     console.log(url + queryString);
-    fetch(url + queryString)
+    fetch(url + queryString, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           //   throw Error("Could not access resource");

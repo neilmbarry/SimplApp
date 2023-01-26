@@ -88,6 +88,27 @@
   transform: translateY(-50%);
 }
 
+.modifyButtons {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  transform: translateY(-150%);
+  display: flex;
+  gap: 1rem;
+}
+
+.editButton {
+  padding: 0.4rem 1.2rem;
+  border-radius: 10px;
+}
+
+.editButton * {
+  font-size: 1.3rem !important;
+}
+.carousel {
+  margin: 0 !important;
+}
+
 @media screen and (max-width: 1024px) {
   .pageContent {
     flex-direction: column;

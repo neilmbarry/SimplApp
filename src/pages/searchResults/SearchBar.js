@@ -41,8 +41,8 @@ const SearchBar = ({ className, toggleSearch }) => {
       </div>
       <div className={classes.mobileBox} onClick={toggleSearch}>
         <div className={classes.mobileInfo}>
-          <p className={classes.mobileText}>Toronto</p>
-          <p className={classes.mobileText}>Jan 2 - June 8</p>
+          <p className={classes.mobileText}>{"Search"}</p>
+          {/* <p className={classes.mobileText}>Jan 2 - June 8</p> */}
         </div>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>

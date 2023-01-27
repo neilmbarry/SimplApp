@@ -15,7 +15,7 @@ const Results = ({ className, showMap, results, loading }) => {
       })}
       {loading && (
         <>
-          <Spinner />
+          <Spinner type={"dark"} className={classes.spinner} />
         </>
       )}
     </div>

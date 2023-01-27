@@ -24,38 +24,6 @@ import { useRef } from "react";
 import store from "../../store/store";
 import configActions from "../../store/configSlice";
 
-const hostInfo = {
-  image: "runner",
-  rating: 5,
-};
-
-const reviewsTemp = [
-  {
-    rating: 5,
-    reviewer: "Neil B.",
-    review:
-      "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: "runner",
-    dateAdded: "June 20, 2022",
-  },
-  {
-    rating: 5,
-    reviewer: "Neil B.",
-    review:
-      "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: "runner",
-    dateAdded: "June 20, 2022",
-  },
-  {
-    rating: 5,
-    reviewer: "Neil B.",
-    dateAdded: "June 20, 2022",
-    review:
-      "Amazing car with an amazing host no problems at all car was super clean fun and luxury at the same pace host was fantastic with communication will defiantly rent again. Thank you",
-    image: "runner",
-  },
-];
-
 const tilesArray = [
   "man1",
   "man2",

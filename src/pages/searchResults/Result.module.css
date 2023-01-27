@@ -9,6 +9,7 @@
   transition: all ease 0.3s;
   flex: 1 1 300px;
   position: relative;
+  max-width: 500px;
 }
 
 .container {

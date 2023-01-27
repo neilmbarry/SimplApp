@@ -12,6 +12,9 @@ export const generateTiles = (
   onSelect
 ) => {
   if (!tiles) return;
+  const clickHandler = (image, type) => {
+    // if(userSelect)return onSelect(select)
+  };
   const tileComponents = tiles?.map((tile, i) => {
     return (
       <CarouselTile
@@ -22,7 +25,8 @@ export const generateTiles = (
         taller={taller}
         width={width}
         userSelect={userSelect}
-        onClick={() => onSelect(tile.image)}
+        type={tile.type}
+        onClick={(selected) => onSelect(selected)}
       />
     );
   });
@@ -35,7 +39,9 @@ export const generateTiles = (
         fraction={windows}
         taller={taller}
         width={width}
+        type={tile.type}
         userSelect={userSelect}
+        onClick={(selected) => onSelect(selected)}
       />
     );
   });
@@ -48,7 +54,9 @@ export const generateTiles = (
         fraction={windows}
         taller={taller}
         width={width}
+        type={tile.type}
         userSelect={userSelect}
+        onClick={(selected) => onSelect(selected)}
       />
     );
   });

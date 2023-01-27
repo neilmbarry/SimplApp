@@ -6,7 +6,7 @@
   margin: 5rem; */
 }
 .spinner:after {
-  content: ' ';
+  content: " ";
   display: block;
   width: 15px;
   height: 15px;
@@ -18,7 +18,7 @@
 }
 
 .dark:after {
-  content: ' ';
+  content: " ";
   display: block;
   width: 35px;
   height: 35px;
@@ -29,7 +29,7 @@
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
-.spinnerContainer {
+.main {
   width: 100%;
   /* background-color: green; */
   display: flex;

@@ -12,6 +12,7 @@ import ActivityModal from "./FilterModals/ActivityModal";
 import store from "../../../store/store";
 import configActions from "../../../store/configSlice";
 import { useSelector } from "react-redux";
+import queryActions from "../../../store/querySlice";
 
 const typeOptions = ["Shirt", "Pants", "Dress", "Shoes"];
 const sizeOptions = ["Extra Small", "Small", "Medium", "Large", "Extra Large"];
@@ -29,6 +30,9 @@ const FilterBar = ({ className }) => {
   };
   const queryObj = useSelector((state) => state.query.value);
   console.log(queryObj);
+  const clearFilter = () => {
+    store.dispatch(queryActions.reset());
+  };
   return (
     <div className={classesList}>
       <FilterButton
@@ -71,6 +75,10 @@ const FilterBar = ({ className }) => {
       >
         <TypeModal options={activityOptions} type="activity" />
       </FilterButton>
+      <FilterButton
+        text="Clear all"
+        onClick={() => clearFilter()}
+      ></FilterButton>
       {/* <FilterButton text="Delivery" />
       <FilterButton text="More filters">
         <FontAwesomeIcon icon={faFilter} />

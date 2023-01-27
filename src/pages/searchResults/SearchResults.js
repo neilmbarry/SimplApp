@@ -90,7 +90,7 @@ const SearchResults = ({ className }) => {
         <Backdrop show={null} onClick={null} />
         <SearchMobile show={search} />
         <Results showMap={showMap} results={data?.products} loading={loading} />
-        <Map showMap={showMap} />
+        {/* <Map showMap={showMap} /> */}
         <MapFilterButton
           showMap={showMap}
           className={classes.mobile}

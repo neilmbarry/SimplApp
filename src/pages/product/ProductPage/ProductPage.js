@@ -85,7 +85,7 @@ const ProductPage = ({ className }) => {
         fave={userFaves.includes(product?.id)}
         className={classes.faveIcon}
       />
-      <ProductImages image={product?.image} />
+      <ProductImages image={product?.image} loading={loading} />
       <div className={classes.pageContent}>
         <ProductHeader
           title={product?.name}

@@ -10,8 +10,8 @@ import classes from "./SortModal.module.css";
 const options = [
   { option: "-price", label: "Price: low to high" },
   { option: "price", label: "Price: high to low" },
-  { option: "rating", label: "Rating: low to high" },
-  { option: "-rating", label: "Rating: high to low" },
+  { option: "-rating", label: "Rating: low to high" },
+  { option: "rating", label: "Rating: high to low" },
   { option: "newest", label: "Added: newest to oldest" },
   { option: "-newest", label: "Added: oldest to newest" },
 ];

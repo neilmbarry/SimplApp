@@ -30,20 +30,12 @@ const SearchBar = ({ className, toggleSearch }) => {
         </Link>
         <div className={classes.formBox}>
           <div className={classes.whereBox}>
-            <h4>What</h4>
+            {/* <h4>What</h4> */}
             <input type="text" defaultValue={queryTerm} ref={searchRef} />
             <SearchIcon
               className={classes.searchIcon}
               onClick={searchHandler}
             />
-          </div>
-          <div className={classes.fromBox}>
-            <h4>From</h4>
-            <input type="date" defaultValue="2022-08-03" />
-          </div>
-          <div className={classes.untilBox}>
-            <h4>Until</h4>
-            <input type="date" defaultValue="2022-08-13" />
           </div>
         </div>
       </div>

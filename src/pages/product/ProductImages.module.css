@@ -2,4 +2,16 @@
   height: 50vw;
   max-height: 80vh;
   min-height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(202, 202, 202);
+}
+
+.spinner {
+  /* position: absolute;
+  top: 10rem;
+  left: 10rem;
+  z-index: 100; */
 }

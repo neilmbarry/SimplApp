@@ -17,17 +17,21 @@ const CarouselTile = ({
   product,
   userSelect,
   onClick,
+  type,
 }) => {
   const imageSelected = useSelector((state) => state.newProduct.value.image);
   // console.log(imageSelected);
   const clickHandler = () => {
+    if (type) {
+      return onClick(type);
+    }
     if (!userSelect) return;
     store.dispatch(
       newProductActions.updateInfo({
         image: picture,
       })
     );
-    onClick();
+    onClick(picture);
   };
   const tileWidth = (width || 1000) / fraction - 12;
   const style = { width: `${tileWidth}px` };

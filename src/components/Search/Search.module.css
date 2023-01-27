@@ -73,6 +73,7 @@
     align-items: stretch;
     text-align: center;
     gap: 1rem;
+    padding: 1rem;
   }
   .formItem {
     border-bottom: 1px solid grey;
@@ -81,15 +82,15 @@
   .formItem input {
     text-align: center;
   }
-  .formItem:nth-child(1) {
+  .whatInput {
     padding-top: 1rem;
   }
-  .formItem:nth-child(2) {
+  .fromInput {
     border: 0;
     border-bottom: 1px solid grey;
     padding-bottom: 0.5rem;
   }
-  .formItem:nth-child(4) {
+  .searchIcon {
     display: none;
   }
   .formButton {

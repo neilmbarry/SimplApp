@@ -17,7 +17,6 @@ const Result = ({ className, info, refresh = () => null }) => {
   const classesList = `${classes.main} ${className}`;
   const navigate = useNavigate();
   const navigateHandler = (e) => {
-    console.log(e.target);
     navigate(`/product/${info?.slug}`);
   };
 
@@ -28,8 +27,6 @@ const Result = ({ className, info, refresh = () => null }) => {
   const { data, postRequest } = useFetch({
     url: BASE_URL + "users/toggleFave",
   });
-
-  console.log(data?.status, data);
 
   return (
     <div className={classesList}>

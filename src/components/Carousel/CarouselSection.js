@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import classes from "./CarouselSection.module.css";
 import CarouselWindow from "./CarouselWindow";
-import CarouselTile from "./CarouselTile";
 import CarouselButton from "../UI/CarouselButton";
 
 import {
@@ -13,13 +12,19 @@ import {
 const CarouselSection = ({
   title,
   windows,
-  taller,
+
   tiles,
   hosts,
   slides,
+
+  taller,
+
   className,
+
   width,
+
   userSelect,
+
   onSelect,
   onClick,
 }) => {

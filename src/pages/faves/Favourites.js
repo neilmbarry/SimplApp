@@ -11,7 +11,7 @@ import classes from "./Favourites.module.css";
 const Favourites = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const { loading, error, data, getRequest } = useFetch({
-    url: BASE_URL + "users/getFaves",
+    url: BASE_URL + "users/me/getFaves",
   });
   const token = useSelector((state) => state.config.value.token);
 

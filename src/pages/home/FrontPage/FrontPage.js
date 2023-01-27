@@ -13,35 +13,45 @@ import FinalSection from "../../../components/FinalSection/FinalSection";
 import Footer from "../../../components/Footer/Footer";
 import Backdrop from "../../../components/UI/Backdrop/Backdrop";
 import { useNavigate } from "react-router-dom";
+import store from "../../../store/store";
+
+import queryActions from "../../../store/querySlice";
 
 const typeArray = [
   {
     title: "Shirts",
     image: "shirt2",
+    type: "Shirt",
   },
   {
     title: "Pants",
     image: "pants",
+    type: "Pants",
   },
   {
     title: "Dresses",
     image: "dress2",
+    type: "Dress",
   },
   {
     title: "Shoes",
     image: "shoes2",
+    type: "Shoes",
   },
   {
     title: "Coats",
     image: "jacket2",
+    type: "Jacket",
   },
   {
     title: "Sports",
     image: "sport2",
+    type: "Sport",
   },
   {
     title: "Pajamas",
     image: "pajama1",
+    type: "Pajama",
   },
 ];
 
@@ -204,8 +214,10 @@ const FrontPage = ({ className }) => {
 
   const navigate = useNavigate();
 
-  const navTo = () => {
+  const navTo = (selected) => {
     console.log("navigating");
+    store.dispatch(queryActions.reset());
+    store.dispatch(queryActions.setType([selected]));
     navigate("/search");
   };
 
@@ -219,6 +231,7 @@ const FrontPage = ({ className }) => {
         windows={5}
         tiles={typeArray}
         onClick={navTo}
+        onSelect={(selected) => navTo(selected)}
       />
       <CarouselSection
         windows={1}

@@ -1,12 +1,14 @@
 .main {
   display: none;
   flex-wrap: wrap;
-  width: 66%;
+  justify-content: flex-start;
+  width: 100%;
   margin: 1rem;
   /* overflow: scroll;
   height: 620px; */
   padding-top: 7rem;
   padding-right: 0rem;
+  /* min-height: 90vh; */
   background-color: white;
   /* justify-content: flex-start; */
 
@@ -18,11 +20,15 @@
   display: flex;
 }
 
+.spinner {
+  margin-top: 5rem;
+}
+
 @media screen and (min-width: 1025px) {
   .main {
-    width: 66%;
+    /* width: 66%; */
     display: flex;
-    padding-right: 2rem;
+    /* padding-right: 2rem; */
     padding-top: 14rem;
   }
 }

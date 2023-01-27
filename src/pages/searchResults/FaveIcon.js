@@ -16,7 +16,7 @@ const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
   const token = useSelector((state) => state.config.value.token);
 
   let { loading, error, data, postRequest } = useFetch({
-    url: BASE_URL + "users/toggleFave",
+    url: BASE_URL + "users/me/toggleFave",
   });
 
   const faveHandler = (e) => {

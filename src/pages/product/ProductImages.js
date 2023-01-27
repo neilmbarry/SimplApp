@@ -3,13 +3,15 @@ import classes from "./ProductImages.module.css";
 
 import imagesObj from "../../helpers/imagesObj";
 import imageObj from "../../helpers/imageArrays";
+import LoadingSpinner from "../../components/UI/Spinner/Spinner";
 
-const ProductImages = ({ className, image }) => {
+const ProductImages = ({ className, image, loading }) => {
   const classesList = `${classes.main} ${className}`;
-  
+
   return (
     <div className={classesList}>
-      <img src={imagesObj[image]} alt="images[0]" />
+      {loading && <LoadingSpinner className={classes.spinner} type={"dark"} />}
+      {!loading && <img src={imagesObj[image]} alt="product" />}
     </div>
   );
 };

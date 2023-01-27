@@ -27,7 +27,7 @@ router.use((req, res, next) => {
 });
 router.route("/login").post(login);
 
-router.route("/:id").get(getUser);
+// router.route("/:id").get(getUser);
 
 router.use(protect);
 

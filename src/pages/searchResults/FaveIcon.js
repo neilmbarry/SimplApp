@@ -4,11 +4,54 @@ import classes from "./FaveIcon.module.css";
 
 import { faHeart as faHeartEmpty } from "@fortawesome/free-regular-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import useFetch from "../../hooks/useFetch";
+import { BASE_URL } from "../../config/configParameters";
+import store from "../../store/store";
+import configActions from "../../store/configSlice";
+import { useEffect } from "react";
 
-const FaveIcon = ({ className, fave }) => {
+const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
   const classesList = `${classes.main} ${className}`;
+  const token = useSelector((state) => state.config.value.token);
+
+  let { loading, error, data, postRequest } = useFetch({
+    url: BASE_URL + "users/toggleFave",
+  });
+
+  const faveHandler = (e) => {
+    e.stopPropagation();
+
+    if (!token) {
+      return store.dispatch(configActions.setModal("signup"));
+    }
+    postRequest(
+      JSON.stringify({
+        productId,
+      }),
+      token,
+      "PATCH"
+    );
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (data?.status === "success") {
+      console.log(data);
+      console.log("CALLING REFRESH IN FAVEICON");
+      store.dispatch(configActions.setFaves(data.user.faves));
+      store.dispatch(
+        configActions.setNotification(
+          data.faveAdded ? "Added to favourites" : "Removed from favourites"
+        )
+      );
+      data.status = null;
+      refresh();
+    }
+  }, [data?.status, refresh, loading, data]);
+
   return (
-    <div className={classesList}>
+    <div className={classesList} onClick={faveHandler}>
       <FontAwesomeIcon icon={fave ? faHeart : faHeartEmpty} />
     </div>
   );

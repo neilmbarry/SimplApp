@@ -20,13 +20,16 @@ import useFetch from "../../../hooks/useFetch";
 import ProductInfo from "../ProductFeatures/ProductInfo";
 import { useSelector } from "react-redux";
 import { BASE_URL } from "../../../config/configParameters";
+import FaveIcon from "../../searchResults/FaveIcon";
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
 
   const product = useSelector((state) => state.config.value.currentProduct);
   const token = useSelector((state) => state.config.value.token);
+  const notification = useSelector((state) => state.config.value.notification);
   const params = useParams();
+  const userFaves = useSelector((state) => state.config.value.userFaves);
   const { loading, error, data, getRequest } = useFetch({
     url: `${BASE_URL}products/${params.slug}`,
   });
@@ -38,8 +41,6 @@ const ProductPage = ({ className }) => {
   } = useFetch({
     url: `${BASE_URL}users/toggleFave`,
   });
-
-  console.log(faveData && faveData);
 
   const favouriteHandler = () => {
     if (!token) {
@@ -71,9 +72,19 @@ const ProductPage = ({ className }) => {
     store.dispatch(configActions.setCurrentProduct(data.product));
   }, [data, getRequest]);
 
+  useEffect(() => {
+    getRequest();
+  }, [notification]);
+
   return (
     <div className={classesList}>
       <NavBar search={true} />
+      <FaveIcon
+        refresh={getRequest}
+        productId={product?.id}
+        fave={userFaves.includes(product?.id)}
+        className={classes.faveIcon}
+      />
       <ProductImages image={product?.image} />
       <div className={classes.pageContent}>
         <ProductHeader

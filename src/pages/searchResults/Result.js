@@ -7,27 +7,42 @@ import { Link, useNavigate } from "react-router-dom";
 
 import images from "../../helpers/imagesObj";
 import FaveIcon from "./FaveIcon";
+import useFetch from "../../hooks/useFetch";
+import { BASE_URL } from "../../config/configParameters";
+import { useSelector } from "react-redux";
+import store from "../../store/store";
+import configActions from "../../store/configSlice";
 
-const Result = ({ className, info }) => {
+const Result = ({ className, info, refresh = () => null }) => {
   const classesList = `${classes.main} ${className}`;
   const navigate = useNavigate();
   const navigateHandler = (e) => {
     console.log(e.target);
     navigate(`/product/${info?.slug}`);
   };
-  const faveHandler = (e) => {
-    console.log(e.target.value);
-    e.stopPropagation();
-  };
+
+  const token = useSelector((state) => state.config.value.token);
+
+  const userFaves = useSelector((state) => state.config.value.userFaves);
+
+  const { data, postRequest } = useFetch({
+    url: BASE_URL + "users/toggleFave",
+  });
+
+  console.log(data?.status, data);
 
   return (
-    <div className={classesList} onClick={navigateHandler}>
+    <div className={classesList}>
       <FaveIcon
-        fave={true}
+        fave={userFaves.includes(info.id)}
         className={classes.faveIcon}
-        onClick={faveHandler}
+        onClick={null}
+        productId={info?.id}
+        refresh={() => {
+          refresh();
+        }}
       />
-      <div className={classes.container}>
+      <div className={classes.container} onClick={navigateHandler}>
         <div className={classes.image}>
           <img
             src={images[info?.image]}
@@ -40,7 +55,7 @@ const Result = ({ className, info }) => {
           <div className={classes.ratingBox}>
             {info?.ratingsAverage > 0 ? (
               <>
-                <h5>{info?.ratingsAverage || "N/A"}</h5>
+                <h5>{info?.ratingsAverage.toFixed(1) || "N/A"}</h5>
                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                 <h5>({info?.ratingsQuantity} trips)</h5>
               </>

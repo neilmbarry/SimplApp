@@ -6,6 +6,7 @@ const initialState = {
   modal: false,
   token: null,
   userImage: null,
+  userFaves: [],
   notification: null,
   currentProduct: null,
   typeOptions: [],
@@ -40,6 +41,9 @@ export const configSlice = createSlice({
     },
     setUserImage: (state, action) => {
       state.value.userImage = action.payload;
+    },
+    setFaves: (state, action) => {
+      state.value.userFaves = action.payload;
     },
     setFilterModal: (state, action) => {
       state.value.filterModal = action.payload;

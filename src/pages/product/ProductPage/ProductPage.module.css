@@ -59,6 +59,12 @@
   font-weight: 600;
 }
 
+.faveIcon {
+  position: absolute;
+  top: 10rem;
+  right: 10rem;
+}
+
 @media screen and (max-width: 1024px) {
   .pageContent {
     max-width: 700px;

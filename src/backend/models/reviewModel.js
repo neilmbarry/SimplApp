@@ -147,7 +147,7 @@ reviewSchema.statics.calcHostAverages = async function (hostId) {
       },
       {
         $group: {
-          _id: "$user",
+          _id: "$host",
           ratingsQuantity: { $sum: 1 },
           ratingsAverage: { $avg: "$rating" },
         },

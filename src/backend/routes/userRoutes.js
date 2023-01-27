@@ -27,19 +27,14 @@ router.use((req, res, next) => {
 });
 router.route("/login").post(login);
 
-router.route("/").get(getAllUsers).post(createUser);
-
-router.route("/me").get(protect, getMe, getUser).patch(protect, updateUser);
-router.route("/:id").get(getUser);
-
-// Must be logged in to access routes below
 router.use(protect);
 
+router.route("/me").get(getMe, getUser).patch(protect, updateUser);
 router.route("/toggleFave").patch(toggleFave);
-
 router.route("/getFaves").get(getFaves);
+router.route("/:id").get(getUser).patch(updateUser);
 
-router.route("/:id").patch(updateUser);
+// Must be logged in to access routes below
 
 // Must be ADMIN to access routes below
 router.use(restrictTo("admin"));

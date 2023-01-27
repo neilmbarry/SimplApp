@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import NavBar from "../../components/NavBar/NavBar";
 import { BASE_URL } from "../../config/configParameters";
 import useFetch from "../../hooks/useFetch";
@@ -10,20 +11,29 @@ import classes from "./Favourites.module.css";
 const Favourites = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const { loading, error, data, getRequest } = useFetch({
-    url: BASE_URL + "products",
+    url: BASE_URL + "users/getFaves",
   });
+  const token = useSelector((state) => state.config.value.token);
 
   console.log(data);
 
-  const favesJSX = data?.products?.map((prod) => {
-    return <Result info={prod} className={classes.result} />;
+  const favesJSX = data?.faves?.map((prod) => {
+    return (
+      <Result info={prod} className={classes.result} refresh={refreshRequest} />
+    );
   });
 
+  function refreshRequest() {
+    console.log("REFRESHING REQUEST IN FAVROUTTIES");
+    getRequest(token);
+  }
+
   useEffect(() => {
+    console.log("CALLING USEEFFECT IN FAVOURTIES");
     if (!data) {
-      getRequest();
+      refreshRequest();
     }
-  });
+  }, []);
   return (
     <div className={classesList}>
       <NavBar search={false} />

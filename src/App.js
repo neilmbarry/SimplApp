@@ -17,9 +17,11 @@ import Menu from "./components/Menu/Menu";
 import Modal from "./components/Modals/Modal";
 import Notification from "./components/Notifications/Notification";
 import { useEffect } from "react";
+import Favourites from "./pages/faves/Favourites";
 
 function App() {
   const location = useLocation();
+  console.log(process.env);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -36,6 +38,7 @@ function App() {
         <Route path="/host/:id" element={<HostPage />}></Route>
         <Route path="/addProduct" element={<AddProductPage />}></Route>
         <Route path="/profile" element={<HostPage />}></Route>
+        <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="*" element={<h1>Oops! There's nothing here!</h1>}></Route>
       </Routes>
     </>

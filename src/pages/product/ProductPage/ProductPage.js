@@ -26,12 +26,34 @@ const ProductPage = ({ className }) => {
 
   const product = useSelector((state) => state.config.value.currentProduct);
   const token = useSelector((state) => state.config.value.token);
-
   const params = useParams();
-
   const { loading, error, data, getRequest } = useFetch({
     url: `${BASE_URL}products/${params.slug}`,
   });
+  const {
+    loading: faveLoading,
+    error: faveError,
+    data: faveData,
+    postRequest,
+  } = useFetch({
+    url: `${BASE_URL}users/toggleFave`,
+  });
+
+  console.log(faveData && faveData);
+
+  const favouriteHandler = () => {
+    if (!token) {
+      return store.dispatch(configActions.setModal("signup"));
+    }
+    console.log("adding fave", data?.product?.id);
+    postRequest(
+      JSON.stringify({
+        productId: data?.product?.id,
+      }),
+      token,
+      "PATCH"
+    );
+  };
 
   const checkout = () => {
     if (!token) {
@@ -40,8 +62,6 @@ const ProductPage = ({ className }) => {
 
     store.dispatch(configActions.setModal("checkout"));
   };
-
-  console.log(product);
 
   useEffect(() => {
     if (!data) {
@@ -89,6 +109,7 @@ const ProductPage = ({ className }) => {
           discount={product?.discount}
           className={classes.booking}
           onConfirm={checkout}
+          onFave={favouriteHandler}
         />
 
         <MobileConfirm

@@ -41,7 +41,9 @@ const Menu = ({ className }) => {
       <div className={classesList} onClick={close}>
         {token ? (
           <>
-            <MenuItem text="Favourites" icon={faHeart} />
+            <Link to="favourites">
+              <MenuItem text="Favourites" icon={faHeart} />
+            </Link>
             <MenuItem text="Trips" icon={faRoad} />
             <MenuItem text="Inbox" icon={faComment} />
 

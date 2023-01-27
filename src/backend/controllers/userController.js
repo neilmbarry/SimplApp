@@ -63,17 +63,15 @@ exports.updateUser = async (req, res, next) => {
 exports.toggleFave = async (req, res, next) => {
   try {
     const { id } = req.user;
-    const { cocktailId } = req.body;
+    const { productId } = req.body;
     const user = await User.findById(id);
     if (!user) return next(new AppError("No user with that ID", 404));
     let favourites = user.faves;
-    if (favourites.includes(cocktailId)) {
-      favourites = favourites.filter(
-        (faves) => faves.toString() !== cocktailId
-      );
+    if (favourites.includes(productId)) {
+      favourites = favourites.filter((faves) => faves.toString() !== productId);
       req.faveAdded = false;
     } else {
-      favourites = [...favourites, cocktailId];
+      favourites = [...favourites, productId];
       req.faveAdded = true;
     }
 

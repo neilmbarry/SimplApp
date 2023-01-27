@@ -8,6 +8,7 @@
   cursor: pointer;
   transition: all ease 0.3s;
   flex: 1 1 300px;
+  position: relative;
 }
 
 .container {
@@ -22,6 +23,10 @@
   max-height: 300px;
 }
 
+.img {
+  max-height: 300px;
+}
+
 .main:hover {
   opacity: 0.8;
 }
@@ -33,6 +38,7 @@
   margin-bottom: 0;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgb(219, 219, 219);
+  background-color: white;
 }
 
 .ratingBox {
@@ -94,4 +100,9 @@
 .new {
   font-weight: 500;
   color: #593cfa !important;
+}
+.faveIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

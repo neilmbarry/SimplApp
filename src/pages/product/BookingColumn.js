@@ -4,7 +4,7 @@ import Button from "../../components/UI/Button";
 import classes from "./BookingColumn.module.css";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
-const BookingColumn = ({ className, price, discount, onConfirm }) => {
+const BookingColumn = ({ className, price, discount, onConfirm, onFave }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
@@ -71,7 +71,11 @@ const BookingColumn = ({ className, price, discount, onConfirm }) => {
         <h4>Insurance via Travelers</h4>
       </div>
       <div className={`${classes.distanceBox} ${classes.faveCont}`}>
-        <Button text="Add to favourites" className={classes.favButton} />
+        <Button
+          text="Add to favourites"
+          className={classes.favButton}
+          onClick={onFave}
+        />
       </div>
     </div>
   );

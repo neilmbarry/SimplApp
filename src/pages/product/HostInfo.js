@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const HostInfo = ({ className, hostInfo }) => {
   const classesList = `${classes.main} ${className}`;
-  console.log(hostInfo);
+
   const navigate = useNavigate();
   const goToHost = () => {
     navigate("/host/" + hostInfo.id);

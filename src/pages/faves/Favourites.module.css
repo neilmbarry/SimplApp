@@ -1,0 +1,16 @@
+.main {
+}
+
+.pageContainer {
+  padding-top: 10rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+.result {
+  max-width: 300px;
+}
+.favesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

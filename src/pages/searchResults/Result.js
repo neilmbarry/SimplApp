@@ -24,10 +24,6 @@ const Result = ({ className, info, refresh = () => null }) => {
 
   const userFaves = useSelector((state) => state.config.value.userFaves);
 
-  const { data, postRequest } = useFetch({
-    url: BASE_URL + "users/toggleFave",
-  });
-
   return (
     <div className={classesList}>
       <FaveIcon

@@ -25,7 +25,6 @@ const NavBar = ({ search }) => {
             <h4>Simpl.</h4>
           </div>
         </Link>
-        {search && searchBar}
       </div>
       <ul className={classes.navItems}>
         <Link to="/addProduct">

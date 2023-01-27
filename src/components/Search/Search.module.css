@@ -6,7 +6,7 @@
   z-index: 5;
   border-radius: 1000px;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 700px;
   width: 90%;
 }
 
@@ -84,6 +84,11 @@
   }
   .whatInput {
     padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+  }
+  .whatInput input {
+    text-align: center;
   }
   .fromInput {
     border: 0;

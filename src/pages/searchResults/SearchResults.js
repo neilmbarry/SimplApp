@@ -50,11 +50,11 @@ const generateFilterOptions = (data) => {
 const SearchResults = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
 
-  const toggleSearch = () => {
-    store.dispatch(configActions.toggleSearch());
-  };
-
   const [showMap, setShowMap] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const toggleSearch = () => {
+    setShowModal((prev) => !prev);
+  };
 
   const filters = useSelector((state) => state.query.value);
 
@@ -88,7 +88,7 @@ const SearchResults = ({ className }) => {
 
       <div className={classes.mainPage}>
         <Backdrop show={null} onClick={null} />
-        <SearchMobile show={search} />
+        <SearchMobile show={showModal} />
         <Results showMap={showMap} results={data?.products} loading={loading} />
         {/* <Map showMap={showMap} /> */}
         <MapFilterButton

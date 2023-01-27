@@ -9,10 +9,10 @@ const MapFilterButton = ({ className, showMap, onToggle, onFilter }) => {
 
   return (
     <div className={classesList}>
-      <div className={classes.left} onClick={onToggle}>
+      {/* <div className={classes.left} onClick={onToggle}>
         <FontAwesomeIcon icon={showMap ? faListAlt : faMap} />
         {showMap ? "LIST" : "MAP"}
-      </div>
+      </div> */}
       <div className={classes.right} onClick={onFilter}>
         <FontAwesomeIcon icon={faFilter} />
         FILTERS

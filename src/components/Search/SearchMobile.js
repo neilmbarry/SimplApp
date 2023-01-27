@@ -1,35 +1,48 @@
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./SearchMobile.module.css";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
+import store from "../../store/store";
+import queryActions from "../../store/querySlice";
+import configActions from "../../store/configSlice";
 
-const SearchMobile = ({ className, show }) => {
+const SearchMobile = ({ className, show, close }) => {
   const classesList = `${classes.container} ${className} ${
     show && classes.show
   }`;
+  const inputRef = useRef();
+  const searchHandler = () => {
+    console.log("here");
+    store.dispatch(queryActions.setSearchTerm(inputRef.current.value));
+    close();
+  };
   return (
     <div className={classesList}>
       <form className={classes.form}>
         <div className={classes.formItem}>
           <h6>Where</h6>
-          <input type="text" placeholder="City, address or hotel" />
+          <input
+            type="text"
+            placeholder="City, address or hotel"
+            ref={inputRef}
+          />
         </div>
-        <div className={classes.formItem}>
+        {/* <div className={classes.formItem}>
           <h6>From</h6>
           <div>
             <input type="date" defaultValue="2022-06-03" />
-            {/* <input type="time" /> */}
+         
           </div>
         </div>
         <div className={classes.formItem}>
           <h6>Until</h6>
           <div>
             <input type="date" defaultValue="2022-07-04" />
-            {/* <input type="time" /> */}
+         
           </div>
-        </div>
+        </div> */}
 
-        <div className={classes.formItem}>
+        {/* <div className={classes.formItem}>
           <Link to="/search">
             <svg
               width="24px"
@@ -48,11 +61,12 @@ const SearchMobile = ({ className, show }) => {
               ></path>
             </svg>
           </Link>
-        </div>
+        </div> */}
         <Link to="/search">
           <Button
             className={classes.formButton}
             text="Search for clothes"
+            onClick={searchHandler}
           ></Button>
         </Link>
       </form>

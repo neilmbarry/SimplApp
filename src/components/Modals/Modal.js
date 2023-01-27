@@ -11,12 +11,14 @@ import LoginModal from "./AuthModals/LoginModal";
 import SignupModal from "./AuthModals/SignupModal";
 import FilterModal from "../../pages/searchResults/Filter/FilterModal";
 import CheckoutModal from "./CheckoutModal/CheckoutModal";
+import SearchMobile from "../Search/SearchMobile";
 
 const modalReference = {
   login: <LoginModal />,
   signup: <SignupModal />,
   filter: <FilterModal />,
   checkout: <CheckoutModal />,
+  mobileSearch: <SearchMobile />,
 };
 
 const Modal = ({ className }) => {

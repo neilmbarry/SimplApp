@@ -77,7 +77,7 @@ const AddProductPage = ({ className }) => {
             isOpen={sectionOpen === 1}
             toggle={() => sectionChangeHandler(1)}
             title="Your Garment"
-            height={320}
+            height={330}
           >
             <GarmentCategory onPage={(page) => sectionChangeHandler(page)} />
           </FormSection>

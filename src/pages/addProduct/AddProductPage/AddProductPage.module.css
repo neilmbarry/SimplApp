@@ -42,3 +42,9 @@
     gap: 1rem;
   }
 }
+@media screen and (max-width: 768px) {
+  .pageContainer {
+    padding: 2rem;
+    padding-top: 6rem;
+  }
+}

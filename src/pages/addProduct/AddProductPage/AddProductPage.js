@@ -35,21 +35,17 @@ const AddProductPage = ({ className }) => {
   };
   const test = (e) => {
     e.preventDefault();
-    console.log("test");
   };
 
   const product = useSelector((state) => state.newProduct.value);
 
   const submitHandler = () => {
-    console.log(product);
     const body = JSON.stringify(product);
     postRequest(body, token);
   };
 
   useEffect(() => {
     if (data?.status === "success") {
-      console.log(data);
-
       store.dispatch(configActions.setNotification("Product Added"));
     }
     if (error) {

@@ -33,7 +33,6 @@ const LoginModal = ({ className }) => {
 
   useEffect(() => {
     if (data?.status === "success") {
-      console.log(data);
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
       store.dispatch(configActions.setToken(data.token));

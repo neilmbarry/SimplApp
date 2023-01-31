@@ -26,7 +26,7 @@ const GarmentCategory = ({ className, onPage }) => {
       activity: activity.current.value,
       pockets: pockets.current.checked,
     };
-    console.log(info);
+
     store.dispatch(newProductActions.updateInfo(info));
     e.preventDefault();
     onPage(2);

@@ -12,7 +12,6 @@ const PricingCategory = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
   const discount = useSelector((state) => state.newProduct.value.discount);
   const updateDiscount = (selected) => {
-    console.log("updateing");
     store.dispatch(
       newProductActions.updateInfo({
         discount: selected,

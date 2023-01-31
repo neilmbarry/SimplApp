@@ -34,7 +34,6 @@ const ProductInfo = ({ className, product }) => {
   const randomIconIndex = () => {
     return Math.floor(Math.random() * iconsArray.length);
   };
-  // console.log(randomIconIndex());
   const featuresArray = (
     <>
       <Feature feature={product?.size} icon={productIcons["size"]} />

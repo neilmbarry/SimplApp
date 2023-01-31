@@ -20,7 +20,6 @@ const CarouselTile = ({
   type,
 }) => {
   const imageSelected = useSelector((state) => state.newProduct.value.image);
-  // console.log(imageSelected);
   const clickHandler = () => {
     if (type) {
       return onClick(type);

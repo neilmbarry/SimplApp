@@ -14,16 +14,13 @@ const TypeModal = ({ className, type }) => {
   const [selected, setSelected] = useState(checked);
   const options = useSelector((state) => state.config.value[type + "Options"]);
   const optionHandler = (option) => {
-    console.log("option handler", option, selected);
     if (selected.includes(option)) {
       return setSelected((prev) => prev.filter((op) => op !== option));
     }
     return setSelected((prev) => [...prev, option]);
   };
-  console.log(checked);
 
   const submitHandler = () => {
-    console.log(selected);
     store.dispatch(
       queryActions.updateQuery({
         [type]: selected,

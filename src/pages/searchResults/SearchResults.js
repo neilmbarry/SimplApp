@@ -68,12 +68,8 @@ const SearchResults = ({ className }) => {
 
   const search = useSelector((state) => state.config.value.searchOpen);
 
-  console.log(data, loading, error);
-
   useEffect(() => {
-    // console.log(data, error);
     getRequest();
-    // setResults(data?.products);
   }, [filters]);
 
   useEffect(() => {

@@ -7,7 +7,6 @@ const Results = ({ className, showMap, results, loading }) => {
   const classesList = `${classes.main} ${className} ${
     !showMap && classes.show
   }`;
-  console.log(results);
   return (
     <div className={classesList}>
       {results?.map((res) => {

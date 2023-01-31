@@ -29,6 +29,8 @@ const Menu = ({ className }) => {
 
   const logout = () => {
     store.dispatch(configActions.setToken(null));
+    store.dispatch(configActions.setFaves([]));
+    store.dispatch(configActions.setUserImage(null));
     store.dispatch(configActions.setNotification("You were logged out."));
   };
 

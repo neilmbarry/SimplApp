@@ -33,10 +33,9 @@ exports.getUser = async (req, res, next) => {
 };
 
 exports.createUser = async (req, res, next) => {
-  // console.log("creating user", req.body);
   try {
     const newUser = await User.create(req.body);
-    console.log("HERE");
+
     res.status(201).json({
       status: "success",
       newUser,
@@ -48,7 +47,6 @@ exports.createUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
   try {
-    console.log(req.body, "REQ BODY");
     const userId = req.params.id || req.user.id;
     const user = await User.findByIdAndUpdate(userId, req.body, { new: true });
     if (!user) return next(new AppError("No user with that ID", 404));

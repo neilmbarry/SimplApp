@@ -37,8 +37,6 @@ const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
   useEffect(() => {
     if (loading) return;
     if (data?.status === "success") {
-      console.log(data);
-      console.log("CALLING REFRESH IN FAVEICON");
       store.dispatch(configActions.setFaves(data.user.faves));
       store.dispatch(
         configActions.setNotification(

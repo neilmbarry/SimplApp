@@ -15,9 +15,9 @@ const createJsonWebToken = (id) =>
 exports.signUp = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
-    console.log(newUser.id);
+
     const token = createJsonWebToken(newUser._id);
-    console.log("Created Token");
+
     newUser.password = undefined;
     res.status(201).json({
       status: "success",
@@ -74,7 +74,7 @@ exports.protect = async (req, res, next) => {
 
     // Verify token and isn't expired
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-    // console.log(decoded);
+
     // Find user from token
     const user = await User.findById(decoded.id);
     if (!user) {
@@ -82,7 +82,7 @@ exports.protect = async (req, res, next) => {
         new AppError("The user belonging to this token no longer exists.", 404)
       );
     }
-    // --- ADD CHECK TO SEE IF USER HAS RECENTLY CHANGED PASSWORD --- //
+
     req.user = user;
     next();
   } catch (err) {
@@ -96,16 +96,7 @@ exports.restrictTo = (...users) => {
       if (users.includes("author")) {
         let isAuthor = false;
         const model = req.baseUrl.split("/")[3];
-        if (model === "cocktails") {
-          const cocktail = await Cocktail.findById(req.params.id);
-          if (!cocktail) {
-            return next(new AppError("Cocktail not found", 404));
-          }
-          console.log(cocktail);
-          const cocktailAuthorId = cocktail.createdBy.toString();
-          console.log(cocktailAuthorId, "<------ Cocktail author");
-          isAuthor = req.user.id == cocktailAuthorId ? true : false;
-        }
+
         if (model === "reviews") {
           const review = await Review.findById(req.params.id);
 

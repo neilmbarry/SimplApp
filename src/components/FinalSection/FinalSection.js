@@ -11,10 +11,10 @@ const FinalSection = ({ className }) => {
         <div className={classes.bg}></div>
         <div className={classes.column}>
           <div className={classes.text}>
-            <h2>Book a car {">"}</h2>
+            <h2>Book clothes {">"}</h2>
             <h4>
-              Down the street or across the country, find the perfect vehicle
-              fro your next adventure.
+              Down the street or across the country, find the perfect garment
+              for your next adventure.
             </h4>
           </div>
           <div className={classes.image}>
@@ -28,8 +28,8 @@ const FinalSection = ({ className }) => {
           <div className={classes.text}>
             <h2>Become a host {">"} </h2>
             <h4>
-              Accelerate your entrepreneurship and start building a small car
-              sharing business on Simp.
+              Accelerate your entrepreneurship and start building a garment
+              sharing business on Simpl.
             </h4>
           </div>
         </div>

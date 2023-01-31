@@ -11,7 +11,6 @@ const FormRadioButtons = ({
   const classesList = `${classes.main} ${className}`;
 
   const optionsArray = options.map((op, i) => {
-    console.log("option comparison", op.option, selected);
     if (op.option === selected) {
       return (
         <label

@@ -16,8 +16,6 @@ const SignupModal = ({ className }) => {
   const usernameRef = useRef();
   const passwordRef = useRef();
 
-  console.log(BASE_URL + "users/signup");
-
   const { data, loading, error, postRequest } = useFetch({
     url: BASE_URL + "users/signup",
   });
@@ -42,7 +40,7 @@ const SignupModal = ({ className }) => {
 
   useEffect(() => {
     if (data?.status === "success") {
-      console.log(data);
+
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
       store.dispatch(configActions.setToken(data.token));

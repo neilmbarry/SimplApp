@@ -21,10 +21,6 @@ const {
 const router = express.Router();
 
 router.route("/signup").post(signUp);
-router.use((req, res, next) => {
-  console.log("Hello from inside user routes! 🙋‍♂️");
-  next();
-});
 router.route("/login").post(login);
 
 // router.route("/:id").get(getUser);

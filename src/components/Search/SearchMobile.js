@@ -12,7 +12,6 @@ const SearchMobile = ({ className, show, close }) => {
   }`;
   const inputRef = useRef();
   const searchHandler = () => {
-    console.log("here");
     store.dispatch(queryActions.setSearchTerm(inputRef.current.value));
     close();
   };

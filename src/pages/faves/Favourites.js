@@ -15,8 +15,6 @@ const Favourites = ({ className }) => {
   });
   const token = useSelector((state) => state.config.value.token);
 
-  console.log(data);
-
   const favesJSX = data?.faves?.map((prod) => {
     return (
       <Result info={prod} className={classes.result} refresh={refreshRequest} />
@@ -24,12 +22,10 @@ const Favourites = ({ className }) => {
   });
 
   function refreshRequest() {
-    console.log("REFRESHING REQUEST IN FAVROUTTIES");
     getRequest(token);
   }
 
   useEffect(() => {
-    console.log("CALLING USEEFFECT IN FAVOURTIES");
     if (!data) {
       refreshRequest();
     }
@@ -38,7 +34,7 @@ const Favourites = ({ className }) => {
     <div className={classesList}>
       <NavBar search={false} />
       <div className={classes.pageContainer}>
-        <h2>Neil's favourites</h2>
+        <h2>Your favourites</h2>
 
         <div className={classes.favesContainer}>
           {favesJSX}

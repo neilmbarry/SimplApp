@@ -29,7 +29,7 @@ const FilterBar = ({ className }) => {
     store.dispatch(configActions.setFilterModal(filter));
   };
   const queryObj = useSelector((state) => state.query.value);
-  console.log(queryObj);
+
   const clearFilter = () => {
     store.dispatch(queryActions.reset());
   };

@@ -18,14 +18,11 @@ const useFetch = ({ url, filters }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  //   console.log("useFetch rerendered", loading, data, error);
 
   function getRequest(token) {
-    console.log("Calling get request");
-    console.log(filters);
     const queryString = generateQueryString(filters);
     setLoading(true);
-    console.log(url + queryString);
+
     fetch(url + queryString, {
       headers: {
         "Content-Type": "application/json",

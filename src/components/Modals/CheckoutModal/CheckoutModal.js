@@ -35,7 +35,7 @@ const CheckoutModal = ({ className }) => {
       summary: productReviewRef.current.value,
       productId: product.id,
     };
-    console.log(hostReview, productReview);
+
     const body = JSON.stringify(productReview);
     const hostBody = JSON.stringify(hostReview);
     postRequest(body, token);
@@ -44,7 +44,6 @@ const CheckoutModal = ({ className }) => {
 
   useEffect(() => {
     if (data?.status === "success") {
-      console.log(data);
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
     }

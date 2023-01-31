@@ -39,72 +39,8 @@ reviewSchema.pre(/^find/, async function (next) {
   next();
 });
 
-// reviewSchema.statics.calcAverages = async function (itemId) {
-//   try {
-//     const stats = await this.aggregate([
-//       {
-//         $match: { product: itemId },
-//       },
-//       {
-//         $group: {
-//           _id: "$product",
-//           ratingsQuantity: { $sum: 1 },
-//           ratingsAverage: { $avg: "$rating" },
-//         },
-//       },
-//     ]);
-
-//     console.log("PRODUCT STATS", stats);
-
-//     if (stats) {
-//       await Product.findByIdAndUpdate(itemId, {
-//         ratingsQuantity: stats[0]?.ratingsQuantity,
-//         ratingsAverage: stats[0]?.ratingsAverage,
-//       });
-//     } else {
-//       await Product.findByIdAndUpdate(itemId, {
-//         ratingsQuantity: 0,
-//         ratingsAverage: 0,
-//       });
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   try {
-//     const stats2 = await this.aggregate([
-//       {
-//         $match: { host: itemId },
-//       },
-//       {
-//         $group: {
-//           _id: "$user",
-//           ratingsQuantity: { $sum: 1 },
-//           ratingsAverage: { $avg: "$rating" },
-//         },
-//       },
-//     ]);
-
-//     console.log('USER STATS', stats2);
-
-//     if (stats2) {
-//       await User.findByIdAndUpdate(itemId, {
-//         ratingsQuantity: stats2[0]?.ratingsQuantity,
-//         ratingsAverage: stats2[0]?.ratingsAverage,
-//       });
-//     } else {
-//       await User.findByIdAndUpdate(itemId, {
-//         ratingsQuantity: 0,
-//         ratingsAverage: 0,
-//       });
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
 reviewSchema.statics.calcProdAverages = async function (prodId) {
   if (!prodId) return;
-  console.log("CALC PROD AVERAGES");
   try {
     const stats = await this.aggregate([
       {
@@ -118,8 +54,6 @@ reviewSchema.statics.calcProdAverages = async function (prodId) {
         },
       },
     ]);
-
-    console.log("PRODUCT STATS", stats);
 
     if (stats) {
       await Product.findByIdAndUpdate(prodId, {
@@ -139,7 +73,6 @@ reviewSchema.statics.calcProdAverages = async function (prodId) {
 
 reviewSchema.statics.calcHostAverages = async function (hostId) {
   if (!hostId) return;
-  console.log("CALC HOST AVERAGES");
   try {
     const stats = await this.aggregate([
       {
@@ -153,8 +86,6 @@ reviewSchema.statics.calcHostAverages = async function (hostId) {
         },
       },
     ]);
-
-    console.log("HOST STATS", stats);
 
     if (stats) {
       await User.findByIdAndUpdate(hostId, {

@@ -51,7 +51,6 @@ const HostPage = ({ className }) => {
     url: BASE_URL + "users/" + id,
   });
   const [selectedImage, setSelectedImage] = useState(data?.user?.image);
-  console.log(data);
 
   const submitUpdates = () => {
     postRequest(
@@ -62,7 +61,6 @@ const HostPage = ({ className }) => {
       token,
       "PATCH"
     );
-    console.log(selectedImage, textRef.current.value);
   };
 
   const productsJSX = data?.user?.hostProducts?.map((prod) => {
@@ -95,7 +93,6 @@ const HostPage = ({ className }) => {
     if (!data) {
       return;
     }
-    console.log("rerunning");
     if (id === "me") {
       store.dispatch(configActions.setUserImage(data?.user?.image));
     }

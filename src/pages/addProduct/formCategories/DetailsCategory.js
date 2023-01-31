@@ -49,7 +49,6 @@ const DetailsCategory = ({ className, onPage }) => {
       description: description.current.value,
       features: checkedList,
     };
-    console.log(details);
 
     store.dispatch(newProductActions.updateInfo(details));
     onPage(3);

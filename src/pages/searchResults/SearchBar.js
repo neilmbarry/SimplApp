@@ -13,10 +13,8 @@ const SearchBar = ({ className, toggleSearch }) => {
   const classesList = `${classes.main} ${className}`;
   const queryTerm = useSelector((state) => state.query.value.searchTerm);
   const searchRef = useRef();
-  console.log(queryTerm);
-  const searchHandler = () => {
-    console.log("search handler");
 
+  const searchHandler = () => {
     store.dispatch(queryActions.reset());
     store.dispatch(queryActions.setSearchTerm(searchRef.current.value));
   };
@@ -31,7 +29,12 @@ const SearchBar = ({ className, toggleSearch }) => {
         <div className={classes.formBox}>
           <div className={classes.whereBox}>
             {/* <h4>What</h4> */}
-            <input type="text" defaultValue={queryTerm} ref={searchRef} />
+            <input
+              type="text"
+              defaultValue={queryTerm}
+              ref={searchRef}
+              placeholder="Search by name..."
+            />
             <SearchIcon
               className={classes.searchIcon}
               onClick={searchHandler}

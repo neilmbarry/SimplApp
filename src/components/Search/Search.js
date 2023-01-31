@@ -19,20 +19,6 @@ const Search = () => {
           <h6>What</h6>
           <input type="text" placeholder="Search by name" ref={queryRef} />
         </div>
-        {/* <div className={classes.fromInput}>
-          <h6>From</h6>
-          <div>
-            <input type="date" defaultValue="2022-06-03" />
-            <input type="time" />
-          </div>
-        </div>
-        <div className={classes.untilInput}>
-          <h6>Until</h6>
-          <div>
-            <input type="date" defaultValue="2022-07-04" />
-            <input type="time" />
-          </div>
-        </div> */}
 
         <Link
           to="/search"

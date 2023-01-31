@@ -1,31 +1,38 @@
+// Main imports
 import React, { useEffect } from "react";
-import classes from "./ProductPage.module.css";
-import NavBar from "../../../components/NavBar/NavBar";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
+// Styles
+import classes from "./ProductPage.module.css";
+
+// Components
+import ProductInfo from "../ProductFeatures/ProductInfo";
+import NavBar from "../../../components/NavBar/NavBar";
 import Footer from "../../../components/Footer/Footer";
 import ProductImages from "../ProductImages";
 import ProductHeader from "../ProductHeader";
-import ProductFeatures from "../ProductFeatures/ProductFeatures";
 import HostInfo from "../HostInfo";
 import ProductDescription from "../ProductDescription";
 import ProductReviews from "../ProductReviews/ProductReviews";
 import BookingColumn from "../BookingColumn";
 import MobileConfirm from "../MobileConfirm/MobileConfirm";
+import FaveIcon from "../../searchResults/FaveIcon";
+
+// State management
 import store from "../../../store/store";
 import configActions from "../../../store/configSlice";
-import { useState } from "react";
-import { productIcons } from "../../../config/icons";
-import { useParams } from "react-router-dom";
+
+// Hooks
 import useFetch from "../../../hooks/useFetch";
-import ProductInfo from "../ProductFeatures/ProductInfo";
-import { useSelector } from "react-redux";
+
+// Config
 import { BASE_URL } from "../../../config/configParameters";
-import FaveIcon from "../../searchResults/FaveIcon";
 
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
 
-  const product = useSelector((state) => state.config.value.currentProduct);
+  // const product = useSelector((state) => state.config.value.currentProduct);
   const token = useSelector((state) => state.config.value.token);
   const notification = useSelector((state) => state.config.value.notification);
   const params = useParams();
@@ -46,7 +53,6 @@ const ProductPage = ({ className }) => {
     if (!token) {
       return store.dispatch(configActions.setModal("signup"));
     }
-    console.log("adding fave", data?.product?.id);
     postRequest(
       JSON.stringify({
         productId: data?.product?.id,
@@ -65,35 +71,43 @@ const ProductPage = ({ className }) => {
   };
 
   useEffect(() => {
+    console.log("use effect");
     if (!data) {
+      console.log("use effect - getting request");
       return getRequest();
     }
-    // setProduct(data.product);
-    store.dispatch(configActions.setCurrentProduct(data.product));
-  }, [data, getRequest]);
+    if (data.status === "success") {
+      console.log("success getting data");
+      store.dispatch(configActions.setCurrentProduct(data.product));
+    }
+    if (data.status === "fail" || data.status === "error") {
+      console.log("error getting data");
+      store.dispatch(configActions.setNotification(error.message));
+    }
+  }, [data]);
 
-  useEffect(() => {
-    getRequest();
-  }, [notification]);
+  // useEffect(() => {
+  //   getRequest();
+  // }, [notification]);
 
   return (
     <div className={classesList}>
       <NavBar search={true} />
       <FaveIcon
         refresh={getRequest}
-        productId={product?.id}
-        fave={userFaves.includes(product?.id)}
+        productId={data?.product?.id}
+        fave={userFaves.includes(data?.product?.id)}
         className={classes.faveIcon}
       />
-      <ProductImages image={product?.image} loading={loading} />
+      <ProductImages image={data?.product?.image} loading={loading} />
       <div className={classes.pageContent}>
         <ProductHeader
-          title={product?.name}
-          rating={product?.ratingsAverage}
-          trips={product?.reviews.length}
+          title={data?.product?.name}
+          rating={data?.product?.ratingsAverage}
+          trips={data?.product?.reviews.length}
           className={classes.header}
         />
-        <ProductInfo product={product} className={classes.features} />
+        <ProductInfo product={data?.product} className={classes.features} />
         {/* <ProductFeatures
           product={product}
           className={classes.features}
@@ -103,29 +117,29 @@ const ProductPage = ({ className }) => {
           className={classes.features}
         /> */}
 
-        <HostInfo hostInfo={product?.host} className={classes.host} />
+        <HostInfo hostInfo={data?.product?.host} className={classes.host} />
         <ProductDescription
-          description={product?.description}
-          features={product?.features}
+          description={data?.product?.description}
+          features={data?.product?.features}
           className={classes.description}
         />
         <ProductReviews
-          reviews={product?.reviews}
-          rating={product?.ratingsAverage}
+          reviews={data?.product?.reviews}
+          rating={data?.product?.ratingsAverage}
           className={classes.reviews}
         />
 
         <BookingColumn
-          price={product?.price}
-          discount={product?.discount}
+          price={data?.product?.price}
+          discount={data?.product?.discount}
           className={classes.booking}
           onConfirm={checkout}
           onFave={favouriteHandler}
         />
 
         <MobileConfirm
-          price={product?.price}
-          discount={product?.discount}
+          price={data?.product?.price}
+          discount={data?.product?.discount}
           onConfirm={checkout}
         />
       </div>

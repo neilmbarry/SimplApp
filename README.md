@@ -1,4 +1,4 @@
-# Project Name
+# Simpl.
 
 Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query, filter and sort the online database of products. Authenticated users can also add favourites, add reviews for hosts and products as well as submit their own items of clothing for rent.
 
@@ -45,6 +45,8 @@ List the ready features here:
 ## Screenshots
 
 ![Example screenshot](https://i.imgur.com/80dweEb.png)
+![Example screenshot](https://i.imgur.com/azTlRWO.png)
+![Example screenshot](https://i.imgur.com/aaAVesD.png)
 
 <!-- If you have screenshots you'd like to share, include them here. -->
 

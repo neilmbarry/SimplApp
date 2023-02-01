@@ -3,15 +3,13 @@ import classes from "./Result.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Savings from "../../components/UI/Savings";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import images from "../../helpers/imagesObj";
 import FaveIcon from "./FaveIcon";
-import useFetch from "../../hooks/useFetch";
-import { BASE_URL } from "../../config/configParameters";
+
 import { useSelector } from "react-redux";
-import store from "../../store/store";
-import configActions from "../../store/configSlice";
+
 
 const Result = ({ className, info, refresh = () => null }) => {
   const classesList = `${classes.main} ${className}`;

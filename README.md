@@ -1,12 +1,11 @@
 # Simpl.
 
-Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query, filter and sort the online database of products. Authenticated users can also add favourites, add reviews for hosts and products as well as submit their own items of clothing for rent.
+Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query, filter and sort the online database of products. Authenticated users can also add favourites, add reviews for hosts and products as well as submit their own items of clothing to the database.
 
-> Live demo [_here_](https://simp-app.vercel.app/). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://simp-app.vercel.app/).
 
 ## Table of Contents
 
-- [General Info](#general-information)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Screenshots](#screenshots)
@@ -18,13 +17,6 @@ Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query
 - [Contact](#contact)
 <!-- * [License](#license) -->
 
-## General Information
-
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-
 ## Technologies Used
 
 - React
@@ -34,32 +26,50 @@ Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query
 - Mongoose
 - Express
 
-## Features
-
-List the ready features here:
-
--
-- Awesome feature 2
-- Awesome feature 3
-
 ## Screenshots
 
+Search results page
 ![Example screenshot](https://i.imgur.com/80dweEb.png)
+Product page
 ![Example screenshot](https://i.imgur.com/azTlRWO.png)
+Add product page
 ![Example screenshot](https://i.imgur.com/aaAVesD.png)
 
-<!-- If you have screenshots you'd like to share, include them here. -->
+## Code structure
 
-## Setup
+This application can be divided into two distinct parts: the front end and the back end.
 
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-Proceed to describe how to install / setup one's local environment / get started with the project.
+On the front end is a react application that implements Redux for state management, custom hooks for fetching data and CSS modules for styling. It has various routes to navigate through the application some of which are protected to allow only authenticated users access. The folder structure is organized into...
 
-## Usage
+On the back end is an express application using mongoose to communication with a mongoDB database. The code is divided into three main concerns being routes for different api calls, models for modeling the database entries, and controllers for describing the data transformations.
 
-How does one go about using it?
-Provide various use cases and code examples here.
-`write-your-code-here`
+A react component
+![Example screenshot](https://i.imgur.com/80dweEb.png)
+useFetch hook
+![Example screenshot](https://i.imgur.com/azTlRWO.png)
+A controller
+![Example screenshot](https://i.imgur.com/aaAVesD.png)
+
+## To run locally
+
+- Clone repository to your local device
+- Navigate to the ship-head folder
+- Run `npm install` to install all the dependencies
+- Run `npm start` to start the React project, this will open in a new browser window.
+- Run `npm run server` to to run the development server that the main application will connect to.
+- You will need to add your own config.env file with the following variable to run the server and connect to your own MongoDB database:
+  `
+  NODE_ENV='development'
+
+PORT=8000
+
+JWT_SECRET={YOUR_SECRET}
+JWT_EXPIRES_IN=90d
+JWT_COOKIE_EXPIRES_IN=90d
+
+DATABASE=mongodb+srv://{YOUR_MONGO_DB_DATABASE}
+DATABASE_PASSWORD={YOUR_DB_PASSWORD}
+`
 
 ## Project Status
 
@@ -67,14 +77,12 @@ Project is: _complete_
 
 ## Room for Improvement
 
-Below are some area to be improved or expanded upon
+Below are some area to be improved or expanded upon.
 
 - User/product image uploads
 - Adding location data
 
 ## Acknowledgements
-
-Give credit here.
 
 - The design of this project was based on [Turo](https://turo.com/ca/en).
 

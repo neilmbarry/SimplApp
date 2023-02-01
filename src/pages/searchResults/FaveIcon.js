@@ -11,7 +11,7 @@ import store from "../../store/store";
 import configActions from "../../store/configSlice";
 import { useEffect } from "react";
 
-const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
+const FaveIcon = ({ className, fave, productId, refresh }) => {
   const classesList = `${classes.main} ${className}`;
   const token = useSelector((state) => state.config.value.token);
 
@@ -35,6 +35,7 @@ const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
   };
 
   useEffect(() => {
+    console.log("calling faveicon useeffect");
     if (loading) return;
     if (data?.status === "success") {
       store.dispatch(configActions.setFaves(data.user.faves));

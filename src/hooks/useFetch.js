@@ -30,9 +30,6 @@ const useFetch = ({ url, filters }) => {
       },
     })
       .then((res) => {
-        if (!res.ok) {
-          //   throw Error("Could not access resource");
-        }
         return res.json();
       })
       .then((data) => {
@@ -46,36 +43,33 @@ const useFetch = ({ url, filters }) => {
       });
   }
 
-  const postRequest = useCallback(
-    (body, token, method) => {
-      setData(null);
-      setError(null);
-      setLoading(true);
-      fetch(url, {
-        body,
-        method: method || "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+  const postRequest = (body, token, method) => {
+    setData(null);
+    setError(null);
+    setLoading(true);
+    fetch(url, {
+      body,
+      method: method || "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        return res.json();
       })
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setData(data);
-          setLoading(false);
-          if (data.status === "error") {
-            setError(data.message);
-          }
-        })
-        .catch((err) => {
-          setLoading(false);
-          setError(err.message);
-        });
-    },
-    [url]
-  );
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+        if (data.status === "error" || data.status === "fail") {
+          setError(data.message);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.message);
+      });
+  };
 
   return { loading, error, data, getRequest, postRequest };
 };

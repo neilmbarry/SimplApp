@@ -28,6 +28,7 @@ const Favourites = ({ className }) => {
   });
 
   function refreshRequest() {
+    console.log("refreshing request");
     getRequest(token);
   }
 

@@ -49,8 +49,10 @@ const ProductPage = ({ className }) => {
   };
 
   useEffect(() => {
-    console.log("use effect stupid");
+    getRequest();
+  }, [refresh]);
 
+  useEffect(() => {
     if (data.status === "success") {
       console.log("success getting data");
       store.dispatch(configActions.setCurrentProduct(data.product));
@@ -60,15 +62,6 @@ const ProductPage = ({ className }) => {
       store.dispatch(configActions.setNotification(error.message));
     }
   }, [data, error]);
-
-  useEffect(() => {
-    console.log("GETTING REQUEST");
-    getRequest();
-  }, [refresh]);
-
-  // useEffect(() => {
-  //   getRequest();
-  // }, [notification]);
 
   return (
     <div className={classesList}>
@@ -80,26 +73,11 @@ const ProductPage = ({ className }) => {
       />
       <ProductImages image={data?.product?.image} loading={loading} />
       <div className={classes.pageContent}>
-        <ProductHeader
-          title={data?.product?.name}
-          rating={data?.product?.ratingsAverage}
-          trips={data?.product?.reviews.length}
-          className={classes.header}
-        />
+        <ProductHeader product={data?.product} className={classes.header} />
         <ProductInfo product={data?.product} className={classes.features} />
-        {/* <ProductFeatures
-          product={product}
-          className={classes.features}
-        />
-        <ProductFeatures
-          product={product}
-          className={classes.features}
-        /> */}
-
         <HostInfo hostInfo={data?.product?.host} className={classes.host} />
         <ProductDescription
-          description={data?.product?.description}
-          features={data?.product?.features}
+          product={data?.product}
           className={classes.description}
         />
         <ProductReviews
@@ -109,18 +87,11 @@ const ProductPage = ({ className }) => {
         />
 
         <BookingColumn
-          price={data?.product?.price}
-          discount={data?.product?.discount}
+          product={data?.product}
           className={classes.booking}
           onConfirm={checkout}
-          // onFave={favouriteHandler}
         />
-
-        <MobileConfirm
-          price={data?.product?.price}
-          discount={data?.product?.discount}
-          onConfirm={checkout}
-        />
+        <MobileConfirm product={data?.product} onConfirm={checkout} />
       </div>
       <Footer />
     </div>

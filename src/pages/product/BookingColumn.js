@@ -4,14 +4,14 @@ import Button from "../../components/UI/Button";
 import classes from "./BookingColumn.module.css";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
-const BookingColumn = ({ className, price, discount, onConfirm, onFave }) => {
+const BookingColumn = ({ className, onConfirm, product }) => {
   const classesList = `${classes.main} ${className}`;
   return (
     <div className={classesList}>
       <div className={classes.priceBox}>
         <h3>
-          <span className={classes.oldPrice}>${price}</span> $
-          {price - (discount ? 10 : 0)} total
+          <span className={classes.oldPrice}>${product?.price}</span> $
+          {product?.price - (product?.discount ? 10 : 0)} total
         </h3>
         <h4>View price details</h4>
       </div>
@@ -30,20 +30,10 @@ const BookingColumn = ({ className, price, discount, onConfirm, onFave }) => {
             <input type="time" defaultValue="10:00" />
           </div>
         </div>
-        {/* <div className={classes.datesBox}>
-          <h5>Pickup & return location</h5>
-          <div className={classes.inputs}>
-            <select>
-              <option value="">Airport</option>
-              <option value="">Airport</option>
-              <option value="">Airport</option>
-            </select>
-          </div>
-        </div> */}
-        {discount && (
+        {product?.discount && (
           <div className={classes.discountBox}>
             <div className={classes.discount}>
-              <h3>{discount} discount</h3>
+              <h3>{product.discount} discount</h3>
             </div>
             <div className={classes.discountValue}>
               <h3>$10</h3>
@@ -70,13 +60,6 @@ const BookingColumn = ({ className, price, discount, onConfirm, onFave }) => {
         <br />
         <h4>Insurance via Travelers</h4>
       </div>
-      {/* <div className={`${classes.distanceBox} ${classes.faveCont}`}>
-        <Button
-          text="Add to favourites"
-          className={classes.favButton}
-          onClick={onFave}
-        />
-      </div> */}
     </div>
   );
 };

@@ -7,15 +7,12 @@ Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
-- [Features](#features)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Project Status](#project-status)
-- [Room for Improvement](#room-for-improvement)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
-<!-- * [License](#license) -->
 
 ## Technologies Used
 
@@ -39,16 +36,16 @@ Add product page
 
 This application can be divided into two distinct parts: the front end and the back end.
 
-On the front end is a react application that implements Redux for state management, custom hooks for fetching data and CSS modules for styling. It has various routes to navigate through the application some of which are protected to allow only authenticated users access. The folder structure is organized into...
+On the front end is a react application that implements Redux for state management, custom hooks for fetching data and CSS modules for styling. It has various routes to navigate through the application some of which are protected to allow only authenticated users access.
 
-On the back end is an express application using mongoose to communication with a mongoDB database. The code is divided into three main concerns being routes for different api calls, models for modeling the database entries, and controllers for describing the data transformations.
+On the back end is an express application using mongoose to communication with a mongoDB database. The code is divided into three main concerns being routes for different api calls, models for modeling the database entries, and controllers for describing the data transformations and flow.
 
 A react component
-![Example screenshot](https://i.imgur.com/80dweEb.png)
+![Example screenshot](https://i.imgur.com/gnu7Kff.png)
 useFetch hook
-![Example screenshot](https://i.imgur.com/azTlRWO.png)
+![Example screenshot](https://i.imgur.com/oEDKXyB.png)
 A controller
-![Example screenshot](https://i.imgur.com/aaAVesD.png)
+![Example screenshot](https://i.imgur.com/CSa3obY.png)
 
 ## To run locally
 
@@ -58,18 +55,13 @@ A controller
 - Run `npm start` to start the React project, this will open in a new browser window.
 - Run `npm run server` to to run the development server that the main application will connect to.
 - You will need to add your own config.env file with the following variable to run the server and connect to your own MongoDB database:
-  `
   NODE_ENV='development'
-
-PORT=8000
-
-JWT_SECRET={YOUR_SECRET}
-JWT_EXPIRES_IN=90d
-JWT_COOKIE_EXPIRES_IN=90d
-
-DATABASE=mongodb+srv://{YOUR_MONGO_DB_DATABASE}
-DATABASE_PASSWORD={YOUR_DB_PASSWORD}
-`
+  PORT=8000
+  JWT_SECRET={YOUR_SECRET}
+  JWT_EXPIRES_IN=90d
+  JWT_COOKIE_EXPIRES_IN=90d
+  DATABASE=mongodb+srv://{YOUR_MONGO_DB_DATABASE}
+  DATABASE_PASSWORD={YOUR_DB_PASSWORD}
 
 ## Project Status
 

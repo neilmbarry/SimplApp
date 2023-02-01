@@ -44,7 +44,6 @@ const FaveIcon = ({ className, fave, onClick, productId, refresh }) => {
         )
       );
       data.status = null;
-      refresh();
     }
   }, [data?.status, refresh, loading, data]);
 

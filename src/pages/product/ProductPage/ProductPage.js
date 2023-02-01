@@ -32,50 +32,25 @@ import { BASE_URL } from "../../../config/configParameters";
 const ProductPage = ({ className }) => {
   const classesList = `${classes.main} ${className}`;
 
-  // const product = useSelector((state) => state.config.value.currentProduct);
   const token = useSelector((state) => state.config.value.token);
-  const notification = useSelector((state) => state.config.value.notification);
+  const refresh = useSelector((state) => state.config.value.refresh);
   const params = useParams();
+
   const userFaves = useSelector((state) => state.config.value.userFaves);
   const { loading, error, data, getRequest } = useFetch({
     url: `${BASE_URL}products/${params.slug}`,
   });
-  const {
-    loading: faveLoading,
-    error: faveError,
-    data: faveData,
-    postRequest,
-  } = useFetch({
-    url: `${BASE_URL}users/toggleFave`,
-  });
-
-  const favouriteHandler = () => {
-    if (!token) {
-      return store.dispatch(configActions.setModal("signup"));
-    }
-    postRequest(
-      JSON.stringify({
-        productId: data?.product?.id,
-      }),
-      token,
-      "PATCH"
-    );
-  };
 
   const checkout = () => {
     if (!token) {
       return store.dispatch(configActions.setModal("signup"));
     }
-
     store.dispatch(configActions.setModal("checkout"));
   };
 
   useEffect(() => {
-    console.log("use effect");
-    if (!data) {
-      console.log("use effect - getting request");
-      return getRequest();
-    }
+    console.log("use effect stupid");
+
     if (data.status === "success") {
       console.log("success getting data");
       store.dispatch(configActions.setCurrentProduct(data.product));
@@ -84,7 +59,12 @@ const ProductPage = ({ className }) => {
       console.log("error getting data");
       store.dispatch(configActions.setNotification(error.message));
     }
-  }, [data]);
+  }, [data, error]);
+
+  useEffect(() => {
+    console.log("GETTING REQUEST");
+    getRequest();
+  }, [refresh]);
 
   // useEffect(() => {
   //   getRequest();
@@ -94,7 +74,6 @@ const ProductPage = ({ className }) => {
     <div className={classesList}>
       <NavBar search={true} />
       <FaveIcon
-        refresh={getRequest}
         productId={data?.product?.id}
         fave={userFaves.includes(data?.product?.id)}
         className={classes.faveIcon}
@@ -134,7 +113,7 @@ const ProductPage = ({ className }) => {
           discount={data?.product?.discount}
           className={classes.booking}
           onConfirm={checkout}
-          onFave={favouriteHandler}
+          // onFave={favouriteHandler}
         />
 
         <MobileConfirm

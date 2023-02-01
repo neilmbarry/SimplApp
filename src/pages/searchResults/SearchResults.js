@@ -25,7 +25,7 @@ const generateFilterOptions = (data) => {
   const sizeOptions = [];
   const brandOptions = [];
   const activityOptions = [];
-  data.products.forEach((prod) => {
+  data.products?.forEach((prod) => {
     if (!typeOptions.includes(prod.type)) {
       typeOptions.push(prod.type);
     }

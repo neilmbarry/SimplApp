@@ -23,6 +23,14 @@ const CheckoutModal = ({ className }) => {
   const { loading, error, data, postRequest } = useFetch({
     url: BASE_URL + "reviews",
   });
+  const {
+    loading: hostLoading,
+    error: hostError,
+    data: hostData,
+    postRequest: hostPostRequest,
+  } = useFetch({
+    url: BASE_URL + "reviews",
+  });
 
   const submitReviews = () => {
     const hostReview = {
@@ -39,19 +47,20 @@ const CheckoutModal = ({ className }) => {
     const body = JSON.stringify(productReview);
     const hostBody = JSON.stringify(hostReview);
     postRequest(body, token);
-    postRequest(hostBody, token);
+    hostPostRequest(hostBody, token);
   };
 
   useEffect(() => {
-    if (data?.status === "success") {
+    if (data?.status === "success" && hostData?.status === "success") {
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
+      store.dispatch(configActions.setRefresh([]));
     }
-    if (error) {
+    if (error || hostError) {
       console.warn(data);
       store.dispatch(configActions.setNotification("Error"));
     }
-  }, [error, data]);
+  }, [error, hostError, data, hostData]);
 
   return (
     <div className={classesList}>

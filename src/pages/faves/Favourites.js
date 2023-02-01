@@ -14,10 +14,16 @@ const Favourites = ({ className }) => {
     url: BASE_URL + "users/me/getFaves",
   });
   const token = useSelector((state) => state.config.value.token);
+  const refresh = useSelector((state) => state.config.value.refresh);
 
   const favesJSX = data?.faves?.map((prod) => {
     return (
-      <Result info={prod} className={classes.result} refresh={refreshRequest} />
+      <Result
+        info={prod}
+        className={classes.result}
+        refresh={refreshRequest}
+        key={prod.slug}
+      />
     );
   });
 
@@ -26,10 +32,8 @@ const Favourites = ({ className }) => {
   }
 
   useEffect(() => {
-    if (!data) {
-      refreshRequest();
-    }
-  }, []);
+    getRequest(token);
+  }, [refresh]);
   return (
     <div className={classesList}>
       <NavBar search={false} />

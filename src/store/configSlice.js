@@ -13,6 +13,7 @@ const initialState = {
   brandOptions: [],
   activityOptions: [],
   sizeOptions: [],
+  refresh: null,
 };
 
 export const configSlice = createSlice({
@@ -56,6 +57,9 @@ export const configSlice = createSlice({
     },
     updateQuery: (state, action) => {
       state.value = { ...state.value, ...action.payload };
+    },
+    setRefresh: (state, action) => {
+      state.value.refresh = action.payload;
     },
   },
 });

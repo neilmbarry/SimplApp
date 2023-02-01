@@ -16,7 +16,7 @@ const generateQueryString = (filters) => {
 
 const useFetch = ({ url, filters }) => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [error, setError] = useState(null);
 
   function getRequest(token) {

@@ -70,13 +70,13 @@ const BookingColumn = ({ className, price, discount, onConfirm, onFave }) => {
         <br />
         <h4>Insurance via Travelers</h4>
       </div>
-      <div className={`${classes.distanceBox} ${classes.faveCont}`}>
+      {/* <div className={`${classes.distanceBox} ${classes.faveCont}`}>
         <Button
           text="Add to favourites"
           className={classes.favButton}
           onClick={onFave}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -10,8 +10,10 @@ const BookingColumn = ({ className, onConfirm, product }) => {
     <div className={classesList}>
       <div className={classes.priceBox}>
         <h3>
-          <span className={classes.oldPrice}>${product?.price}</span> $
-          {product?.price - (product?.discount ? 10 : 0)} total
+          {product?.discount && (
+            <span className={classes.oldPrice}>${product?.price}</span>
+          )}{" "}
+          ${product?.price - (product?.discount ? 10 : 0)} total
         </h3>
         <h4>View price details</h4>
       </div>

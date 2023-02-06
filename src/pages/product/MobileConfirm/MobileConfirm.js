@@ -9,8 +9,10 @@ const MobileConfirm = ({ className, product, onConfirm }) => {
       <div className={classes.container}>
         <div className={classes.totals}>
           <h5 className={classes.price}>
-            <span className={classes.strike}>${product?.price}</span> $
-            {product?.price - product?.discount} total
+            {product?.discount && (
+              <span className={classes.oldPrice}>${product?.price}</span>
+            )}{" "}
+            ${product?.price - (product?.discount ? 10 : 0)} total
           </h5>
           <h6 className={classes.details}>View price details</h6>
         </div>

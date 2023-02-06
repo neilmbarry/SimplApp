@@ -42,10 +42,27 @@ const PricingCategory = ({ className }) => {
         </div>
       </div>
       <FormRadioButtons
-        options={["No discount", "Early bird", "Seniors", "Student"]}
+        options={[
+          {
+            label: "No discount",
+            option: null,
+          },
+          {
+            label: "Early bird",
+            option: "early",
+          },
+          {
+            label: "Seniors",
+            option: "senior",
+          },
+          {
+            label: "Student",
+            option: "student",
+          },
+        ]}
         label="Would you like to offer a discount?"
         selected={discount}
-        onChange={updateDiscount}
+        onSelect={updateDiscount}
       />
     </div>
   );

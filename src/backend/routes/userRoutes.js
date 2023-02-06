@@ -25,6 +25,8 @@ router.route("/login").post(login);
 
 // router.route("/:id").get(getUser);
 
+router.route("/").get(getAllUsers).post(createUser);
+
 router.route("/me").get(protect, getMe, getUser).patch(protect, updateUser);
 router.route("/me/toggleFave").patch(protect, getMe, toggleFave);
 router.route("/me/getFaves").get(protect, getMe, getFaves);

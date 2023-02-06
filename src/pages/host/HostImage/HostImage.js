@@ -9,7 +9,9 @@ const HostImage = ({ className, hostInfo }) => {
   return (
     <div className={classesList}>
       <div className={classes.hostPicContainer}>
-        <img src={images[hostInfo?.image]} alt="The host" />
+        {hostInfo?.image && (
+          <img src={images[hostInfo?.image]} alt="The host" />
+        )}
       </div>
       <div className={classes.hostRating}>
         {hostInfo?.ratingsAverage ? (

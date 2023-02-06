@@ -6,7 +6,7 @@ const Product = require("../models/productModel");
 const Review = require("../models/reviewModel");
 const User = require("../models/userModel");
 
-dotenv.config({ path: `${__dirname}/../config.env` });
+dotenv.config({ path: `${__dirname}/../../../config.env` });
 
 const DB = process.env.DATABASE.replace(
   "<password>",
@@ -18,30 +18,72 @@ mongoose.connect(DB).then(() => {
   console.log("Connected to MongoDB");
 });
 
-// const users = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/dummyUsers.json`),
-//   'utf-8'
-// );
+const users = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/dummyUsers.json`),
+  "utf-8"
+);
 
-// const cocktails = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/dummyCocktails.json`),
-//   'utf-8'
-// );
+const products = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/dummyProducts.json`),
+  "utf-8"
+);
+const reviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/../dev-data/dummyReviews.json`),
+  "utf-8"
+);
 
-// const addData = async () => {
-//   try {
-//     console.log('Importing cocktails...');
-//     await Cocktail.create(cocktails);
-//     console.log('Cocktails imported!');
-//     console.log('Importing users...');
-//     await User.create(users);
-//     console.log('Users imported!');
-//     process.exit(1);
-//   } catch (err) {
-//     console.log(err);
-//     process.exit(1);
-//   }
-// };
+const addData = async () => {
+  try {
+    console.log("Importing products...");
+    await Product.create(products);
+    console.log("Products imported!");
+    console.log("Importing users...");
+    await User.create(users);
+    console.log("Users imported!");
+    console.log("Importing reviews...");
+    await Review.create(reviews);
+    console.log("Reviews imported!");
+    process.exit(1);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
+
+const addUsers = async () => {
+  try {
+    console.log("Importing users...");
+    await User.create(users);
+    console.log("Users imported!");
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
+
+const addProducts = async () => {
+  try {
+    console.log("Importing products...");
+    await Product.create(products);
+    console.log("Products imported!");
+    process.exit(1);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
+
+const addReviews = async () => {
+  try {
+    console.log("Importing reviews...");
+    await Review.create(reviews);
+    console.log("Reviews imported!");
+    process.exit(1);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
 
 const deleteUsers = async () => {
   try {
@@ -78,29 +120,44 @@ const deleteReviews = async () => {
   }
 };
 
-// const resetData = async () => {
-//   try {
-//     console.log('Deleting data...');
+const deleteAll = async () => {
+  try {
+    console.log("Deleting data...");
+    await Product.deleteMany();
+    await User.deleteMany();
+    await Review.deleteMany();
+    console.log("Data deleted!");
+    process.exit(1);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
 
-//     await Cocktail.deleteMany();
-//     await User.deleteMany();
-//     console.log('Data deleted!');
-//     console.log('Importing data...');
-//     await Cocktail.create(cocktails, {
-//       validateBeforeSave: false,
-//     });
-//     await User.create(users);
-//     console.log('Data imported!');
-//     process.exit(1);
-//   } catch (err) {
-//     console.log(err);
-//     process.exit(1);
-//   }
-// };
+const resetData = async () => {
+  try {
+    console.log("Deleting data...");
+    await Product.deleteMany();
+    await User.deleteMany();
+    await Review.deleteMany();
+    console.log("Data deleted!");
+    console.log("Importing data...");
+    await Product.create(products, {
+      validateBeforeSave: false,
+    });
+    await User.create(users);
+    await Review.create(reviews);
+    console.log("Data imported!");
+    process.exit(1);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+};
 
-// if (process.argv[2] === '--import') {
-//   addData();
-// }
+if (process.argv[2] === "--import") {
+  addData();
+}
 
 if (process.argv[2] === "--deleteReviews") {
   deleteReviews();
@@ -112,6 +169,9 @@ if (process.argv[2] === "--deleteProducts") {
   deleteProducts();
 }
 
-// if (process.argv[2] === '--reset') {
-//   resetData();
-// }
+if (process.argv[2] === "--reset") {
+  resetData();
+}
+if (process.argv[2] === "--deleteAll") {
+  deleteAll();
+}

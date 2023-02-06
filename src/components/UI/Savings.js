@@ -8,7 +8,7 @@ const Savings = ({ className, saves }) => {
   return (
     <div className={classesList}>
       <FontAwesomeIcon icon={faTag} />
-      <p> Save US${saves}</p>
+      <p> Save ${saves}</p>
     </div>
   );
 };

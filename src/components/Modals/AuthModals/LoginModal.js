@@ -39,7 +39,7 @@ const LoginModal = ({ className }) => {
       store.dispatch(configActions.setUserImage(data.user.image));
     }
     if (error) {
-      console.warn(data);
+    
       store.dispatch(configActions.setNotification("Error"));
     }
   }, [error, data]);

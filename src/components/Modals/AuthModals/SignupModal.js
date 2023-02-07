@@ -20,10 +20,6 @@ const SignupModal = ({ className }) => {
     url: BASE_URL + "users/signup",
   });
 
-  if (error) {
-    console.error(error);
-  }
-
   const signup = async () => {
     const newUser = {
       firstName: firstRef.current.value,
@@ -40,14 +36,12 @@ const SignupModal = ({ className }) => {
 
   useEffect(() => {
     if (data?.status === "success") {
-
       store.dispatch(configActions.setModal(null));
       store.dispatch(configActions.setNotification("Success"));
       store.dispatch(configActions.setToken(data.token));
       store.dispatch(configActions.setUserImage(data.newUser.image));
     }
     if (error) {
-      console.warn(data);
       store.dispatch(configActions.setNotification("Error"));
     }
   }, [error, data]);

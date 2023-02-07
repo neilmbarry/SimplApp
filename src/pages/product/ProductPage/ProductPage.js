@@ -54,11 +54,9 @@ const ProductPage = ({ className }) => {
 
   useEffect(() => {
     if (data.status === "success") {
-      console.log("success getting data");
       store.dispatch(configActions.setCurrentProduct(data.product));
     }
     if (data.status === "fail" || data.status === "error") {
-      console.log("error getting data");
       store.dispatch(configActions.setNotification(error.message));
     }
   }, [data, error]);

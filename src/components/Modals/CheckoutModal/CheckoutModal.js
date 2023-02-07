@@ -57,7 +57,6 @@ const CheckoutModal = ({ className }) => {
       store.dispatch(configActions.setRefresh([]));
     }
     if (error || hostError) {
-      console.warn(data);
       store.dispatch(configActions.setNotification("Error"));
     }
   }, [error, hostError, data, hostData]);

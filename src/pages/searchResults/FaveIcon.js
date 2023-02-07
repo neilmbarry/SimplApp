@@ -35,7 +35,6 @@ const FaveIcon = ({ className, fave, productId, refresh }) => {
   };
 
   useEffect(() => {
-    console.log("calling faveicon useeffect");
     if (loading) return;
     if (data?.status === "success") {
       store.dispatch(configActions.setFaves(data.user.faves));

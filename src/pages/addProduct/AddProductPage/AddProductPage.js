@@ -49,7 +49,7 @@ const AddProductPage = ({ className }) => {
       store.dispatch(configActions.setNotification("Product Added"));
     }
     if (error) {
-      console.warn(data);
+  
       store.dispatch(configActions.setNotification("Error"));
     }
   }, [error, data]);

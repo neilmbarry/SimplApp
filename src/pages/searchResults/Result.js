@@ -53,7 +53,6 @@ const Result = ({ className, info, refresh = () => null }) => {
         className={classes.faveIcon}
         productId={info?.id}
         refresh={() => {
-          console.log("refreshing");
           refresh();
         }}
       />

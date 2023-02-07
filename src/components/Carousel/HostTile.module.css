@@ -1,21 +1,14 @@
 .tile {
-  /* text-align: center; */
-  /* border: 1px black solid; */
-  /* margin: 6px; */
   border-radius: 10px;
   overflow: hidden;
-  /* background-color: pink; */
-  /* width: 188px; */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.198);
   cursor: pointer;
   transition: all ease 0.2s;
   margin: 1rem 6px;
-  /* height: 250px; */
   padding: 1.5rem;
 }
 
 .tile:hover {
-  /* color: #593cfa; */
   transform: translateY(-3px);
   box-shadow: 0 5px 8px 2px rgba(0, 0, 0, 0.096);
 }

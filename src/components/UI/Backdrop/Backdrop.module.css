@@ -6,7 +6,6 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.684);
   z-index: 99;
-  /* cursor: pointer; */
   display: none;
 }
 

@@ -38,12 +38,10 @@
 .logo h4 {
   font-size: 2rem;
   padding-right: 1rem;
-  /* letter-spacing: 0.5rem; */
 }
 
 .formBox {
   display: flex;
-  /* display: none; */
 }
 
 .mobileBox {
@@ -86,7 +84,6 @@
 }
 
 .whereBox input {
-  /* width: 100%; */
   max-width: 350px;
 }
 

@@ -12,9 +12,7 @@ export const generateTiles = (
   onSelect
 ) => {
   if (!tiles) return;
-  const clickHandler = (image, type) => {
-    // if(userSelect)return onSelect(select)
-  };
+
   const tileComponents = tiles?.map((tile, i) => {
     return (
       <CarouselTile

@@ -14,9 +14,6 @@ const router = express.Router();
 
 router.route("/").get(getAllProducts).post(protect, createProduct);
 
-// Define route to aggregate ingredients
-// router.route('/');
-
 router
   .route("/:slug")
   .get(getProduct)

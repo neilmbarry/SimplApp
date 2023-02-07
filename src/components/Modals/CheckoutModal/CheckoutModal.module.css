@@ -34,7 +34,6 @@
 
 .label {
   font-size: 1.8rem;
-  /* padding-left: 1rem; */
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -49,30 +48,22 @@
 }
 
 .reviewContainer {
-  /* background-color: aliceblue; */
   min-height: 100px;
   width: 100%;
   gap: 3rem;
-  /* border: dashed 2px red; */
   display: flex;
 }
 
 .infoContainer {
-  /* background-color: antiquewhite; */
-  /* border: 2px dashed orange; */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
   height: 100%;
   text-align: center;
-
-  /* width: 10%; */
 }
 
 .ratingBox {
-  /* padding: 1rem; */
-  /* background-color: orange; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -83,7 +74,6 @@
   width: 100% !important;
   max-width: 100%;
   height: 80px;
-  /* background-color: red; */
 }
 
 @media screen and (max-width: 768px) {

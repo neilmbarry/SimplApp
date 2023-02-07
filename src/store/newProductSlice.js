@@ -21,18 +21,6 @@ export const newProductSlice = createSlice({
     updateInfo: (state, action) => {
       state.value = { ...state.value, ...action.payload };
     },
-    // updateDetails: (state, action) => {
-    //   state.value.details = action.payload;
-    // },
-    // updateImage: (state, action) => {
-    //   state.value.image = action.payload;
-    // },
-    // updatePrice: (state, action) => {
-    //   state.value.value.price = action.payload;
-    // },
-    // updateDiscount: (state, action) => {
-    //   state.value.value.discount = action.payload;
-    // },
     reset: (state) => {
       state.value = initialState;
     },

@@ -13,17 +13,13 @@
 .pageContent {
   max-width: 1000px;
   margin: auto;
-  /* background-color: lavender; */
   padding: 8rem 1rem;
   width: 100%;
   display: flex;
   gap: 1rem;
-
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "header booking" "features booking" "host booking" "description booking" "reviews booking";
-  /* grid-template-areas: "header" "booking" "features" "host" "description" "reviews";
-  grid-template-columns: 1fr; */
 }
 
 .header {

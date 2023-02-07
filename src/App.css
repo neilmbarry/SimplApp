@@ -30,16 +30,13 @@ h2 {
 h3 {
   font-size: 2rem;
   font-weight: 700;
-  /* color: azure;
-  text-shadow: 1px 1px 3px black;
-  text-transform: uppercase; */
+
 }
 h4 {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 2rem;
-  /* color: green; */
-  /* letter-spacing: 1rem; */
+
 }
 h5 {
   font-size: 1.4rem;

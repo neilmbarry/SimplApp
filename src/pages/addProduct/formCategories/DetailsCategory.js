@@ -59,7 +59,6 @@ const DetailsCategory = ({ className, onPage }) => {
   };
   return (
     <div className={classesList}>
-      {/* <h4>Description</h4> */}
       <FormTextArea
         label="Tell guests what makes your garment unique and why they'll love wearing
         it."

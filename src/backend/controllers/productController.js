@@ -8,7 +8,6 @@ exports.getAllProducts = async (req, res, next) => {
       .filter()
       .sort()
       .limitFields();
-    // .paginate();
 
     const allMatchingProducts = await features.query;
 

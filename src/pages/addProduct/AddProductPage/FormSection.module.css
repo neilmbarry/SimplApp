@@ -44,9 +44,6 @@
 
 .openContent {
   opacity: 1;
-  /* height: 480px; */
-  /* background-color: grey; */
-
   transition: all ease 0.3s;
 }
 

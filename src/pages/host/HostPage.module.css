@@ -1,7 +1,6 @@
 .banner {
   padding-top: 6rem;
   height: 265px;
-  /* background-color: red; */
   border-bottom: solid rgb(224, 224, 224) 1px;
 }
 
@@ -13,7 +12,6 @@
   position: relative;
   max-width: 1000px;
   width: 100%;
-  /* border: 2px dashed red; */
   gap: 12rem;
   margin: auto;
   padding: 3rem;
@@ -32,49 +30,11 @@
 
 .left {
   flex: 2;
-  /* background-color: greenyellow; */
 }
 
 .right {
   flex: 3;
-  /* background-color: red; */
 }
-
-/* .titleContent {
-  grid-area: title;
-}
-
-.verified {
-  grid-area: veri;
-}
-
-.lang {
-  grid-area: lang;
-}
-
-.works {
-  grid-area: works;
-}
-
-.school {
-  grid-area: school;
-}
-
-.stats {
-  grid-area: stats;
-}
-
-.about {
-  grid-area: about;
-}
-
-.products {
-  grid-area: about;
-}
-
-.reviews {
-  grid-area: about;
-} */
 
 .hostImage {
   background-color: white;

@@ -23,7 +23,7 @@ const router = express.Router();
 router.route("/signup").post(signUp);
 router.route("/login").post(login);
 
-// router.route("/:id").get(getUser);
+
 
 router.route("/").get(getAllUsers).post(createUser);
 

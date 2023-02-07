@@ -1,5 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"); */
-
 .main {
   position: fixed;
   top: 50%;
@@ -8,10 +6,8 @@
   background-color: white;
   padding: 3rem;
   border-radius: 10px;
-  /* min-width: 400px; */
   text-align: center;
   z-index: 250;
-  /* min-height: 300px; */
 }
 
 .close {

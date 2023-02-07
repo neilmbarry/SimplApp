@@ -14,7 +14,6 @@ const sendProductionError = (error, res, err) => {
     return res.status(error.statusCode).json({
       status: error.status,
       message: error.message,
-      //   toBeDeleted: { err, stack: err.stack },
     });
   }
   res.status(error.statusCode).json({

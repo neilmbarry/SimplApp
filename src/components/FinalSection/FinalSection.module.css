@@ -6,14 +6,11 @@
 }
 
 .box {
-  /* background-color: #fbf9f5; */
   max-width: 800px;
   margin: auto;
   display: flex;
   position: relative;
   z-index: 2;
-  /* clip-path: ellipse(130px 140px at 10% 20%); */
-  /* justify-content: space-around; */
 }
 
 .bg {
@@ -25,9 +22,6 @@
   z-index: -1;
   background-color: #fbf9f5;
   border-radius: 90% 1130px 90% 1150px;
-  /* -webkit-clip-path: ellipse(50% 40% at 49% 49%);
-  clip-path: ellipse(50% 40% at 49% 49%); */
-  /* clip-path: ellipse(130px 140px at 10% 20%); */
 }
 
 .image {
@@ -36,7 +30,6 @@
   width: 100%;
   max-width: 300px;
   height: 300px;
-  /* flex: 1; */
 }
 
 .image img {
@@ -51,7 +44,6 @@
 }
 
 .text {
-  /* flex: 1; */
   height: 200px;
   display: flex;
   flex-direction: column;

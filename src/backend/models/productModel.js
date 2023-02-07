@@ -8,7 +8,6 @@ const productSchema = new mongoose.Schema(
       required: [true, "A product must have a name."],
       trim: true,
       unique: true,
-      // maxLength: [20, 'A product name must not exceed 20 characters.'],
     },
     slug: {
       type: String,
@@ -45,7 +44,6 @@ const productSchema = new mongoose.Schema(
     },
     brand: {
       type: String,
-      // required: [true, "A Product must have a type."],
     },
     size: {
       type: String,
@@ -75,14 +73,6 @@ const productSchema = new mongoose.Schema(
     price: Number,
     ratingsQuantity: Number,
     ratingsAverage: Number,
-    // reviews: {
-    //   type: [
-    //     {
-    //       type: mongoose.Schema.ObjectId,
-    //       ref: "Review",
-    //     },
-    //   ],
-    // },
   },
   {
     toJSON: { virtuals: true },
@@ -90,29 +80,14 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-// productSchema.virtual('durationWeeks').get(() => 6);
-
 productSchema.virtual("reviews", {
   ref: "Review",
   foreignField: "product",
   localField: "_id",
 });
 
-// productSchema.pre(/^find/, async function (next) {
-//   this.populate({
-//     path: "host",
-//     select: 'firstName lastName trips rating summary createdAt -Product',
-//   });
-//   next();
-// });
-
 productSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
-  // this.recipe.forEach(function (ing) {
-  //   return (ing.slug = slugify(ing.ingredient, {
-  //     lower: true,
-  //   }));
-  // });
   next();
 });
 

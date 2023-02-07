@@ -42,28 +42,6 @@ const HostInfo = ({ className, hostInfo }) => {
         </div>
       </div>
       <HostAdditional host={hostInfo} />
-      {/* <div className={classes.additionalGroup}>
-        <div className={classes.additionalInfo}>
-          <FontAwesomeIcon icon={faAward} />
-          <div className={classes.additionalText}>
-            <h4>
-              All-Star Hosts like {hostInfo.name} are the top-rated and most
-              experienced hosts on Simpl.
-            </h4>
-            <h5>Learn More</h5>
-          </div>
-        </div>
-        <div className={classes.additionalInfo}>
-          <FontAwesomeIcon icon={faHandSparkles} />
-          <div className={classes.additionalText}>
-            <h4>
-              {hostInfo.name} has completed training on enhanced cleaning and
-              desinfection practices.
-            </h4>
-            <h5>Learn More</h5>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

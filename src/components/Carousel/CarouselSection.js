@@ -12,21 +12,14 @@ import {
 const CarouselSection = ({
   title,
   windows,
-
   tiles,
   hosts,
   slides,
-
   taller,
-
   className,
-
   width,
-
   userSelect,
-
   onSelect,
-  onClick,
 }) => {
   const [slide, setSlide] = useState(
     tiles?.length || hosts?.length || slides?.length
@@ -72,10 +65,7 @@ const CarouselSection = ({
       setClickable(true);
       setAnimateTransition(false);
       return setSlide(elements?.length);
-      // return setSlide(tiles?.length * 2 - 3 - windows);
     }, 500);
-
-    // if (slide > 0) setSlide(slide - 1);
   };
 
   const tilesComponent = generateTiles(

@@ -7,10 +7,6 @@
 .carousel {
   margin: 0 !important;
 }
-.carouselWindow {
-  /* background-color: black; */
-  /* max-width: 500px; */
-}
 
 .button {
   align-self: flex-start;

@@ -23,7 +23,7 @@ const MenuButton = ({ className }) => {
   return (
     <div className={classesList} onClick={toggleMenu}>
       <FontAwesomeIcon icon={faBars} className={classes.menu} />
-      {/* <UserIcon className={classes.user} /> */}
+
       <div className={classes.userContainer}>
         {config.token ? (
           <img src={images[config.userImage || "man1"]} alt="user" />

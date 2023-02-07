@@ -4,15 +4,9 @@
   justify-content: flex-start;
   width: 100%;
   margin: 1rem;
-  /* overflow: scroll;
-  height: 620px; */
   padding-top: 7rem;
   padding-right: 0rem;
-  /* min-height: 90vh; */
   background-color: white;
-  /* justify-content: flex-start; */
-
-  /* flex: 2; */
 }
 
 .show {
@@ -40,9 +34,7 @@
 
 @media screen and (min-width: 1025px) {
   .main {
-    /* width: 66%; */
     display: flex;
-    /* padding-right: 2rem; */
     padding-top: 14rem;
   }
 }

@@ -40,10 +40,7 @@ const Favourites = ({ className }) => {
       <div className={classes.pageContainer}>
         <h2>Your favourites</h2>
 
-        <div className={classes.favesContainer}>
-          {favesJSX}
-          {/* <Results results={data?.products} /> */}
-        </div>
+        <div className={classes.favesContainer}>{favesJSX}</div>
       </div>
     </div>
   );

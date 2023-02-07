@@ -111,10 +111,6 @@ const CheckoutModal = ({ className }) => {
       </form>
 
       <Button text="Submit" onClick={submitReviews} />
-      {/* <div className={classes.switchBox}>
-        <h5>Too much trouble?</h5>
-        <Button alt={true} text="Skip" onClick={null} />
-      </div> */}
     </div>
   );
 };

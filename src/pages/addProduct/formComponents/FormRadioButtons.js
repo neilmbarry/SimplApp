@@ -38,17 +38,7 @@ const FormRadioButtons = ({
   return (
     <div className={classes.container}>
       {label && <h4 className={classes.title}>{label}</h4>}
-      <form className={classesList}>
-        {/* <label className={classes.radio}>
-          <input name="radio" type="radio" defaultChecked />
-          <span>Awesome</span>
-        </label>
-        <label className={classes.radio}>
-          <input name="radio" type="radio" />
-          <span>Cool</span>
-        </label> */}
-        {optionsArray}
-      </form>
+      <form className={classesList}>{optionsArray}</form>
     </div>
   );
 };

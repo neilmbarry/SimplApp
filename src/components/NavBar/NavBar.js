@@ -32,15 +32,6 @@ const NavBar = ({ search }) => {
             <h5>Become a host</h5>
           </li>
         </Link>
-        {/* <li>
-          <h5>Learn more</h5>
-        </li>
-        <li>
-          <h5>Log in</h5>
-        </li>
-        <li>
-          <h5>Sign up</h5>
-        </li> */}
         <MenuButton />
       </ul>
     </nav>

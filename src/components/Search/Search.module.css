@@ -17,8 +17,6 @@
   background-color: white;
   padding: 1rem 1rem;
   padding-right: 0rem;
-  /* padding-bottom: 0.5rem; */
-  /* justify-content: space-between; */
 }
 
 .whatInput,
@@ -34,7 +32,6 @@
 .form input {
   font-size: 1.8rem;
   border: none;
-  /* width: 100%; */
   outline: none;
 }
 
@@ -51,10 +48,6 @@
 
 .untilInput {
   flex: 1;
-}
-
-.formItem:nth-child(4) {
-  /* margin-bottom: 1rem; */
 }
 
 .formButton {

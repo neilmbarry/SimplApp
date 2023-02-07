@@ -1,11 +1,7 @@
 .tile {
   text-align: center;
-  /* border: 1px black solid; */
-  /* margin: 6px; */
   border-radius: 10px;
   overflow: hidden;
-  /* background-color: pink; */
-  /* width: 188px; */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.198);
   cursor: pointer;
   transition: all ease 0.2s;

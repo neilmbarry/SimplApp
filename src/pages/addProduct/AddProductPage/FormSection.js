@@ -29,7 +29,7 @@ const FormSection = ({
       </div>
       <div
         className={`${isOpen && classes.openContent} ${classes.content}`}
-        // style={isOpen && openStyle}
+     
         style={{ height: heightToggle + "px" }}
       >
         {children}

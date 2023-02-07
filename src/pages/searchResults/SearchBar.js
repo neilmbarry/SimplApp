@@ -28,7 +28,6 @@ const SearchBar = ({ className, toggleSearch }) => {
         </Link>
         <div className={classes.formBox}>
           <div className={classes.whereBox}>
-            {/* <h4>What</h4> */}
             <input
               type="text"
               defaultValue={queryTerm}
@@ -45,7 +44,6 @@ const SearchBar = ({ className, toggleSearch }) => {
       <div className={classes.mobileBox} onClick={toggleSearch}>
         <div className={classes.mobileInfo}>
           <p className={classes.mobileText}>{"Search"}</p>
-          {/* <p className={classes.mobileText}>Jan 2 - June 8</p> */}
         </div>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>

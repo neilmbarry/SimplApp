@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose');
 const express = require("express");
 
 const { protect, restrictTo } = require("../controllers/authController");

@@ -158,9 +158,6 @@ const HostPage = ({ className }) => {
           <HostComponent title="School" className={classes.school}>
             <p>University of Toronto</p>
           </HostComponent>
-          {/* <HostComponent title="Host stats" className={classes.stats}>
-            <p>Placeholder</p>
-          </HostComponent> */}
         </div>
         <div className={classes.right}>
           <HostComponent
@@ -180,7 +177,6 @@ const HostPage = ({ className }) => {
             <HostComponent title="Change image" className={classes.products}>
               <CarouselSection
                 windows={3}
-                // taller={true}
                 onSelect={(img) => setSelectedImage(img)}
                 tiles={tilesArray}
                 className={classes.carousel}

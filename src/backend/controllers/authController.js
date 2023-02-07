@@ -118,9 +118,6 @@ exports.restrictTo = (...users) => {
         }
       }
 
-      // if (req.user.id !== cocktail.author.toString()) {
-      //   return next(new AppError('You are not the author.', 401));
-      // }
       next();
     } catch (err) {
       return next(err);

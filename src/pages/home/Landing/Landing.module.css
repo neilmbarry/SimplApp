@@ -1,7 +1,6 @@
 .landing {
   padding-top: 4rem;
   position: relative;
-  /* background-image: url(//resources.turo.com/f/81934/1984x800/b94cbaa7c9/992-can-2x.jpg); */
 }
 
 .background {
@@ -9,7 +8,6 @@
 }
 
 .background img {
-  /* transform: translateY(10px); */
   z-index: -4;
 }
 

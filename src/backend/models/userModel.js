@@ -55,12 +55,6 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now(),
     },
-    // reviews: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: "Reviews",
-    //   },
-    // ],
     active: {
       type: Boolean,
       default: true,
@@ -81,7 +75,6 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  // if (!this.isModified('password')) return next();
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
@@ -98,18 +91,7 @@ userSchema.virtual("hostProducts", {
   localField: "_id",
 });
 
-// userSchema.pre(/^find/, async function (next) {
-//   this.populate({
-//     path: "host",
-//     select: "firstName lastName trips rating summary createdAt -Product",
-//   });
-//   next();
-// });
-// userSchema.pre('save', function (next) {
-//   if (!this.isModified('password') || this.isNew) return next();
-//   this.passwordChangedAt = Date.now();
-//   next();
-// });
+
 
 userSchema.methods.isCorrectPassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);

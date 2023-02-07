@@ -46,8 +46,6 @@ const Menu = ({ className }) => {
             <Link to="favourites">
               <MenuItem text="Favourites" icon={faHeart} />
             </Link>
-            {/* <MenuItem text="Trips" icon={faRoad} />
-            <MenuItem text="Inbox" icon={faComment} /> */}
 
             <div className={classes.divider}></div>
           </>
@@ -67,7 +65,6 @@ const Menu = ({ className }) => {
             <Link to="host/me">
               <MenuItem text="Profile" icon={faPerson} />
             </Link>
-            {/* <MenuItem text="Account" icon={faRightToBracket} /> */}
             <Link to="addProduct">
               <MenuItem text="Become a host" icon={faShirt} />
             </Link>

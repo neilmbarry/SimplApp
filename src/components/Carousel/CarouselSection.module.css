@@ -1,12 +1,5 @@
 .sectionContainer {
   margin: 5rem 1rem;
-  /* background-color: grey; */
-}
-
-.sectionContainer button {
-  /* border: none;
-  background-color: transparent;
-  cursor: pointer; */
 }
 
 .title {
@@ -23,7 +16,6 @@
   margin: auto;
   overflow: hidden;
   position: relative;
-  /* background-color: rgba(128, 0, 128, 0.493); */
 }
 .next {
   position: absolute;

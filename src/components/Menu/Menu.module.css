@@ -6,7 +6,6 @@
   background-color: white;
   min-width: 350px;
   min-height: 200px;
-  /* border: red dashed 2px; */
   border-radius: 10px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.19), -2px 0px 4px rgba(0, 0, 0, 0.19);
   z-index: 150;

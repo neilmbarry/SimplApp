@@ -19,9 +19,7 @@
   user-select: none;
   text-align: left;
 }
-.radio + .radio {
-  /* margin-top: 12px; */
-}
+
 .radio input {
   display: none;
 }

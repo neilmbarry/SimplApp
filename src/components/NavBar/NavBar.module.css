@@ -14,7 +14,6 @@
 .navLeft {
   display: flex;
   align-items: center;
-  /* width: 100%; */
   min-width: 50%;
 }
 
@@ -43,20 +42,10 @@
 }
 
 .navItems li {
-  /* background-color: aliceblue; */
   padding: 0.8rem 1.2rem;
-
   list-style: none;
   cursor: pointer;
   position: relative;
-}
-
-.navItems svg {
-  /* position: absolute;
-  transform: translate(0%, -0%);
-  top: 0;
-  left: 0;
-  width: 30px; */
 }
 
 .navItems li:nth-child(1) {
@@ -64,7 +53,6 @@
 }
 
 .navItems li:nth-child(5) {
-  /* border: 1px solid black; */
   width: 4rem;
 }
 
@@ -82,7 +70,6 @@
 .logo h4 {
   font-size: 2rem;
   padding-right: 1rem;
-  /* letter-spacing: 0.5rem; */
 }
 
 @media screen and (max-width: 768px) {

@@ -8,8 +8,8 @@ Simpl. is a full stack e-commerce platform for wardrobe sharing. Users can query
 
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
+- [Code Structure](#code-structure)
 - [Setup](#setup)
-- [Usage](#usage)
 - [Project Status](#project-status)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
@@ -54,14 +54,20 @@ A controller
 - Run `npm install` to install all the dependencies
 - Run `npm start` to start the React project, this will open in a new browser window.
 - Run `npm run server` to to run the development server that the main application will connect to.
-- You will need to add your own config.env file with the following variable to run the server and connect to your own MongoDB database:
+- You will need to add your own config.env file the root folder with the following variables to run the server and connect to your own MongoDB database:
 
 > NODE_ENV='development'
+
 > PORT=8000
+
 > JWT_SECRET={YOUR_SECRET}
+
 > JWT_EXPIRES_IN=90d
+
 > JWT_COOKIE_EXPIRES_IN=90d
+
 > DATABASE=mongodb+srv://{YOUR_MONGO_DB_DATABASE}
+
 > DATABASE_PASSWORD={YOUR_DB_PASSWORD}
 
 ## Project Status
